@@ -1,0 +1,53 @@
+<div class="container-fluid">
+    <div class="heading">
+        <h3> {{ maincategory | firstLetterUpperCase }} Offers & Coupons: </h3>
+      </div>
+    <div class="cards"> 
+        <div class="row">
+          <div class="card col-md-1" *ngFor="let w of websites">
+            <div class="card-body">
+              <a (click)="couponbywebsite(w.Name)">
+                <img
+                [style.width.%]="100"
+                [height]="60"
+                [src]="profile ? 'http://couponcouzin.com/backend/couponcouzin/app/src/website/' + w.image : '/assets/null_product.png'"
+                alt="image"
+                (error)="onImageErrorP($event)"
+                class="size-50 rounded-22 object-cover"/>
+              </a>
+              <a class="links" (click)="couponbywebsite(w.Name)">
+                <span style="font-size: 12px;" class="text-secondary">
+                  {{ w.Name }} | {{ w.count }} Offers
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- posts -->
+      <div class="container-fluid2">
+        <div class="card-wrapper">
+          <div class="card carddata" *ngFor="let p of posts; let i = index ">
+            <div class="card-content">
+              <div class="image">
+                <img
+                  [style.width.px]="100"
+                  [style.height.px]="100"
+                  [src]="profile ? 'http://couponcouzin.com/backend/couponcouzin/app/src/website/' + p.websiteImage : '/assets/null_product.png'"
+                  alt="image"
+                  (error)="onImageErrorP($event)"
+                  class="rounded-22 object-cover"
+                />
+              </div>
+              <div class="details">
+                <span style="font-size: 35px; font-weight: bold;">{{ p.Name }}</span>
+                <p style="font-size: 14px;" class="text-secondary">{{ p.description }}</p>
+              </div>
+              <div class="button">
+                <button class="btn btn-danger" (click)="openDealModal(p.websiteImage, p.websiteName, p.description, p.couponcode, p.urlpath)">Get Deal</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      

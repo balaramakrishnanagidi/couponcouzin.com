@@ -1,0 +1,26 @@
+.modal-header{
+    background-color: beige;
+}
+.modal-body{
+    align-content: center;
+}
+.details{
+    padding-left: 20px;
+}
+.btn-danger{
+    font-weight: bold;
+    border-radius: 0;
+    width: fit-content;
+}
+.ellipsis-text {
+    white-space: nowrap;    /* Prevent text from wrapping to the next line */
+    overflow: hidden;       /* Hide overflowing content */
+    text-overflow: ellipsis; /* Display ellipsis (...) when text overflows */
+    width: 100px;           /* Set a fixed width for the container (adjust as needed) */
+  }
+  .ellipsis-text2 {
+    white-space: nowrap;    /* Prevent text from wrapping to the next line */
+    overflow: hidden;       /* Hide overflowing content */
+    text-overflow: ellipsis; /* Display ellipsis (...) when text overflows */
+    width: 300px;           /* Set a fixed width for the container (adjust as needed) */
+  }

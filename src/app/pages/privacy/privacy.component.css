@@ -1,0 +1,21 @@
+* {
+    background-color: rgba(243, 243, 243, 0.911);
+    text-align: justify;
+}
+.container-fluid{
+    padding-top: 8%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 30px;
+    
+}
+h3{
+    margin-top: 30px;
+}
+a{
+    text-decoration: none;
+}
+p{
+    margin-top: 6px;
+}

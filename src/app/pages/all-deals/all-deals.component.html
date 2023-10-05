@@ -1,0 +1,102 @@
+<div class="container" style="padding-top: 7%;">
+
+    <div *ngIf="loadingData; else dataLoaded">
+        <app-loading-spinner></app-loading-spinner>
+        <div class="spinner"></div>
+      </div>
+
+    <ng-template #dataLoaded>
+        <div class="heading">
+            <span class="coupons">
+                <h4> Coupons: </h4>
+            </span>
+        </div>
+        <div class="row top-border">
+            <ng-container *ngIf="displayedCouponCards.length > 0; else noCouponData" >
+                <div class="card col-md-3" *ngFor="let Coupon of displayedCouponCards"
+                     style="margin: 6px; width: calc(24% - 4px);" >
+                    <div class="card-header">
+                        <a href="{{Coupon.urlpath}}" target="_blank">
+                            <img [style.width.%]="90" [height]="110" [src]="profile
+                                     ? 'http://couponcouzin.com/backend/couponcouzin/app/src/website/' + Coupon.website
+                                     : '/assets/null_product.png'" alt="image" (error)="onImageErrorP($event)"
+                                class="size-50 rounded-22 object-cover" />
+                        </a>
+                        <div class="name-section">
+                            <p class="coupon-title" style="font-weight: bold; font-size: normal;">
+                                <a class="urlpath" href="{{Coupon.urlpath}}" target="_blank">{{ Coupon.Name }}</a>
+                            </p>
+                        </div>
+                        
+                        <div class="price-section">
+                            <p class="coupon-title2" style="font-weight: bold; font-size: 12px; color: green;">
+                                {{ Coupon.description}}
+                            </p>
+                        </div>
+                    </div>
+                    
+                    </div>
+            </ng-container>
+            <ng-template #noCouponData>
+                <div class="col-md-12 text-center" style="margin-top: 50px;font-style: italic;">
+                    <p>No coupons available yet...</p>
+                </div>
+            </ng-template>
+            <div class="col-md-12 text-center" *ngIf="remainingCouponCards.length > 0">
+                <button class="btn btn-primary loadMore" (click)="loadMoreCouponCards()">Show More</button>
+            </div>
+        </div>
+        <!-- products -->
+        <br>
+        <div class="heading">
+            <span class="products">
+                <h4> Products: </h4>
+            </span>
+        </div>
+        <div class="row top-border">
+            <ng-container *ngIf="displayedCards.length > 0; else noData" >
+                <div class="card col-md-2" *ngFor="let card of displayedCards" 
+                        style="margin: 6px; width: calc(24% - 4px);">
+                    <div class="card-header">
+                        <span class="price-badge">{{ card.discount }}% OFF</span>
+                        <a href="{{card.urlpath}}" target="_blank">
+                            <img [style.width.%]="90" [height]="110" [src]="profile
+                                     ? 'http://couponcouzin.com/backend/couponcouzin/app/src/posts/' + card.postimage
+                                     : '/assets/null_product.png'" alt="image" (error)="onImageErrorP($event)"
+                                class="size-50 rounded-22 object-cover" />
+                        </a>
+                    </div>
+                    <div class="card-header">
+                        <div class="name-section">
+                            <p class="product-title" style="font-weight: bold; font-size: normal;">
+                                <a class="urlpath" href="{{card.urlpath}}" target="_blank">{{ card.Name }}</a>
+                            </p>
+                        </div>
+                        <hr>
+                        <div class="price-section">
+                            <p class="card-title" style="font-weight: bold; font-size: normal;">₹ {{ card.price
+                                }}</p>
+                        </div>
+                    </div>
+                    <div class="card-footer" style="display: flex; justify-content: space-between;">
+                        <img [width]="80" [height]="50" [src]="profile
+                                ? 'http://couponcouzin.com/backend/couponcouzin/app/src/website/' + card.website
+                                : '/assets/null_product.png'" alt="image" (error)="onImageErrorW($event)"
+                            class="size-50 rounded-22 object-cover" />
+                        <button class="btn shopNow">
+                            <a href="{{card.urlpath}}" target="_blank">Check</a>
+                        </button>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-template #noData>
+                <div class="col-md-12 text-center" style="margin-top: 50px;font-style: italic;">
+                    <p>No products available yet...</p>
+                </div>
+            </ng-template>
+            <div class="col-md-12 text-center" *ngIf="remainingCards.length > 0">
+                <button class="btn btn-primary button2" (click)="loadMoreCards()">Show More</button>
+            </div>
+        </div>
+    </ng-template>
+</div>

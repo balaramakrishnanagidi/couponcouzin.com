@@ -1,0 +1,95 @@
+.heading{
+    border-bottom: 5px solid seagreen;
+    width: 100%;
+}
+.urlpath{
+    text-decoration: none;
+    color: black;
+  }
+  .urlpath:hover{
+    color: blue;
+  }
+  .card {
+    display: inline-flex;
+    margin-top: 10px !important;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-bottom: 10px;
+   }
+   .card-body{
+    background-color: white;
+    text-align: center;
+    position: relative;
+  }
+  .price-badge {
+    background-color: rgb(255, 0, 170); /* Set the background color to your desired color */
+    color: #fff; /* Set the text color to white or a color that contrasts well with the background */
+    padding: 4px 8px; /* Add padding to make the badge visually appealing */
+    border-radius: 0 18px 18px 0 ; /* Add rounded corners for the badge */
+    font-weight: bold; /* Optionally set font-weight */
+    position: absolute; /* Position the badge absolutely */
+    top: 10px; /* Adjust the top position as needed to overlap */
+    left: 0; /* Adjust the left position as needed to overlap */
+    z-index: 1; /* Ensure the badge is above other content */
+  }
+  .card:hover {
+    /* Define the styles for the hover effect here */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+  }
+
+  /* For coupon titles */
+.coupon-title {
+  font-weight: bold;
+  font-size: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit to three lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 90%;
+}
+.coupon-title2 {
+  font-weight: bold;
+  font-size: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 90%;
+}
+
+/* For product titles */
+.product-title {
+  font-weight: bold;
+  font-size: normal;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limit to three lines */
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  width: 90%;
+}
+
+ 
+  .shopNow{
+    height: fit-content;
+    font-weight: bold;
+    background-color: #ff8c1a ;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+
+  .shopNow a{
+    margin: 0 3px;
+    color: white;
+    text-decoration: none;
+  }
+
+  .shopNow:hover{
+    background-color: green;
+  }
+
+  .button2{
+    margin: 15px;
+    width: fit-content;
+  }

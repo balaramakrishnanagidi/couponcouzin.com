@@ -1,0 +1,47 @@
+<div class="container-fluid">
+    <div class="fancy-title title-bottom-border" style="margin-top: 25px;">
+        <h3 *ngIf="showH3Element"><i class="fa fa-bolt" aria-hidden="true">
+        </i>&nbsp;Flash Deals:
+      </h3>
+      </div>
+      <carousel [interval]="5000" (slide)="onSlideChange($event)" [activeSlide]="activeSlideIndex">
+        <slide *ngFor="let slideChunk of chunkedSlides">
+          <div class="row">
+            <div class="col-md-2" *ngFor="let card of slideChunk">
+              <div class="card-wrapper">
+                <div class="card" >
+                  <div class="card-header">
+                    <span class="price-badge"> {{ card.discount }}% OFF</span>
+                      <a href="{{card.urlpath}}" target="_blank"><img [width]="120" [height]="120" 
+                          [src]="profile
+                                  ? 'http://couponcouzin.com/backend/couponcouzin/app/src/posts/' + card.postimage
+                                  : '/assets/null_product.png'" alt="image" class="size-50 rounded-22 object-cover"/></a>
+                  </div>
+                  <div class="card-header" >
+                      <div class="name-section">
+                          <p class="product-title" style="font-weight: bold; font-size: normal;"> 
+                            <a class="urlpath" href="{{card.urlpath}}" target="_blank"> {{ card.Name }} </a>
+                          </p>
+                      </div><hr>
+                        <div class="price-section">
+                          <span class="card-title" style="font-weight: bold; font-size: normal;"> ₹ {{ card.price }} </span>
+                        </div>
+                  </div>
+                  <div class="card-footer" style="display: flex; justify-content: space-between;">
+                    <img [width]="80" [height]="50" 
+                        [src]="profile
+                                ? 'http://couponcouzin.com/backend/couponcouzin/app/src/website/' + card.website
+                                : '/assets/null_product.png'" alt="image" class="size-50 rounded-22 object-cover"/>
+                    <button class="btn shopNow button3" > <a href="{{card.urlpath}}" target="_blank"> Check </a> </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </slide>
+      </carousel>
+      <br>
+</div>
+    
+    
+  

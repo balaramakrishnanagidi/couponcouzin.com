@@ -1,0 +1,181 @@
+.title-bottom-border {
+    border-bottom: 5px solid seagreen; 
+    margin-bottom: 4px;
+  }
+
+.carousel-inner {
+    transition: transform 0.5s ease; /* Adjust the transition duration as needed */
+  }
+  
+  .card {
+    width: 200px; /* Adjust the width as needed */
+    height: 350px; /* Adjust the height as needed */
+    /* Add any other styling as required */
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    overflow: hidden; /* Hide content that exceeds the card's fixed height */
+    position: relative;
+    padding: 0;
+    margin: 0;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.card-wrapper:hover .card {
+  background-color: #f0f0f0; /* Change the background color on hover */
+  transform: scale(1.05); /* Scale the card slightly on hover */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3); /* Add a box shadow on hover */
+}
+
+  .card-header{
+    background-color: white;
+    text-align: center;
+    position: relative;
+  }
+  .card-header *:not(.price-badge) {
+    text-align: left; /* Apply text-align to all elements inside .card-header except .price-badge */
+}
+
+.price-badge {
+  background-color: red; 
+  color: #fff; 
+  padding: 4px 8px; 
+  border-radius: 0 18px 18px 0 ; 
+  font-weight: bold; 
+  position: absolute; 
+  top: 10px; 
+  left: 0; 
+  z-index: 1; 
+}
+  .card-body {
+    overflow: hidden;
+    align-items: center;
+  }
+  
+  
+  .name-section{
+    text-align: justify;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   height: 80px;
+  }
+  .product-title {
+    font-weight: bold;
+    font-size: normal;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit to three lines */
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    width: 90%;
+  }
+  .urlpath{
+    text-decoration: none;
+    color: black;
+  }
+  .urlpath:hover{
+    color: blue;
+  }
+  .price-section{
+    text-align: center;
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+  }
+  
+  .card-header img {
+    object-fit: cover; /* Adjust image fitting style as needed */
+  }
+  
+  .card-tittle {
+    font-weight: bold;
+    font-size: 16px; /* Adjust font size as needed */
+    border-top: 1px solid #ccc; /* Adjust border styling as needed */
+  }
+    
+
+  .shopNow{
+    height: fit-content;
+    font-weight: bold;
+    background-color: #ff8c1a ;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+
+  .shopNow a{
+    margin: 0 3px;
+    color: white;
+    text-decoration: none;
+  }
+
+  .shopNow:hover{
+    background-color: green;
+  }
+
+  .carousel-indicators {
+    list-style: none;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    position: absolute;
+    bottom: 20px; /* Adjust the bottom spacing as needed */
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.carousel-container {
+    position: relative;
+  }
+
+.carousel-indicators li {
+    background-color: #e2e2e2;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    margin: 0 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.carousel-indicators .active {
+    background-color: #007bff;
+    
+}
+/* Add the following CSS at the end of your existing CSS */
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .col-lg-3 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+}
+
+@media (max-width: 768px) {
+  .col-md-4 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 576px) {
+  .col-sm-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .card {
+    width: 100%; /* Adjust width for smaller screens */
+    height: auto; /* Let the height adjust to content */
+  }
+}
+
+
+
+
+  
+  

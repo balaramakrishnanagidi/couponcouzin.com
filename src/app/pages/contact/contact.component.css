@@ -1,0 +1,36 @@
+* {
+    background-color: rgba(243, 243, 243, 0.911);
+}
+.container-fluid{
+    padding-top: 7%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 30px;
+
+}
+h6{
+    margin: 15px 0 25px 45px;
+}
+h6 a{
+    text-decoration: none;
+    color: rgb(14, 182, 14);
+}
+.address p{
+    margin: 0 0 0 45px;
+}
+.geo{
+    display: flex;
+    flex-direction: row;
+}
+.geo h4{
+    margin: 25px 0;
+}
+.geo p{
+    margin: 30px 10px;
+    color: rgb(0, 0, 180);
+}
+.iframe{
+    border:1px solid black;
+    margin-left: 45px;
+}

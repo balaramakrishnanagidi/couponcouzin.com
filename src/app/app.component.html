@@ -1,0 +1,35 @@
+<ng-container *ngIf="showHeaderFooter">
+  <header>
+    <div class="nav-bar">
+      <app-top-nav-bar></app-top-nav-bar>
+    </div>
+  </header>
+</ng-container>
+
+<div class="container-fluid">
+  <router-outlet></router-outlet>
+</div>
+
+<ng-container>
+  <footer *ngIf="showHeaderFooter">
+    <div class="footer" >
+      <div class="sections">
+        <img src="/assets/logo.png" alt="Logo" routerLink="home"/>
+        
+        <div class="needHelp">
+          <a routerLink="Freaquently Asked Questions" routerLinkActive="active" target="_blank"> FAQs?</a>
+          <a routerLink="contact us" routerLinkActive="active" target="_blank"> Contact Us </a>
+          <a routerLink="security tips" routerLinkActive="active" target="_blank"> Security Tips </a>
+        </div>
+        <div class="privacy">
+          <a routerLink="privacy policy" routerLinkActive="active" target="_blank"> Privacy Policy </a>
+          <a routerLink="terms and conditions" routerLinkActive="active" target="_blank"> Terms & conditions </a>
+          <a routerLink="about us" routerLinkActive="active" target="_blank"> About Us </a>
+        </div>
+      </div>
+      <!-- <div class="name">
+        <p> couponcouzin.com </p>
+      </div> -->
+    </div>
+  </footer>
+</ng-container>

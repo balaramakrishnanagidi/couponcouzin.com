@@ -1,0 +1,52 @@
+.nav-bar{
+    background-color:  rgba(243, 243, 243, 0.911);
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+}
+.footer {
+    height: 50px;
+    text-align: center;
+    position: bottom;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.sections {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: rgb(224, 224, 224);
+}
+img{
+    margin: 0 155px 0 0;
+    width: 250px;
+    height: auto;
+    mix-blend-mode: multiply;
+}
+
+.needHelp {
+    margin: 5px 55px 0 0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.privacy {
+    margin: 5px 55px 0 0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+a:hover{
+    color: blue;
+}
+.name {
+    background-color: rgb(238, 234, 234);
+}

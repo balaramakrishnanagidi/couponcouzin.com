@@ -1,0 +1,37 @@
+<div class="modal-header border-0" style="display: flex; justify-content: end;">
+  <div style="position: relative;">
+    <button type="button" class="btn btn-close" aria-label="Close" style="border: none; size: 10px; position: absolute; top: 0; right: 0;" (click)="closeModal()"></button>
+  </div>
+</div>
+
+<div class="modal-header border-0">
+  <div style="display: flex; justify-content: space-between;">
+    <div class="image">
+      <img
+        [style.width.px]="100"
+        [style.height.px]="100"
+        [src]="profile ? 'http://couponcouzin.com/backend/couponcouzin/app/src/website/' + data[0] : '/assets/null_product.png'"
+        alt="image"
+        (error)="onImageErrorP($event)"
+        class="rounded-22 object-cover"
+      />
+    </div>
+    <div class="details">
+      <p style="font-size: 25px; font-weight: bold;">{{ data[1] }}</p>
+      <p style="font-size: 15px;" class="text-secondary ellipsis-text2">{{ data[2] }}</p>
+    </div>
+    
+  </div>
+  
+</div>
+<div class="modal-body">
+  <div class="code" style="margin-left: 18%;">
+    <p class="ellipsis-text" style="border: 1px dashed red; font-size: 25px;font-weight: bold; 
+      width: 70%; color: rgb(209, 82, 82);
+      display: flex; justify-content: space-between;
+      text-align: center; padding-left: 15px; "> 
+      {{data[3]}}
+      <button class="btn btn-danger" (click)="copyCodeToClipboard(data[3])"> copy code </button>
+    </p>
+  </div>
+</div>

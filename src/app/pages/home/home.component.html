@@ -1,0 +1,22 @@
+<div class="home" style="padding-top: 100px;">
+    <div *ngIf="loadingData; else dataLoaded">
+        <app-loading-spinner></app-loading-spinner>
+        <div class="spinner"></div>
+    </div>
+    <ng-template #dataLoaded>
+        <div class="top-carousel">
+            <app-top-carousel></app-top-carousel>
+        </div>
+        <br>
+        <br>
+        <div class="card-carousel">
+            <app-carousel></app-carousel>
+        </div>
+
+        <div class="topdeals">
+            <app-topdeals></app-topdeals>
+        </div>
+
+    </ng-template>
+
+</div>

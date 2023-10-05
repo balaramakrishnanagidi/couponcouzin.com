@@ -1,0 +1,47 @@
+<div class="container-fluid">
+   <div style="border-bottom: 5px solid seagreen;">
+    <h5> Search Results for: {{searchedText}} </h5>
+   </div>
+   <div class="no-data" *ngIf="!searchedText || searchedText === null" style="padding: 5%;">
+        <p> OOPS! No Data Matching Your Search </p>
+   </div>
+   <div class="row top-border" *ngIf="searchedText">
+    <ng-container *ngFor="let card of displayedCards">
+        <div class="card col-md-2" style="margin: 6px; width: calc(24% - 4px);">
+            <div class="card-header">
+                <span class="price-badge">{{ card.discount }}% OFF</span>
+                <a href="{{card.urlpath}}" target="_blank">
+                    <img [style.width.%]="90" [height]="110" [src]="profile
+                             ? 'http://couponcouzin.com/backend/couponcouzin/app/src/posts/' + card.postimage
+                             : '/assets/null_product.png'" alt="image" (error)="onImageErrorP($event)"
+                        class="size-50 rounded-22 object-cover" />
+                </a>
+            </div>
+            <div class="card-header">
+                <div class="name-section">
+                    <p class="product-title" style="font-weight: bold; font-size: normal;">
+                        <a class="urlpath" href="{{card.urlpath}}" target="_blank">{{ card.Name }}</a>
+                    </p>
+                </div>
+                <hr>
+                <div class="price-section">
+                    <p class="card-title" style="font-weight: bold; font-size: normal;">₹ {{ card.price
+                        }}</p>
+                </div>
+            </div>
+            <div class="card-footer" style="display: flex; justify-content: space-between;">
+                <img [width]="80" [height]="50" [src]="profile
+                        ? 'http://couponcouzin.com/backend/couponcouzin/app/src/website/' + card.websiteImage
+                        : '/assets/null_product.png'" alt="image" (error)="onImageErrorW($event)"
+                    class="size-50 rounded-22 object-cover" />
+                <button class="btn shopNow">
+                    <a href="{{card.urlpath}}" target="_blank">Check</a>
+                </button>
+            </div>
+        </div>
+    </ng-container>
+    <div class="col-md-12 text-center" *ngIf="remainingCards.length > 0">
+        <button class="btn btn-primary button2" (click)="loadMoreCards()">Show More</button>
+    </div>
+</div>
+</div>
