@@ -35,7 +35,7 @@
 }
 
 .price-badge {
-  background-color: red; 
+  background-color: rgb(243, 90, 2); 
   color: #fff; 
   padding: 4px 8px; 
   border-radius: 0 18px 18px 0 ; 
@@ -61,7 +61,7 @@
     font-size: normal;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 3; /* Limit to three lines */
+    -webkit-line-clamp: 3; 
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
     width: 90%;

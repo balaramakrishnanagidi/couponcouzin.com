@@ -1,8 +1,8 @@
+
 .container-fluid {
     display: inline-flex;
     
 }
-
 .title-bottom-border {
     border-bottom: 5px solid seagreen;
     margin-bottom: 4px;

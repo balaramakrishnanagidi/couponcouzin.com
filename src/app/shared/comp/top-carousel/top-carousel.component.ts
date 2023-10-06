@@ -32,9 +32,9 @@ export class TopCarouselComponent implements OnInit {
     mouseDrag: true,
     touchDrag: true,
     pullDrag: true,
-    dots: true,
+    dots: false,
     navSpeed: 700,
-    navText: ['', ''],
+    navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
     responsive: {
       0: {
         items: 1
@@ -49,7 +49,7 @@ export class TopCarouselComponent implements OnInit {
         items: 1
       }
     },
-    nav: false
+    nav: true
   }
 //
 
