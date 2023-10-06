@@ -7,7 +7,7 @@
       <div class="products">
         <owl-carousel-o [options]="customOptions">
           <ng-template carouselSlide *ngFor="let card of slides">
-            <div >
+            <div class="card-wrapper">
                   <div class="card" >
                     <div class="card-header">
                       <span class="price-badge"> {{ card.discount }}% OFF</span>
