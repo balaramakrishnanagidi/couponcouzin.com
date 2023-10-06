@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
 
 import { TabsModule, TabsetConfig } from 'ngx-bootstrap/tabs';
-
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopNavBarComponent } from './pages/top-nav-bar/top-nav-bar.component';
@@ -22,9 +21,8 @@ import { CouponDetailsComponent } from './pages/coupon-details/coupon-details.co
 import { DealModalComponent } from './shared/comp/deal-modal/deal-modal.component';
 import { ToastrModule } from 'ngx-toastr';
 import { SearchComponent } from './pages/search/search.component';
-
+import { CarouselModule } from 'ngx-owl-carousel-o';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ContactComponent } from './pages/contact/contact.component';
@@ -56,17 +54,17 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
     SecurityComponent,
     PrivacyComponent,
     TermsComponent,
-    AboutUsComponent
+    AboutUsComponent,
     
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
     TabsModule,
     FormsModule,
-    BrowserAnimationsModule,
     ToastrModule.forRoot(),
     CarouselModule,
     TooltipModule.forRoot(),

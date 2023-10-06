@@ -1,4 +1,4 @@
-<ng-container *ngIf="showHeaderFooter">
+<ng-container>
   <header>
     <div class="nav-bar">
       <app-top-nav-bar></app-top-nav-bar>
@@ -10,26 +10,32 @@
   <router-outlet></router-outlet>
 </div>
 
-<ng-container>
-  <footer *ngIf="showHeaderFooter">
-    <div class="footer" >
-      <div class="sections">
-        <img src="/assets/logo.png" alt="Logo" routerLink="home"/>
-        
-        <div class="needHelp">
-          <a routerLink="Freaquently Asked Questions" routerLinkActive="active" target="_blank"> FAQs?</a>
-          <a routerLink="contact us" routerLinkActive="active" target="_blank"> Contact Us </a>
-          <a routerLink="security tips" routerLinkActive="active" target="_blank"> Security Tips </a>
-        </div>
-        <div class="privacy">
-          <a routerLink="privacy policy" routerLinkActive="active" target="_blank"> Privacy Policy </a>
-          <a routerLink="terms and conditions" routerLinkActive="active" target="_blank"> Terms & conditions </a>
-          <a routerLink="about us" routerLinkActive="active" target="_blank"> About Us </a>
-        </div>
+<footer>
+<div class="footer-contain">
+  <div class="footer-logo">
+      <img src="/assets/logo.png" alt="Logo">
+  </div>
+  <div class="footer-links">
+      <div class="footer-section">
+          <h4>Help & Support</h4>
+          <ul>
+              <li><a routerLink="/Freaquently Asked Questions" routerLinkActive="active" target="_blank">FAQs</a></li>
+              <li><a routerLink="/contact us" routerLinkActive="active" target="_blank">Contact Us</a></li>
+              <li><a routerLink="/security tips" routerLinkActive="active" target="_blank">Security Tips</a></li>
+          </ul>
       </div>
-      <!-- <div class="name">
-        <p> couponcouzin.com </p>
-      </div> -->
-    </div>
-  </footer>
-</ng-container>
+      <div class="footer-section">
+          <h4>Legal Information</h4>
+          <ul>
+              <li><a routerLink="/privacy policy" routerLinkActive="active" target="_blank">Privacy Policy</a></li>
+              <li><a routerLink="/terms and conditions" routerLinkActive="active" target="_blank">Terms &
+                      Conditions</a></li>
+              <li><a routerLink="about us" routerLinkActive="active" target="_blank">About Us</a></li>
+          </ul>
+      </div>
+  </div>
+</div>
+<div class="company-name">
+  <span>@<p>c</p>oupon<p>c</p>ouzin.com</span>
+</div>
+</footer>

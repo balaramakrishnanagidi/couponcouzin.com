@@ -1,10 +1,9 @@
-<div class="container">
-  <carousel [interval]="3000" id="carouselExample" class="slide"
-            [noWrap]="noWrapSlides" [showIndicators]="showIndicator"
-            [isAnimated]="false"
-            style="max-height: 400px;">
-    <slide *ngFor="let slide of slides; let i = index" [active]="i === 0">
-      <img [src]="slide.image" class="d-block" style="max-height: 300px; width: 100%;">
-    </slide>
-  </carousel>
-</div>
+<section class="banners">
+  <div class="containers">
+    <owl-carousel-o [options]="customOptions">
+      <ng-template carouselSlide *ngFor="let slide of slides">
+        <img [src]="slide.image" class="d-block" style="max-height: 300px; width: 100%;">
+      </ng-template>
+    </owl-carousel-o>
+  </div>
+</section>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { Router } from '@angular/router';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 
 
@@ -25,9 +26,41 @@ export class CarouselComponent implements OnInit{
     this.cardCrousel();
     setTimeout(() => {
       this.showH3Element = true;
-    }, 1000);
+      this.chunkSlides();
+    }, 500);
+    
   }
 
+  //owl carousel
+  customOptions: OwlOptions = {
+    loop: true,
+    autoplay: true,
+    autoplayTimeout:3000,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: true,
+    navSpeed: 700,
+    navText: ['<i class="fa fa-chevron-circle-left"></i>', '<i class="fa fa-chevron-circle-right"></i>'],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 6
+      }
+    },
+    nav: false
+  }
+
+  //
+  
   navToAllDeals(){
     console.log('button clicked');
     this.router.navigate(['allDeals']);
@@ -35,42 +68,16 @@ export class CarouselComponent implements OnInit{
   cardCrousel(){
     this.api.cardCarousel().subscribe( data => {
       this.slides = data.data;
-      this.chunkedSlides = this.chunkArray(this.slides, 6);
-      // console.log(this.slides);
     },error => {
       console.log(error);
     }
     )
   }
-
-
-  private chunkArray(array: any[], chunkSize: number): any[] {
-    const chunkedArray = [];
-    for (let i = 0; i < array.length; i += chunkSize) {
-      chunkedArray.push(array.slice(i, i + chunkSize));
+  chunkSlides() {
+    const chunkSize = 5;
+    for (let i = 0; i < this.slides.length; i += chunkSize) {
+      this.chunkedSlides.push(this.slides.slice(i, i + chunkSize));
     }
-    return chunkedArray;
-  }
+}
 
-
-  activeSlideIndex = 0; // Initialize active slide index
-
-  goToSlide(index: number) {
-    this.activeSlideIndex = index;
-  }
-
-  onSlideChange(event: any) {
-    this.activeSlideIndex = event.current;
-  }
-  nextSlide() {
-    if (this.activeSlideIndex < this.chunkedSlides.length - 1) {
-      this.activeSlideIndex++;
-    }
-  }
-
-  prevSlide() {
-    if (this.activeSlideIndex > 0) {
-      this.activeSlideIndex--;
-    }
-  }
 }

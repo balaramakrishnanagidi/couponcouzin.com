@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CarouselConfig } from 'ngx-bootstrap/carousel';
 import { ApiService } from '../../services/api.service';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-top-carousel',
@@ -22,6 +23,35 @@ export class TopCarouselComponent implements OnInit {
   ngOnInit(): void {
     this.fetchPosters();
   } 
+
+  //owl carousel
+  customOptions: OwlOptions = {
+    loop: true,
+    autoplay: true,
+    autoplayTimeout:3000,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: true,
+    navSpeed: 700,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 1
+      },
+      740: {
+        items: 1
+      },
+      940: {
+        items: 1
+      }
+    },
+    nav: false
+  }
+//
 
   fetchPosters(){
     this.api.getAllPosters().subscribe( data => {

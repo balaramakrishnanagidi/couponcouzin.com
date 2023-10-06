@@ -1,0 +1,11 @@
+.banners{
+    width: 80%;
+    margin: 0 auto;
+}
+.banners img{
+    transition: all 0.3 ease;
+}
+.banners img:hover{
+    box-shadow: 0 0 10px 1px #dbdbdb;
+    cursor: pointer;
+}

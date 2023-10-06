@@ -8,11 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'coupon_couzin';
 
-  showHeaderFooter: boolean = false;
+ 
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.showHeaderFooter = true;
-    }, 1000);
+   
   }
 }

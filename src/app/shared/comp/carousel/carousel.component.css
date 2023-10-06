@@ -169,8 +169,8 @@
   }
 
   .card {
-    width: 100%; /* Adjust width for smaller screens */
-    height: auto; /* Let the height adjust to content */
+    width: 100%;
+    height: auto; 
   }
 }
 
