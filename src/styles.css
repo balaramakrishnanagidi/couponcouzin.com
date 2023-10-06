@@ -5,22 +5,27 @@
 @import '~bootstrap/dist/css/bootstrap.css';
 /* for top-carousel */
 .banners .owl-prev , .banners .owl-next{
-    background-color: transparent !important;
+    display: none !important; 
+    background-color: white !important;
     color: #8d8585 !important;
-    height: 60px !important;
-    width: 60px !important;
+    height: 40px !important;
+    width: 40px !important;
     border-radius: 50% !important;
     position: absolute;
     top: 50%;
     transition: .3s all ease;
 }
+.banners:hover .owl-prev,
+.banners:hover .owl-next {
+    display: block !important;
+}
 .banners .owl-next{
-    right: -48px;
+    right: -10px;
     transform: translate(-50%, -50%);
 }
 
 .banners .owl-prev{
-    left: 13px;
+    left: 30px;
     transform: translate(-50%, -50%);
 }
 .banners .owl-prev i, .banners .owl-next i{
@@ -34,6 +39,7 @@
 
 /* for carousel */
 .products .owl-prev , .products .owl-next{
+    display: none !important;
     background-color: transparent !important;
     color: orangered !important;
     height: 60px !important;
@@ -42,6 +48,9 @@
     position: absolute;
     top: 50%;
     transition: .3s all ease;
+}
+.products:hover .owl-prev , .products:hover .owl-next{
+    display: block !important;
 }
 .products .owl-next{
     right: -34px;
