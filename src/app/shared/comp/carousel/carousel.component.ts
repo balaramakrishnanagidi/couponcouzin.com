@@ -10,16 +10,16 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.css']
 })
-export class CarouselComponent implements OnInit{
-  
+export class CarouselComponent implements OnInit {
+
   slides: any[] = [];
   chunkedSlides: any[] = [];
   profile = true;
   showH3Element = false;
 
-  
-  constructor( private api: ApiService,
-               private router: Router) {
+
+  constructor(private api: ApiService,
+    private router: Router) {
   }
 
   ngOnInit(): void {
@@ -28,14 +28,14 @@ export class CarouselComponent implements OnInit{
       this.showH3Element = true;
       this.chunkSlides();
     }, 500);
-    
+
   }
 
   //owl carousel
   customOptions: OwlOptions = {
     loop: true,
     autoplay: true,
-    autoplayTimeout:3000,
+    autoplayTimeout: 3000,
     mouseDrag: true,
     touchDrag: true,
     pullDrag: true,
@@ -46,13 +46,19 @@ export class CarouselComponent implements OnInit{
       0: {
         items: 1
       },
-      400: {
+      250: {
         items: 2
       },
-      740: {
+      400: {
         items: 3
       },
+      740: {
+        items: 4
+      },
       940: {
+        items: 5
+      },
+      1225: {
         items: 6
       }
     },
@@ -60,15 +66,15 @@ export class CarouselComponent implements OnInit{
   }
 
   //
-  
-  navToAllDeals(){
+
+  navToAllDeals() {
     console.log('button clicked');
     this.router.navigate(['allDeals']);
   }
-  cardCrousel(){
-    this.api.cardCarousel().subscribe( data => {
+  cardCrousel() {
+    this.api.cardCarousel().subscribe(data => {
       this.slides = data.data;
-    },error => {
+    }, error => {
       console.log(error);
     }
     )
@@ -78,6 +84,6 @@ export class CarouselComponent implements OnInit{
     for (let i = 0; i < this.slides.length; i += chunkSize) {
       this.chunkedSlides.push(this.slides.slice(i, i + chunkSize));
     }
-}
+  }
 
 }
