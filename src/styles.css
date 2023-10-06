@@ -3,4 +3,60 @@
 @import 'ngx-toastr/toastr';
 @import "~font-awesome/css/font-awesome.css";
 @import '~bootstrap/dist/css/bootstrap.css';
+/* for top-carousel */
+.banners .owl-prev , .banners .owl-next{
+    background-color: transparent !important;
+    color: #8d8585 !important;
+    height: 60px !important;
+    width: 60px !important;
+    border-radius: 50% !important;
+    position: absolute;
+    top: 50%;
+    transition: .3s all ease;
+}
+.banners .owl-next{
+    right: -48px;
+    transform: translate(-50%, -50%);
+}
 
+.banners .owl-prev{
+    left: 13px;
+    transform: translate(-50%, -50%);
+}
+.banners .owl-prev i, .banners .owl-next i{
+    font-size: 24px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+/* for carousel */
+.products .owl-prev , .products .owl-next{
+    background-color: transparent !important;
+    color: orangered !important;
+    height: 60px !important;
+    width: 60px !important;
+    border-radius: 50% !important;
+    position: absolute;
+    top: 50%;
+    transition: .3s all ease;
+}
+.products .owl-next{
+    right: -34px;
+    transform: translate(-50%, -50%);
+}
+
+.products .owl-prev{
+    left: 20px;
+    transform: translate(-50%, -50%);
+}
+.products .owl-prev i, .products .owl-next i{
+    font-size: 24px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}

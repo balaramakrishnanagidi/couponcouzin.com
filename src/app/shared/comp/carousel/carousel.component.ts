@@ -39,7 +39,7 @@ export class CarouselComponent implements OnInit{
     mouseDrag: true,
     touchDrag: true,
     pullDrag: true,
-    dots: true,
+    dots: false,
     navSpeed: 700,
     navText: ['<i class="fa fa-chevron-circle-left"></i>', '<i class="fa fa-chevron-circle-right"></i>'],
     responsive: {
@@ -56,7 +56,7 @@ export class CarouselComponent implements OnInit{
         items: 6
       }
     },
-    nav: false
+    nav: true
   }
 
   //
