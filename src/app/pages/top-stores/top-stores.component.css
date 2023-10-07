@@ -1,0 +1,68 @@
+.heading{
+    padding-left: 1%;
+}
+.top_stores{
+    background-color: #ffffff;
+    margin-left: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    height: 300px;
+    width: 95%;
+    flex: 1;
+    border-top: 5px solid seagreen;
+}
+
+.featuredStore{
+    width: 25%;
+    height: 280px;
+}
+.stores{
+    width: 60%;
+    height: 260px;
+    /* background-color: #2cbd50f1; */
+}
+.card{
+    flex: 1;
+    align-items: center;
+    text-align: center ;
+    border-radius: 5%;
+}
+.card-header{
+    padding: 3%;
+    background-color: #ffffff;
+}
+.card-body img {
+    padding: 3%;
+    width: 250px;
+    height: 150px;
+    mix-blend-mode: multiply;
+}
+.card-footer p{
+    padding: 2px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: 1px solid rgb(17, 196, 17);
+    width: 100%;
+    border-radius: 5px;
+}
+
+  .secondCard{
+    width: 160px;
+    height: 75px;
+    overflow: hidden;
+    padding: 0;
+    margin: 5px;
+  }
+ 
+  .secondCard:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  .secondCard-body img{
+    width: 100%;
+    height: 75px;
+  }
+  

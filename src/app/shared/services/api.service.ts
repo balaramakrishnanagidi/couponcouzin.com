@@ -36,7 +36,9 @@ export class ApiService {
   allCoupons(): Observable<any> {
     return this.http.get(`${this.baseUrl}/allcoupon`)
   }
-  
+  fetchStores(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/stores`)
+  }
 
   //post
   search(text: string): Observable<any> {
