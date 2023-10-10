@@ -64,10 +64,9 @@
                     <div class="card col-md-6"
                         style="margin: 1px; margin-bottom: 15px;  width: calc(50% - 4px);align-content: center;">
                         <div class="card-boddy">
-                            <!-- <span class="price-badge">{{ card.discount }}% OFF</span> -->
                             <button class="btn button3" (click)="couponByCompany(w.Name)">
                                 <img [style.width.%]="100" [style.height.%]="100" [src]="profile
-                                             ? 'http://couponcouzin.com/backend/couponcouzin/app/src/website/' + w.postimage
+                                             ? 'http://couponcouzin.com/backend/couponcouzin/app/src/website/' + w.image[0]
                                              : '/assets/null_product.png'" alt="image" (error)="onImageErrorW($event)"
                                     class="size-50 rounded-22 object-cover" />
                             </button>

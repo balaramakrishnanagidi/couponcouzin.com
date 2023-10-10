@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/shared/services/api.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { query } from '@angular/animations';
 
 @Component({
@@ -34,7 +34,7 @@ export class SearchComponent implements OnInit {
   search(text: string){
     this.api.search(text).subscribe( data => {
       this.cards = data.data;
-      console.log(this.cards);
+      console.log("This is the cards from search", this.cards);
       this.updateCardArrays();
         this.loadingData = false;
     }, error => {
@@ -60,9 +60,7 @@ export class SearchComponent implements OnInit {
     }
 }
 
-
-
-  //error image handling
+//error image handling
   onImageErrorP(event: any) {
     event.target.src = '/assets/image_not_found.png';
   }

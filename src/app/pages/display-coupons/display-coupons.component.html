@@ -1,0 +1,33 @@
+<div class="container-fluid">
+    <div class="heading">
+        <div id="heading">
+            <h3>{{name | firstLetterUpperCase}} coupons</h3>
+        </div>
+    </div>
+    <div class="coupons">
+        <div class="card-wrapper">
+            <div class="card carddata" *ngFor="let p of posts; let i = index ">
+              <div class="card-content">
+                <div class="image">
+                  <img [style.width.px]="100" [style.height.px]="100"
+                    [src]="profile ? 'http://couponcouzin.com/backend/couponcouzin/app/src/website/' + p.websiteImage : '/assets/null_product.png'"
+                    alt="image" style="cursor: pointer;"
+                    (click)="openDealModal(p.websiteImage, p.websiteName, p.description, p.couponcode, p.urlpath)"
+                    class="rounded-22 object-cover" />
+                </div>
+                <div class="details">
+                  <span style="font-size: 35px; font-weight: bold;" type="button"
+                    (click)="openDealModal(p.websiteImage, p.websiteName, p.description, p.couponcode, p.urlpath)">{{ p.Name
+                    }}</span>
+                  <p style="font-size: 14px;" class="text-secondary">{{ p.description }}</p>
+                </div>
+                <div class="button">
+                  <button class="btn btn-danger"
+                    (click)="openDealModal(p.websiteImage, p.websiteName, p.description, p.couponcode, p.urlpath)">Get
+                    Deal</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>

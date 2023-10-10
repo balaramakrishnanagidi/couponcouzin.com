@@ -1,9 +1,9 @@
 <div class="heading">
-    <h3>Top Stores</h3>
+    <h3>Top Coupon Stores</h3>
 </div>
 <div class="top_stores">
         <div class="featuredStore" *ngFor="let featuredStore of featuredStore">
-            <div class="card mb-3">
+            <div class="card mb-3" (click)="couponCompanyName(featuredStore.Name)">
                 <h5 class="card-header text-secondary">Featured Store Of The Week</h5>
                 <div class="card-body">
                     <img [width]="80" [height]="50" 
@@ -23,7 +23,7 @@
               <ng-template carouselSlide *ngFor="let chunk of storeChunks">
                 <div class="slide-container">
                   <div class="row">
-                    <div class="col-md-3" *ngFor="let store of chunk">
+                    <div class="col-md-3" *ngFor="let store of chunk" (click)="couponCompanyName(store.Name)">
                       <div class="card secondCard">
                         <div class="secondCard-body">
                           <img [src]="profile ? 'http://couponcouzin.com/backend/couponcouzin/app/src/website/' + store.image : '/assets/null_product.png'" alt="image" class="size-50 rounded-22 object-cover"/>

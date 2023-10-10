@@ -28,7 +28,7 @@ export class ApiService {
     return this.http.get(`${this.baseUrl}/topdeals`);
   }
   popularStores(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/getallwebsites`);
+    return this.http.get(`${this.baseUrl}/websites`);
   }
   allProducts(): Observable<any> {
     return this.http.get(`${this.baseUrl}/alluserproducts`)
@@ -52,7 +52,6 @@ export class ApiService {
 
   getCouponsByCategory(category: string): Observable<any> {
     const data = { maincategory: category };
-    // console.log('balaram',data)
     return this.http.post(`${this.baseUrl}/couponcompany`, data);
   }
 

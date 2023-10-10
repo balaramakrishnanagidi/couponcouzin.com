@@ -1,6 +1,13 @@
 .container-fluid{
     padding-top: 8% ;
 }
+.no-data{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .heading{
     border-bottom: 5px solid seagreen;
     width: 100%;

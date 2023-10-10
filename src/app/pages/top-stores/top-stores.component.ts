@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ApiService } from 'src/app/shared/services/api.service';
 
@@ -38,7 +39,9 @@ export class TopStoresComponent implements OnInit {
     nav: true
   }
 
-  constructor(private api: ApiService) {
+  constructor(private api: ApiService,
+              private router: Router,
+              private route: ActivatedRoute) {
 
   }
   ngOnInit(): void {
@@ -64,9 +67,17 @@ export class TopStoresComponent implements OnInit {
           image
         }
       ];
+
     }, error => {
       console.error(error)
     });
+  }
+
+  //get name of the coupon company
+
+  couponCompanyName(Name: string){
+    this.router.navigate(['/coupons'], {relativeTo: this.route, queryParams: {name: Name}});
+    
   }
 
 }

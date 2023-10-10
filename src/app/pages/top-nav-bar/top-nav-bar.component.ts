@@ -36,6 +36,7 @@ export class TopNavBarComponent {
     this.router.navigate(['/search-results'], {
       queryParams: { query: this.searchedText },
     });
+    this.searchedText = '';
   }
   
 

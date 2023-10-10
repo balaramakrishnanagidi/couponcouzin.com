@@ -77,7 +77,7 @@ export class CouponDetailsComponent implements OnInit {
     this.selectedCompany = company;
     this.api.couponbywebsite(company).subscribe( data => {
       this.posts = data.posts;
-      // console.log('savesta',this.posts)
+      console.log('savesta',this.posts)
     },error => {
       console.log(error);
     });

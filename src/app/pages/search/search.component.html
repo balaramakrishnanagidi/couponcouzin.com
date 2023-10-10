@@ -2,8 +2,11 @@
    <div style="border-bottom: 5px solid seagreen;">
     <h5> Search Results for: {{searchedText}} </h5>
    </div>
-   <div class="no-data" *ngIf="!searchedText || searchedText === null" style="padding: 5%;">
-        <p> OOPS! No Data Matching Your Search </p>
+   <div class="no-data" *ngIf="!searchedText || searchedText === null || displayedCards.length === 0"  style="padding: 5%;">
+        <img src="../../../assets/no-search.jpg" alt="search-not-found"/>
+        <h3> OOPS! No Data Matched Your Search ' {{searchedText}} ' </h3>
+        <h4 class="text-secondary"> Please check the spelling or try searching for something else </h4>
+        <p>See in <a routerLink="Freaquently Asked Questions" routerLinkActive="active">FAQ's.</a></p>
    </div>
    <div class="row top-border" *ngIf="searchedText">
     <ng-container *ngFor="let card of displayedCards">
