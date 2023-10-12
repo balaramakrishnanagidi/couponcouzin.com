@@ -16,6 +16,7 @@ export class CarouselComponent implements OnInit {
   chunkedSlides: any[] = [];
   profile = true;
   showH3Element = false;
+  
 
 
   constructor(private api: ApiService,
@@ -84,6 +85,12 @@ export class CarouselComponent implements OnInit {
     for (let i = 0; i < this.slides.length; i += chunkSize) {
       this.chunkedSlides.push(this.slides.slice(i, i + chunkSize));
     }
+  }
+
+  // show or hide discount %
+
+  isDiscountNumber(discount: any): boolean {
+    return !isNaN(discount);
   }
 
 }

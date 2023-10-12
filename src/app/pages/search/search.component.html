@@ -39,7 +39,7 @@
     <!-- products -->
     <div id="products" *ngIf="displayedCards.length > 0">
         <div style="border-bottom: 5px solid seagreen;">
-            <h5> Search Results For: {{searchedText}} (products) </h5>
+            <h5> Search Results For: '{{searchedText}}' (products) </h5>
         </div>
        
         <div class="row top-border" *ngIf="searchedText">
@@ -48,10 +48,12 @@
                     <div class="card-header">
                         <span class="price-badge">{{ card.discount }}% OFF</span>
                         <a href="{{card.urlpath}}" target="_blank">
-                            <img [style.width.%]="90" [height]="110" [src]="profile
-                                 ? 'http://couponcouzin.com/backend/couponcouzin/app/src/posts/' + card.postimage
-                                 : '/assets/null_product.png'" alt="image" (error)="onImageErrorP($event)"
+                            <div class="image-container">
+                                <img  [src]="profile
+                                     ? 'http://couponcouzin.com/backend/couponcouzin/app/src/posts/' + card.postimage
+                                     : '/assets/null_product.png'" alt="image" (error)="onImageErrorP($event)"
                                 class="size-50 rounded-22 object-cover" />
+                                </div>
                         </a>
                     </div>
                     <div class="card-header">

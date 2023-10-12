@@ -71,6 +71,22 @@
     z-index: 1; /* Ensure the badge is above other content */
   }
 
+  .image-container {
+    max-width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center; /* Optional: Center the image horizontally */
+    align-items: center; /* Optional: Center the image vertically */
+  }
+  
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+    max-height: 120px; /* Set a maximum height if needed */
+    object-fit: contain; /* Use 'contain' to maintain the aspect ratio and fit within the container */
+  }
+  
+
   .button2{
     margin: 15px;
     width: fit-content;

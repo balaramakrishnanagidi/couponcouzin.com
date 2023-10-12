@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from './shared/services/api.service';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'coupon_couzin';
 
- 
+ constructor(private api: ApiService){}
 
   ngOnInit(): void {
-   
+  
   }
+
 }

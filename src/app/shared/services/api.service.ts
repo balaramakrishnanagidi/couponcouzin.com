@@ -13,10 +13,9 @@ export class ApiService {
   // private baseurl = 'http://16.171.244.75:2023';
   baseUrl = 'http://couponcouzin.com:2023';
 
-
   //get
 
-  getAllPosters(): Observable<any> {
+ getAllPosters(): Observable<any> {
     return this.http.get(`${this.baseUrl}/getallbanner`);
   }
 
