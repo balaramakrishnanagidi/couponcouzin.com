@@ -42,7 +42,7 @@ export class TopdealsComponent implements OnInit{
   couponByCompany(Name: string) {
     this.selectedCompany = Name;
     const partner = { company: Name };
-    console.log("couponByCompany", partner);
+    // console.log("couponByCompany", partner);
     this.api.couponByCompany(partner).subscribe(
       (response) => {
         this.couponByCompanyArray = response.data;
@@ -58,7 +58,7 @@ export class TopdealsComponent implements OnInit{
   topDeals() {
     this.api.topDeals().subscribe(
       (data) => {
-        this.cards = data.data;
+        this.cards = data.data.reverse();
         this.updateCardArrays();
       },
       (error) => {
@@ -109,5 +109,10 @@ export class TopdealsComponent implements OnInit{
   pageReload(){
     this.selectedCompany = null;
     this.topDeals();
+  }
+  // show or hide discount %
+
+  isDiscountNumber(discount: any): boolean {
+    return !isNaN(discount);
   }
 }

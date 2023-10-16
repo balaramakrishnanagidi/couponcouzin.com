@@ -40,10 +40,10 @@
                 (error)="onImageErrorP($event)" class="rounded-22 object-cover" />
             </div>
             <div class="details">
-              <span style="font-size: 35px; font-weight: bold;" type="button"
+              <span style="font-size: 35px; font-weight: bold;" type="button" class="ellipsis"
                 (click)="openDealModal(p.websiteImage, p.websiteName, p.description, p.couponcode, p.urlpath)">{{ p.Name
                 }}</span>
-              <p style="font-size: 14px;" class="text-secondary">{{ p.description }}</p>
+              <p style="font-size: 14px;" class="text-secondary ellipsis">{{ p.description }}</p>
             </div>
             <div class="button">
               <button class="btn btn-danger"

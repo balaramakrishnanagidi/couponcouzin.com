@@ -3,31 +3,29 @@
 }
 .top_stores{
     background-color: #ffffff;
-    margin-left: 15px;
+    margin: 15px;
+    padding-top: 10px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
-    height: 300px;
-    width: 95%;
+    justify-content: left;
+    max-height: 300px;
+    max-width: 95%;
     flex: 1;
     border-top: 5px solid seagreen;
 }
 
 .featuredStore{
-    width: 25%;
-    height: 280px;
+    max-width: 20%;
+    max-height: 280px;
+    margin-right: 20px;
 }
-.stores{
-    width: 60%;
-    height: 260px;
-    /* background-color: #2cbd50f1; */
-}
+
 .card{
     flex: 1;
     align-items: center;
     text-align: center ;
-    border-radius: 5%;
+    border-radius: 2%;
 }
 .card-header{
     padding: 3%;
@@ -47,22 +45,31 @@
     width: 100%;
     border-radius: 5px;
 }
-
+.stores{
+    width: 80%;
+    height: fit-content;
+    background-color: #2cbd50f1;
+    display: block;
+    align-items: center;
+    justify-content: baseline;
+}
   .secondCard{
-    width: 160px;
-    height: 75px;
+    max-width: 100%;
+    max-height: 75px;
     overflow: hidden;
-    padding: 0;
-    margin: 5px;
+    border: 1px solid black;
+    display: flex;
+    align-self: center;
+    justify-content: center;
   }
  
   .secondCard:hover {
-    background-color: #f0f0f0;
+    background-color: white;
     transform: scale(1.05);
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
   }
   .secondCard-body img{
-    width: 100%;
+    width: 60%;
     height: 75px;
   }
   

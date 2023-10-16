@@ -19,7 +19,7 @@
                 <ng-container *ngFor="let card of displayedCards">
                     <div class="card col-md-3" style="margin: 6px;  width: calc(24% - 4px);">
                         <div class="card-header">
-                            <span class="price-badge">{{ card.discount }}% OFF</span>
+                            <span class="price-badge" *ngIf="isDiscountNumber(card.discount)">{{ card.discount }}% OFF</span>
                             <a href="{{card.urlpath}}" target="_blank">
                                 <div class="image-container">
                                     <img  [src]="profile

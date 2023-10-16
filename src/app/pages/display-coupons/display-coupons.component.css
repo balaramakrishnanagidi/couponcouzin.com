@@ -44,6 +44,15 @@
     flex-grow: 1;
 }
 
+.ellipsis {
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* Number of lines to display */
+    -webkit-box-orient: vertical;
+  }
+
 .button {
     margin: 30px 50px 30px 0;
     flex-shrink: 0;

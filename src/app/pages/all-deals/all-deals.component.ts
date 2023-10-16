@@ -31,8 +31,8 @@ export class AllDealsComponent implements OnInit {
   allCoupons() {
     this.api.allCoupons().subscribe(
       (data) => {
-        this.couponCards = data.data;
-        console.log('couponCards',this.couponCards);
+        this.couponCards = data.data.reverse();
+        // console.log('couponCards',this.couponCards);
         this.updatecouponCardsArrays();
         this.loadingData = false;
       },
@@ -62,7 +62,7 @@ export class AllDealsComponent implements OnInit {
     this.api.allProducts().subscribe(
       (data) => {
         // console.log('data', data.data)
-        this.cards = data.data;
+        this.cards = data.data.reverse();
         // console.log('cards',this.cards);
         this.updateCardArrays();
         this.loadingData = false;
@@ -100,4 +100,10 @@ export class AllDealsComponent implements OnInit {
     event.target.src = '/assets/error-loading-image.png';
   }
 
+
+  // show or hide discount %
+
+  isDiscountNumber(discount: any): boolean {
+    return !isNaN(discount);
+  }
 }

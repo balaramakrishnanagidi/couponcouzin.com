@@ -1,18 +1,20 @@
 .navbar {
   background-color: white;
   display: flex;
-  justify-content: space-between;
+  justify-content: baseline;
   align-items: center;
-  padding: 10px 20px;
 }
 
-.navbar img {
-  margin-left: 0;
-  width: 150px;
-  height: 50px;
+.logo img {
+  margin: 0 15px 0;
+  max-width: 100%;
+  max-height: 90px;
 }
 
-label #btn, label #cancel {
+
+
+label #btn,
+label #cancel {
   color: black;
   font-size: 30px;
   float: right;
@@ -21,9 +23,6 @@ label #btn, label #cancel {
   cursor: pointer;
   display: none;
 }
-/* #check{
-  display: none;
-} */
 
 .navbar-links {
   list-style-type: none;
@@ -42,7 +41,7 @@ nav ul {
   display: flex;
 }
 
-.nav-item{
+.nav-item {
   font-weight: bold;
 }
 
@@ -167,47 +166,54 @@ nav ul li a:hover:before {
   background-color: #f5f5f5;
 }
 
-@media (max-width: 905px){
-  .navbar img{
+@media (max-width: 905px) {
+  .navbar img {
     left: 8%;
     top: 20px;
     width: 130px;
   }
-  .navbar-links{
+
+  .navbar-links {
     font-size: small;
   }
-  .search-bar input{
+
+  .search-bar input {
     height: 8%;
     width: 60%;
   }
-  .search-bar button{
+
+  .search-bar button {
     font-size: 13px;
     width: fit-content;
     align-items: center;
     align-content: center;
     text-align: center;
   }
-  
+
 }
-@media (max-width: 825px){
-  .navbar img{
+
+@media (max-width: 825px) {
+  .navbar img {
     left: 3%;
     top: 10px;
     width: 110px;
   }
-  .navbar-links{
+
+  .navbar-links {
     font-size: small;
   }
-  .search-bar input{
+
+  .search-bar input {
     height: 8%;
     width: 60%;
   }
-  .search-bar button{
+
+  .search-bar button {
     font-size: 13px;
     width: fit-content;
     align-items: center;
     align-content: center;
     text-align: center;
   }
-  
+
 }

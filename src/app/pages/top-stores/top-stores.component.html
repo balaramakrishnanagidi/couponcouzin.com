@@ -21,20 +21,16 @@
         <div class="stores">
             <owl-carousel-o [options]="customOptions">
               <ng-template carouselSlide *ngFor="let chunk of storeChunks">
-                <div class="slide-container">
                   <div class="row">
-                    <div class="col-md-3" *ngFor="let store of chunk" (click)="couponCompanyName(store.Name)">
-                      <div class="card secondCard">
+                    <div class="col-sm-3" *ngFor="let store of chunk" (click)="couponCompanyName(store.Name)">
+                      <div class="secondCard">
                         <div class="secondCard-body">
                           <img [src]="profile ? 'http://couponcouzin.com/backend/couponcouzin/app/src/website/' + store.image : '/assets/null_product.png'" alt="image" class="size-50 rounded-22 object-cover"/>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
               </ng-template>
             </owl-carousel-o>
           </div>
-          
-          
 </div>

@@ -1,4 +1,4 @@
-<div class="container" style="padding-top: 7%;">
+<div class="container" style="padding-top: 10%;">
 
     <div *ngIf="loadingData; else dataLoaded">
         <app-loading-spinner></app-loading-spinner>
@@ -60,7 +60,7 @@
                 <div class="card col-md-2" *ngFor="let card of displayedCards" 
                         style="margin: 6px; width: calc(24% - 4px);">
                     <div class="card-header">
-                        <span class="price-badge">{{ card.discount }}% OFF</span>
+                        <span class="price-badge" *ngIf="isDiscountNumber(card.discount)">{{ card.discount }}% OFF</span>
                         <a href="{{card.urlpath}}" target="_blank">
                             <div class="image-container">
                                 <img  [src]="profile
