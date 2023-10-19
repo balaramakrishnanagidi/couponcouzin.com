@@ -97,8 +97,8 @@ openDealModal(websiteImage: any, WebsiteName:string , Name:string, couponCode: s
   // You can pass data to the modal if needed using modalRef.componentInstance
   this.data = [websiteImage, WebsiteName, Name, couponCode, urlpath]
   modalRef.componentInstance.data = this.data
-  // setTimeout(() => {
-  //   window.open(urlpath, '_blank');
-  // }, 2000);
+  setTimeout(() => {
+    window.open(urlpath, '_blank');
+  }, 2000);
 }
 }
