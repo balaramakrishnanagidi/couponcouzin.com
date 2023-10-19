@@ -13,10 +13,9 @@ export class ApiService {
   // private baseurl = 'http://16.171.244.75:2023';
   baseUrl = 'http://couponcouzin.com:2023';
 
-
   //get
 
-  getAllPosters(): Observable<any> {
+ getAllPosters(): Observable<any> {
     return this.http.get(`${this.baseUrl}/getallbanner`);
   }
 
@@ -28,7 +27,7 @@ export class ApiService {
     return this.http.get(`${this.baseUrl}/topdeals`);
   }
   popularStores(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/getallwebsites`);
+    return this.http.get(`${this.baseUrl}/websites`);
   }
   allProducts(): Observable<any> {
     return this.http.get(`${this.baseUrl}/alluserproducts`)
@@ -36,7 +35,9 @@ export class ApiService {
   allCoupons(): Observable<any> {
     return this.http.get(`${this.baseUrl}/allcoupon`)
   }
-  
+  fetchStores(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/stores`)
+  }
 
   //post
   search(text: string): Observable<any> {
@@ -50,7 +51,6 @@ export class ApiService {
 
   getCouponsByCategory(category: string): Observable<any> {
     const data = { maincategory: category };
-    // console.log('balaram',data)
     return this.http.post(`${this.baseUrl}/couponcompany`, data);
   }
 

@@ -15,7 +15,7 @@ export class TopCarouselComponent implements OnInit {
 
   noWrapSlides = false;
   showIndicator = true;
-  slides: { image: string }[] = [];
+  slides: any[] = [];
   profile = true;
 
   constructor(private api: ApiService){}
@@ -32,7 +32,7 @@ export class TopCarouselComponent implements OnInit {
     mouseDrag: true,
     touchDrag: true,
     pullDrag: true,
-    dots: false,
+    dots: true,
     navSpeed: 700,
     navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
     responsive: {
@@ -56,10 +56,7 @@ export class TopCarouselComponent implements OnInit {
   fetchPosters(){
     this.api.getAllPosters().subscribe( data => {
       if (data.Status && data.banner) {
-        // Map the bannerimage values to the 'image' property in the desired format
-        this.slides = data.banner.map((bannerItem: { _id: string, bannerimage: string[] }) => {
-          return { image: `http://couponcouzin.com/backend/couponcouzin/app/src/banner/${bannerItem.bannerimage[0]}` };
-        });
+        this.slides = data.banner;
       }
     },error => {
       console.log(error);

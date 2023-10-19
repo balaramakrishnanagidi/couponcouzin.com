@@ -1,11 +1,14 @@
 .banners{
-    width: 80%;
+    max-height: 350px;
+    max-width: 1500px;
     margin: 0 auto;
 }
-.banners img{
+.image-wrapper img{
     transition: all 0.3 ease;
+    max-height: 350px; 
+    max-width: 1500px;
 }
-.banners img:hover{
+.image-wrapper img:hover{
     box-shadow: 0 0 10px 1px #dbdbdb;
     cursor: pointer;
 }

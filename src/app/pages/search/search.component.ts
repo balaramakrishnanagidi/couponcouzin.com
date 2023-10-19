@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/shared/services/api.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { query } from '@angular/animations';
 
 @Component({
@@ -10,57 +10,76 @@ import { query } from '@angular/animations';
 })
 export class SearchComponent implements OnInit {
   searchedText = '';
-  loadingData: boolean = true;
   profile = true;
   displayedCards: any[] = [];
   remainingCards: any[] = [];
-  cards: any[] = [];
+  remainingCouponCards: any[] = [];
+  displayedCouponCards: any[] = [];
+  productCards: any[] = [];
+  couponCards: any[] = [];
   showMoreflag = false;
   cardsPerPage = 8;
 
 
   constructor(private api: ApiService,
-              private route: ActivatedRoute){}
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((queryParams) => {
       this.searchedText = queryParams['query'];
       if (this.searchedText) {
-       this.search(this.searchedText);
+        this.search(this.searchedText);
       }
     });
   }
 
-  search(text: string){
-    this.api.search(text).subscribe( data => {
-      this.cards = data.data;
-      console.log(this.cards);
+  search(text: string) {
+    this.api.search(text).subscribe(response => {
+      this.productCards = response.data.products;
+      console.log("This is the productCards from search", this.productCards);
+      this.couponCards = response.data.coupons;
+      console.log("This is the couponCards from search", this.couponCards);
       this.updateCardArrays();
-        this.loadingData = false;
+      this.updatecouponCardsArrays();
     }, error => {
       console.log(error);
-      this.loadingData = false;
     });
   }
+
+  // coupons
+
+  updatecouponCardsArrays() {
+    this.displayedCouponCards = this.couponCards.slice(0, this.cardsPerPage);
+    this.remainingCouponCards = this.couponCards.slice(this.cardsPerPage);
+  if(this.displayedCouponCards.length === 8){
+    this.showMoreflag = true;
+  }
+  }
   
+  loadMoreCouponCards() {
+    // Load more cards when "Show More" is clicked
+    if (this.remainingCouponCards.length > 0) {
+      const additionalCouponCards = this.remainingCouponCards.splice(0, this.cardsPerPage);
+      this.displayedCouponCards = [...this.displayedCouponCards, ...additionalCouponCards];
+    }
+  }
+  // products
 
   updateCardArrays() {
-      this.displayedCards = this.cards.slice(0, this.cardsPerPage);
-      this.remainingCards = this.cards.slice(this.cardsPerPage);
-    if(this.displayedCards.length === 8){
+    this.displayedCards = this.productCards.slice(0, this.cardsPerPage);
+    this.remainingCards = this.productCards.slice(this.cardsPerPage);
+    if (this.displayedCards.length === 8) {
       this.showMoreflag = true;
     }
   }
 
-    loadMoreCards() {
+  loadMoreCards() {
     // Load more cards when "Show More" is clicked
     if (this.remainingCards.length > 0) {
       const additionalCards = this.remainingCards.splice(0, this.cardsPerPage);
       this.displayedCards = [...this.displayedCards, ...additionalCards];
     }
-}
-
-
+  }
 
   //error image handling
   onImageErrorP(event: any) {

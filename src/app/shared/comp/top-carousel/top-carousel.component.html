@@ -2,7 +2,13 @@
   <div class="containers">
     <owl-carousel-o [options]="customOptions">
       <ng-template carouselSlide *ngFor="let slide of slides">
-        <img [src]="slide.image" class="d-block" style="max-height: 300px; width: 100%;">
+        <a href="{{slide.url}}" target="_blank">
+          <div class="image-wrapper">
+            <img [src]="profile
+          ? 'http://couponcouzin.com/backend/couponcouzin/app/src/banner/' + slide.bannerimage
+          : '/assets/null_product.png'" class="d-block">
+          </div>
+          </a>
       </ng-template>
     </owl-carousel-o>
   </div>

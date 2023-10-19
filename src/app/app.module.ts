@@ -31,6 +31,8 @@ import { SecurityComponent } from './pages/security/security.component';
 import { PrivacyComponent } from './pages/privacy/privacy.component';
 import { TermsComponent } from './pages/terms/terms.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { TopStoresComponent } from './pages/top-stores/top-stores.component';
+import { DisplayCouponsComponent } from './pages/display-coupons/display-coupons.component';
 
 
 
@@ -55,6 +57,8 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
     PrivacyComponent,
     TermsComponent,
     AboutUsComponent,
+    TopStoresComponent,
+    DisplayCouponsComponent,
     
   ],
   imports: [

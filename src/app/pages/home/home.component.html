@@ -1,4 +1,4 @@
-<div class="home" style="padding-top: 100px;">
+<div class="home" style="padding-top: 130px;">
     <div *ngIf="loadingData; else dataLoaded">
         <app-loading-spinner></app-loading-spinner>
         <div class="spinner"></div>
@@ -8,6 +8,9 @@
             <app-top-carousel></app-top-carousel>
         </div>
         <br>
+        <div class="topStores">
+            <app-top-stores></app-top-stores>
+        </div>
         <br>
         <div class="card-carousel">
             <app-carousel></app-carousel>

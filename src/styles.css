@@ -3,27 +3,42 @@
 @import 'ngx-toastr/toastr';
 @import "~font-awesome/css/font-awesome.css";
 @import '~bootstrap/dist/css/bootstrap.css';
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
 /* for top-carousel */
-.banners .owl-prev , .banners .owl-next{
-    background-color: transparent !important;
+.banners .owl-prev,
+.banners .owl-next {
+    display: none !important;
+    background-color: white !important;
     color: #8d8585 !important;
-    height: 60px !important;
-    width: 60px !important;
+    height: 40px !important;
+    width: 40px !important;
     border-radius: 50% !important;
     position: absolute;
     top: 50%;
     transition: .3s all ease;
 }
-.banners .owl-next{
-    right: -48px;
+
+.banners:hover .owl-prev,
+.banners:hover .owl-next {
+    display: block !important;
+}
+
+.banners .owl-next {
+    right: -10px;
     transform: translate(-50%, -50%);
 }
 
-.banners .owl-prev{
-    left: 13px;
+.banners .owl-prev {
+    left: 30px;
     transform: translate(-50%, -50%);
 }
-.banners .owl-prev i, .banners .owl-next i{
+
+.banners .owl-prev i,
+.banners .owl-next i {
     font-size: 24px;
     position: absolute;
     top: 50%;
@@ -33,7 +48,9 @@
 }
 
 /* for carousel */
-.products .owl-prev , .products .owl-next{
+.products .owl-prev,
+.products .owl-next {
+    display: none !important;
     background-color: transparent !important;
     color: orangered !important;
     height: 60px !important;
@@ -43,16 +60,64 @@
     top: 50%;
     transition: .3s all ease;
 }
-.products .owl-next{
+
+.products:hover .owl-prev,
+.products:hover .owl-next {
+    display: block !important;
+}
+
+.products .owl-next {
     right: -34px;
     transform: translate(-50%, -50%);
 }
 
-.products .owl-prev{
+.products .owl-prev {
     left: 20px;
     transform: translate(-50%, -50%);
 }
-.products .owl-prev i, .products .owl-next i{
+
+.products .owl-prev i,
+.products .owl-next i {
+    font-size: 24px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+/* for stores */
+
+.stores .owl-prev,
+.stores .owl-next {
+    background-color: rgb(240, 240, 240) !important;
+    /* background-color: transparent !important; */
+    color: rgb(80, 78, 78) !important;
+    height: 60px !important;
+    width: 60px !important;
+    border-radius: 50% !important;
+    position: absolute;
+    top: 50%;
+    transition: .3s all ease;
+}
+
+.stores:hover .owl-prev,
+.stores:hover .owl-next {
+    display: block !important;
+}
+
+.stores .owl-next {
+    right: -75px;
+    transform: translate(-50%, -50%);
+}
+
+.stores .owl-prev {
+    left: -8px;
+    transform: translate(-50%, -50%);
+}
+
+.stores .owl-prev i,
+.stores .owl-next i {
     font-size: 24px;
     position: absolute;
     top: 50%;

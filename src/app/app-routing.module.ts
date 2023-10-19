@@ -10,11 +10,13 @@ import { SecurityComponent } from './pages/security/security.component';
 import { PrivacyComponent } from './pages/privacy/privacy.component';
 import { TermsComponent } from './pages/terms/terms.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { DisplayCouponsComponent } from './pages/display-coupons/display-coupons.component';
 
 const routes: Routes = [
   {path:'home', component: HomeComponent},
   {path:'allDeals', component: AllDealsComponent},
   {path:'coupon/:category', component: CouponDetailsComponent},
+  {path:'coupons', component: DisplayCouponsComponent},
   {path:'search-results', component: SearchComponent},
   {path:'contact us', component: ContactComponent},
   {path:'security tips', component: SecurityComponent},
