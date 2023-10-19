@@ -47,6 +47,45 @@ body {
 
 }
 
+/* for stores */
+
+.stores .owl-prev,
+.stores .owl-next {
+    background-color: rgb(240, 240, 240) !important;
+    color: rgb(80, 78, 78) !important;
+    height: 40px !important;
+    width: 40px !important;
+    border-radius: 50% !important;
+    position: absolute;
+    top: 50%;
+    transition: .3s all ease;
+}
+
+.stores:hover .owl-prev,
+.stores:hover .owl-next {
+    display: block !important;
+}
+
+.stores .owl-next {
+    right: -40px;
+    transform: translate(-50%, -50%);
+}
+
+.stores .owl-prev {
+    left: 2px;
+    transform: translate(-50%, -50%);
+}
+
+.stores .owl-prev i,
+.stores .owl-next i {
+    font-size: 24px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
 /* for carousel */
 .products .owl-prev,
 .products .owl-next {
@@ -86,42 +125,3 @@ body {
 
 }
 
-/* for stores */
-
-.stores .owl-prev,
-.stores .owl-next {
-    background-color: rgb(240, 240, 240) !important;
-    /* background-color: transparent !important; */
-    color: rgb(80, 78, 78) !important;
-    height: 60px !important;
-    width: 60px !important;
-    border-radius: 50% !important;
-    position: absolute;
-    top: 50%;
-    transition: .3s all ease;
-}
-
-.stores:hover .owl-prev,
-.stores:hover .owl-next {
-    display: block !important;
-}
-
-.stores .owl-next {
-    right: -75px;
-    transform: translate(-50%, -50%);
-}
-
-.stores .owl-prev {
-    left: -8px;
-    transform: translate(-50%, -50%);
-}
-
-.stores .owl-prev i,
-.stores .owl-next i {
-    font-size: 24px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-}

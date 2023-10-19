@@ -16,7 +16,7 @@
     gap: 10px;
 }
 
-.card.carddata {
+.card .carddata {
     border-radius: 15px;
     width: calc(95% - 10px);
     display: flex;

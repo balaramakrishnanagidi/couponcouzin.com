@@ -1,5 +1,5 @@
 * {
-    background-color: rgba(243, 243, 243, 0.911);
+    background-color: #ffffff;
     text-align: justify;
 }
 .container-fluid{
@@ -10,11 +10,13 @@
     padding-bottom: 30px;
 }
 h3{
+    font-family: 'Georgia';
     margin-top: 30px;
 }
 a{
     text-decoration: none;
 }
 p{
+    font-family: 'Trebuchet MS';
     margin-top: 6px;
 }

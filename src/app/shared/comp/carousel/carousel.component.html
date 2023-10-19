@@ -1,7 +1,8 @@
 <div class="container-fluid">
-  <div class="fancy-title title-bottom-border" style="margin-top: 25px;">
-    <h3 *ngIf="showH3Element"><i class="fa fa-bolt" aria-hidden="true">
-      </i>&nbsp;Flash Deals
+  <div class="fancy-title title-bottom-border" style="margin-top: 25px; display: flex; flex-direction: row;" >
+    <h3><i class="fa fa-bolt" aria-hidden="true" >
+    </i></h3>
+    <h3 *ngIf="showH3Element" style="font-family: 'Georgia';" >&nbsp;Flash Deals
     </h3>
   </div>
   <div class="products">
@@ -24,13 +25,14 @@
             </div>
             <div class="card-header">
               <div class="name-section">
-                <p class="product-title" style="font-weight: bold; font-size: normal;">
+                <p class="product-title" style="font-weight: bold; font-size: normal; font-family: 'Trebuchet MS';">
                   <a class="urlpath" href="{{card.urlpath}}" target="_blank"> {{ card.Name }} </a>
                 </p>
               </div>
               <hr>
               <div class="price-section">
-                <span class="card-title" style="font-weight: bold; font-size: normal;"> ₹ {{ card.price }} </span>
+                <span class="card-title" style="font-weight: bold; font-size: normal; font-family: 'Trebuchet MS';"> ₹
+                  {{ card.price }} </span>
               </div>
             </div>
             <div class="card-footer" style="display: flex; justify-content: space-between;">

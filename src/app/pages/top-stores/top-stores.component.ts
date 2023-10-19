@@ -51,6 +51,7 @@ export class TopStoresComponent implements OnInit {
   couponStores() {
     this.api.fetchStores().subscribe(data => {
       const websites = data.websites;
+      // console.log(websites);
 
       for (let i = 0; i < websites.length; i += 12) {
         this.storeChunks.push(websites.slice(i, i + 12));

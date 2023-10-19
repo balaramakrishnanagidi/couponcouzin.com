@@ -1,67 +1,67 @@
 <div class="container-fluid">
-    <div class="row">
         <div class="topDeals col-md-9 ">
             <div class="fancy-title" style="margin-top: 25px;display: flex; align-items: center;">
                 <h3 *ngIf="showH3Element">
-                    <ng-container *ngIf="selectedCompany; else topDealsHeading">{{ selectedCompany |
-                        firstLetterUpperCase }} </ng-container>
-                    <ng-template #topDealsHeading>Top Deals</ng-template>
+                    <ng-container *ngIf="selectedCompany; else topDealsHeading"> <p style="font-family: 'Georgia';"><b> {{ selectedCompany |
+                        firstLetterUpperCase }} </b></p> </ng-container>
+                    <ng-template #topDealsHeading ><p style="font-family: 'Georgia';">Top Deals</p></ng-template>
                 </h3>
                 <h3>
                     <span class="align-text-bottom">
-                        <a class="btn btn-primary" (click)="pageReload()" style="font-size: 15px; margin-left: auto;"
+                        <a class="btn btn-primary" (click)="pageReload()" style="font-size: 15px; margin-left: auto;font-family: 'Trebuchet MS';"
                             *ngIf="selectedCompany">View Top Deals&nbsp;
                             <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                         </a></span>
                 </h3>
             </div>
             <div class="row top-border">
-                <ng-container *ngFor="let card of displayedCards">
+                <ng-container *ngFor="let card of displayedCards" class="ng-container">
                     <div class="card col-md-3" style="margin: 6px;  width: calc(24% - 4px);">
                         <div class="card-header">
-                            <span class="price-badge" *ngIf="isDiscountNumber(card.discount)">{{ card.discount }}% OFF</span>
+                            <p class="price-badge" *ngIf="isDiscountNumber(card.discount)" style="font-family: 'Verdana'; font-size: 13px;">{{ card.discount }}% off</p>
                             <a href="{{card.urlpath}}" target="_blank">
                                 <div class="image-container">
                                     <img  [src]="profile
                                          ? 'http://couponcouzin.com/backend/couponcouzin/app/src/posts/' + card.postimage
-                                         : '/assets/null_product.png'" alt="image" (error)="onImageErrorP($event)"
-                                    class="size-50 rounded-22 object-cover" />
-                                    <!-- [style.width.%]="100" [height]="120" -->
+                                         : '/assets/null_product.png'" alt="image" (error)="onImageErrorP($event)"/>
                                 </div>
                             </a>
                         </div>
                         <div class="card-header">
                             <div class="name-section">
-                                <p class="product-title" style="font-weight: bold; font-size: normal;">
+                                <p class="product-title" style="font-weight: bold; font-size: normal;font-family: 'Trebuchet MS';">
                                     <a class="urlpath" href="{{card.urlpath}}" target="_blank">{{ card.Name }}</a>
                                 </p>
                             </div>
                             <hr>
                             <div class="price-section">
-                                <span class="card-title" style="font-weight: bold; font-size: normal;">₹ {{ card.price
+                                <span class="card-title" style="font-weight: bold; font-size: normal; font-family: 'Trebuchet MS';">₹ {{ card.price
                                     }}</span>
                             </div>
                         </div>
                         <div class="card-footer" style="display: flex; justify-content: space-between;">
-                            <img [width]="80" [height]="50" [src]="profile
+                            <div class="brand-logo">
+                                <img [width]="80" [height]="50" [src]="profile
                                     ? 'http://couponcouzin.com/backend/couponcouzin/app/src/website/' + card.website
-                                    : '/assets/null_product.png'" alt="image" (error)="onImageErrorW($event)"
-                                class="size-50 rounded-22 object-cover" />
+                                    : '/assets/null_product.png'" alt="image" (error)="onImageErrorW($event)"/>
+                            </div>
+                            
                             <button class="btn shopNow button1">
-                                <a href="{{card.urlpath}}" target="_blank">Check</a>
+                                <a href="{{card.urlpath}}" target="_blank" style="font-family: 'Verdana';">Check</a>
                             </button>
                         </div>
                     </div>
                 </ng-container>
                 <div class="col-md-12 text-center" *ngIf="remainingCards.length > 0">
-                    <button class="btn btn-primary button2" (click)="loadMoreCards()">Show More</button>
+                    <button class="btn button2" (click)="loadMoreCards()">Show More</button>
                 </div>
             </div>
         </div>
+
         <!-- popular stores -->
         <div class="stores col-md-3 ">
             <div class="fancy-title title2-bottom-border" style="margin-top: 25px;">
-                <h3 *ngIf="showH3Element">Popular Stores</h3>
+                <h3 *ngIf="showH3Element"><p style="font-family: 'Georgia';">Pick By Stores</p></h3>
             </div>
             <div class="row">
                 <ng-container *ngFor="let w of websites">
@@ -71,13 +71,11 @@
                             <button class="btn button3" (click)="couponByCompany(w.Name)">
                                 <img [style.width.%]="100" [style.height.%]="100" [src]="profile
                                              ? 'http://couponcouzin.com/backend/couponcouzin/app/src/website/' + w.image[0]
-                                             : '/assets/null_product.png'" alt="image" (error)="onImageErrorW($event)"
-                                    class="size-50 rounded-22 object-cover" />
+                                             : '/assets/null_product.png'" alt="image" (error)="onImageErrorW($event)"/>
                             </button>
                         </div>
                     </div>
                 </ng-container>
             </div>
         </div>
-    </div>
 </div>

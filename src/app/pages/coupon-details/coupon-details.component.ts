@@ -77,7 +77,7 @@ export class CouponDetailsComponent implements OnInit {
     this.selectedCompany = company;
     this.api.couponbywebsite(company).subscribe( data => {
       this.posts = data.posts;
-      console.log('savesta',this.posts)
+      // console.log('savesta',this.posts)
     },error => {
       console.log(error);
     });
@@ -92,13 +92,13 @@ onImageErrorW(event: any) {
   event.target.src = '/assets/error-loading-image.png';
 }
 
-openDealModal(websiteImage: any, Name:string , description:string, couponCode: string, urlpath: string) {
-  const modalRef = this.modalService.open(DealModalComponent, { size: 'md' });
+openDealModal(websiteImage: any, WebsiteName:string , Name:string, couponCode: string, urlpath: string) {
+  const modalRef = this.modalService.open(DealModalComponent, { size: 'lg', centered: true });
   // You can pass data to the modal if needed using modalRef.componentInstance
-  this.data = [websiteImage, Name, description, couponCode, urlpath]
+  this.data = [websiteImage, WebsiteName, Name, couponCode, urlpath]
   modalRef.componentInstance.data = this.data
-  setTimeout(() => {
-    window.open(urlpath, '_blank');
-  }, 2000);
+  // setTimeout(() => {
+  //   window.open(urlpath, '_blank');
+  // }, 2000);
 }
 }
