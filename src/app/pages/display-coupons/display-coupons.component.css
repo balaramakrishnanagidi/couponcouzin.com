@@ -1,13 +1,65 @@
-.container-fluid{
-    padding: 8%;
+.container-fluid {
+    padding-top: 9%;
+
 }
-.heading{
-    margin-bottom: 15px;
+.no-data{
+    padding: 10%;
+    background-color: rgb(243 243 243);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-.coupons {
+.no-data img{
+    mix-blend-mode: multiply;
+}
+.heading {
+    margin-bottom: 5px;
+}
+
+.cards {
+    width: 100%;
+    height: 200px;
+    background-color: rgb(243 243 243);
+}
+
+.row {
+    margin: 0 0 5px 25px;
+}
+
+.card {
+    margin: 35px 5px 5px 5px;
+    width: 180px;
+    position: relative;
+    transition: box-shadow 0.3s ease;
+}
+
+.card-body {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center;
+}
+.card-body img{
+    object-fit: contain;
+}
+
+.links {
+    color: black;
+    text-decoration: none;
+}
+
+.card:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    display: block;
+}
+
+.container-fluid2 {
     background-color: rgb(238, 225, 209);
     padding: 20px;
 }
+
 .card-wrapper {
     margin-left: 30px;
     align-items: center;
@@ -16,7 +68,7 @@
     gap: 10px;
 }
 
-.card .carddata {
+.card.carddata {
     border-radius: 15px;
     width: calc(95% - 10px);
     display: flex;
@@ -35,25 +87,32 @@
 }
 
 .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    max-height: 100px;
     border: 2px solid #ccc;
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
-
-.details {
-    margin-left: 30px;
-    flex-grow: 1;
+.image img{
+    object-fit: contain;
 }
 
+.details {
+    max-width: 65%;
+    flex-grow: 1;
+}
 .ellipsis {
     white-space: wrap;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 1; /* Number of lines to display */
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
   }
 
-.button {
+.getDealBtn {
     margin: 30px 50px 30px 0;
     flex-shrink: 0;
 }
@@ -61,3 +120,52 @@
 .btn {
     width: 150px;
 }
+
+h3{
+    font-family: 'Georgia';
+}
+h4{
+    font-family: 'Verdana';
+}
+
+/* CSS styles for pagination */
+
+.pagination {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  .pagination button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    background-color: #ff9933;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .pagination button.active {
+    background-color: #ff8000;
+  }
+  
+  .pagination button:disabled {
+    display: none;
+    cursor: not-allowed;
+  }
+  
+  .pagination button:hover {
+    background-color: #ff8000;
+  }
+  
+  .pagination .ellipsis {
+    margin: 0 5px;
+    font-weight: bold;
+  }
+  .PaginationDot{
+    color: #d89d62;
+  }
+  

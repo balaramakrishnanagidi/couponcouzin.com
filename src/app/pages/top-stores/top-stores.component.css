@@ -143,3 +143,8 @@
     height: 70px;
     object-fit: contain;
 }
+a{
+    text-decoration: none;
+    font-family: 'Trebuchet MS';
+    color: #ffffff;
+}

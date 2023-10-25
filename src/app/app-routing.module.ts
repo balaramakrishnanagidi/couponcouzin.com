@@ -16,7 +16,7 @@ const routes: Routes = [
   {path:'home', component: HomeComponent},
   {path:'allDeals', component: AllDealsComponent},
   {path:'coupon/:category', component: CouponDetailsComponent},
-  // {path:'coupons', component: DisplayCouponsComponent},
+  {path:'coupons', component: DisplayCouponsComponent},
   {path:'search-results', component: SearchComponent},
   {path:'contact us', component: ContactComponent},
   {path:'security tips', component: SecurityComponent},
