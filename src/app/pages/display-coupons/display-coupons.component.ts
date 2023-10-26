@@ -15,7 +15,7 @@ export class DisplayCouponsComponent implements OnInit {
   profile = true;
   data: any[] = [];
   currentPage: number = 1;
-  itemsPerPage: number = 10;
+  itemsPerPage: number = 7;
   lastPage: number = 0;
   pagedPosts: any[] = [];
   pages: number[] = [];
