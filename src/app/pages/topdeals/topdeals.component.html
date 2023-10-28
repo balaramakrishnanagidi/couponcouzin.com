@@ -22,7 +22,7 @@
                             <a href="{{card.urlpath}}" target="_blank">
                                 <div class="image-container">
                                     <img  [src]="profile
-                                         ? 'http://couponcouzin.com/backend/couponcouzin/app/src/posts/' + card.postimage
+                                         ? 'https://couponcouzin.com/backend/couponcouzin/app/src/posts/' + card.postimage
                                          : '/assets/null_product.png'" alt="image" (error)="onImageErrorP($event)"/>
                                 </div>
                             </a>
@@ -42,7 +42,7 @@
                         <div class="card-footer" style="display: flex; justify-content: space-between;">
                             <div class="brand-logo">
                                 <img [width]="80" [height]="50" [src]="profile
-                                    ? 'http://couponcouzin.com/backend/couponcouzin/app/src/website/' + card.website
+                                    ? 'https://couponcouzin.com/backend/couponcouzin/app/src/website/' + card.website
                                     : '/assets/null_product.png'" alt="image" (error)="onImageErrorW($event)"/>
                             </div>
                             
@@ -71,7 +71,7 @@
                         <div class="card-boddy">
                             <button class="btn button3" (click)="couponByCompany(w.Name)">
                                 <img [style.width.%]="100" [style.height.%]="100" [src]="profile
-                                             ? 'http://couponcouzin.com/backend/couponcouzin/app/src/website/' + w.image[0]
+                                             ? 'https://couponcouzin.com/backend/couponcouzin/app/src/website/' + w.image[0]
                                              : '/assets/null_product.png'" alt="image" (error)="onImageErrorW($event)"/>
                             </button>
                         </div>

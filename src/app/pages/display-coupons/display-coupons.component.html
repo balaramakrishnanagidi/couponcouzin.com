@@ -10,7 +10,7 @@
           <div class="card-content">
             <div class="image">
               <img [style.width.%]="70" [style.height.%]="40"
-                [src]="profile ? 'http://couponcouzin.com/backend/couponcouzin/app/src/website/' + p.websiteImage : '/assets/null_product.png'"
+                [src]="profile ? 'https://couponcouzin.com/backend/couponcouzin/app/src/website/' + p.websiteImage : '/assets/null_product.png'"
                 alt="image" style="cursor: pointer;"
                 (click)="openDealModal(p.websiteImage, p.websiteName, p.Name, p.couponcode, p.urlpath)"/>
             </div>

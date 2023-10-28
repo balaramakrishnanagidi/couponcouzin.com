@@ -11,7 +11,7 @@
                     <div class="card-header">
                         <a href="{{Coupon.urlpath}}" target="_blank">
                             <img [style.width.%]="90" [height]="110" [src]="profile
-                                     ? 'http://couponcouzin.com/backend/couponcouzin/app/src/website/' + Coupon.websiteImage
+                                     ? 'https://couponcouzin.com/backend/couponcouzin/app/src/website/' + Coupon.websiteImage
                                      : '/assets/null_product.png'" alt="image" (error)="onImageErrorP($event)"
                                 class="size-50 rounded-22 object-cover" />
                         </a>
@@ -50,7 +50,7 @@
                         <a href="{{card.urlpath}}" target="_blank">
                             <div class="image-container">
                                 <img  [src]="profile
-                                     ? 'http://couponcouzin.com/backend/couponcouzin/app/src/posts/' + card.postimage
+                                     ? 'https://couponcouzin.com/backend/couponcouzin/app/src/posts/' + card.postimage
                                      : '/assets/null_product.png'" alt="image" (error)="onImageErrorP($event)"
                                 class="size-50 rounded-22 object-cover" />
                                 </div>
@@ -70,7 +70,7 @@
                     </div>
                     <div class="card-footer" style="display: flex; justify-content: space-between;">
                         <img [width]="80" [height]="50" [src]="profile
-                            ? 'http://couponcouzin.com/backend/couponcouzin/app/src/website/' + card.websiteImage
+                            ? 'https://couponcouzin.com/backend/couponcouzin/app/src/website/' + card.websiteImage
                             : '/assets/null_product.png'" alt="image" (error)="onImageErrorW($event)"
                             class="size-50 rounded-22 object-cover" />
                         <button class="btn shopNow">
