@@ -1,5 +1,5 @@
 * {
-    background-color: rgba(243, 243, 243, 0.911);
+    background-color: #ffffff;
     text-align: justify;
 }
 .container-fluid{
@@ -9,7 +9,11 @@
     flex-direction: column;
     padding-bottom: 30px;
 }
+h3{
+    font-family: 'Georgia';
+}
 h6{
+    font-family: 'Verdana';
     margin-top: 30px;
     margin-left: 15px;
 }
@@ -17,6 +21,7 @@ a{
     text-decoration: none;
 }
 p{
+    font-family: 'Trebuchet MS';
     margin-left: 25px;
     margin-top: 6px;
 }

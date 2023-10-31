@@ -1,13 +1,19 @@
 * {
-    background-color: rgba(243, 243, 243, 0.911);
+    background-color: #ffffff;
 }
 .container-fluid{
-    padding-top: 7%;
+    padding-top: 9%;
     left: 0;
     display: flex;
     flex-direction: column;
     padding-bottom: 30px;
 
+}
+h3{
+    font-family: 'Georgia';
+}
+h5{
+    font-family: 'Verdana';
 }
 h6{
     margin: 15px 0 25px 45px;
@@ -16,12 +22,16 @@ h6 a{
     text-decoration: none;
     color: rgb(14, 182, 14);
 }
+p{
+    font-family: 'Trebuchet MS';
+}
 .address p{
     margin: 0 0 0 45px;
 }
 .geo{
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 .geo h4{
     margin: 25px 0;

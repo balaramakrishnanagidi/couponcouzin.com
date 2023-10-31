@@ -18,12 +18,12 @@ export class DealModalComponent implements OnInit{
               public toastr: ToastrService ) { }
 
   ngOnInit(): void {
-    console.log(this.data); 
+    // console.log('data -- '  ,this.data); 
   }
 
   copyCodeToClipboard(text: string){
     if(this.clipboardService.copyFromContent(text)){
-      console.log('Text copied to clipboard', text);
+      // console.log('Text copied to clipboard', text);
       this.toastr.success('Code copied to clipboard', 'Success');
     }
     else{

@@ -19,7 +19,7 @@ export class AllDealsComponent implements OnInit {
   couponCards: any[] = [];
   selectedCompany: string | null = null;
   showMoreflag = false;
-  cardsPerPage = 8;
+  cardsPerPage = 10;
 
   constructor( private api: ApiService){}
 

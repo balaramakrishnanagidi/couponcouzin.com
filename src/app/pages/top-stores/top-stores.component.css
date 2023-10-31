@@ -1,7 +1,11 @@
-.heading{
+.heading {
     padding-left: 1%;
 }
-.top_stores{
+.heading h3{
+    font-family: 'georgia';
+}
+
+.top_stores {
     background-color: #ffffff;
     margin: 15px;
     padding-top: 10px;
@@ -12,64 +16,135 @@
     max-height: 300px;
     max-width: 95%;
     flex: 1;
-    border-top: 5px solid seagreen;
+    border-top: 5px solid #ff8000;
 }
 
-.featuredStore{
+.featuredStore {
     max-width: 20%;
     max-height: 280px;
     margin-right: 20px;
 }
 
-.card{
+.card {
     flex: 1;
     align-items: center;
-    text-align: center ;
+    text-align: center;
     border-radius: 2%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
 }
-.card-header{
+.card h5 {
+    font-family: 'verdana';
+}
+
+.card-header {
     padding: 3%;
     background-color: #ffffff;
 }
+
 .card-body img {
     padding: 3%;
-    width: 250px;
-    height: 150px;
+    width: 100%;
+    height: auto;
     mix-blend-mode: multiply;
+    transition: transform 0.3s;
 }
-.card-footer p{
+
+.card-footer p {
     padding: 2px;
     margin-left: 5px;
     margin-right: 5px;
-    border: 1px solid rgb(17, 196, 17);
+    font-family: 'Trebuchet MS';
+    border: 1px solid #ff9933;
     width: 100%;
     border-radius: 5px;
 }
-.stores{
+
+.card:hover {
+    border: 1px solid #ff9933;
+}
+
+.card :hover .card-image{
+    transform: scale(1.08);
+    transition: transform 0.3s;
+}
+
+.stores {
     width: 80%;
     height: fit-content;
-    background-color: #2cbd50f1;
+    background-color: white;
     display: block;
     align-items: center;
-    justify-content: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
-  .secondCard{
+
+.custom-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    margin: 15px;
+}
+
+.secondCard {
     max-width: 100%;
-    max-height: 75px;
+    height: 75px;
     overflow: hidden;
-    border: 1px solid black;
+    border: 1px solid rgb(209, 206, 206);
+    border-radius: 3%;
     display: flex;
     align-self: center;
     justify-content: center;
-  }
- 
-  .secondCard:hover {
-    background-color: white;
-    transform: scale(1.05);
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
-  }
-  .secondCard-body img{
-    width: 60%;
-    height: 75px;
-  }
-  
+    position: relative;
+    align-items: center;
+    cursor: pointer;
+    transition: all .3s cubic-bezier(.31, .17, .52, .96);
+}
+
+.secondCard:hover {
+    background-color: #ffa64d;
+    transition: all .3s cubic-bezier(.31, .17, .52, .96);
+}
+
+.secondCard:hover .secondCard-text {
+    display: block;
+}
+
+.secondCard-text {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(228, 126, 58, 1);
+    color: white;
+    text-align: center;
+    padding-top: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+.secondCard-text  p {
+    font-family: 'Trebuchet MS';
+}
+
+.secondCard:hover .secondCard-text {
+    display: flex;
+    opacity: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.secondCard-body img {
+    max-width: 100%;
+    max-height: 100%;
+    height: 70px;
+    object-fit: contain;
+}
+a{
+    text-decoration: none;
+    font-family: 'Trebuchet MS';
+    color: #ffffff;
+}

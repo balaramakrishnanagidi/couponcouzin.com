@@ -3,12 +3,15 @@
     max-width: 1500px;
     margin: 0 auto;
 }
-.image-wrapper img{
-    transition: all 0.3 ease;
-    max-height: 350px; 
+.image-wrapper img {
+    transition: all 0.3s ease;
+    max-height: 350px;
     max-width: 1500px;
-}
-.image-wrapper img:hover{
+    border-radius: 30px; 
+  }
+  
+  .image-wrapper img:hover {
     box-shadow: 0 0 10px 1px #dbdbdb;
     cursor: pointer;
-}
+  }
+  

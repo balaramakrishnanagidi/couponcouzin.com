@@ -6,16 +6,16 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  
+
   constructor(private http: HttpClient) { }
 
-  // baseUrl = 'http://192.168.0.128:2023';
-  // private baseurl = 'http://16.171.244.75:2023';
-  baseUrl = 'http://couponcouzin.com:2023';
+  // baseUrl = 'https://192.168.0.128:2023';
+  // private baseUrl = 'https://16.171.244.75:2023';
+  baseUrl = 'https://couponcouzin.com:2023';
 
   //get
 
- getAllPosters(): Observable<any> {
+  getAllPosters(): Observable<any> {
     return this.http.get(`${this.baseUrl}/getallbanner`);
   }
 
@@ -41,10 +41,10 @@ export class ApiService {
 
   //post
   search(text: string): Observable<any> {
-    const data = {query: text}
+    const data = { query: text }
     // console.log(data);
-     return this.http.post(`${this.baseUrl}/search`,data);
-   }
+    return this.http.post(`${this.baseUrl}/search`, data);
+  }
   couponByCompany(company: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/getcompanycoupon`, company);
   }
