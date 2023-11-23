@@ -137,8 +137,6 @@
     background-color: green;
   }
 
-/* Add the following CSS at the end of your existing CSS */
-
 /* Responsive Styles */
 @media (max-width: 992px) {
   .col-lg-3 {
