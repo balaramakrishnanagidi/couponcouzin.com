@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from './shared/services/api.service';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +9,10 @@ import { ApiService } from './shared/services/api.service';
 export class AppComponent implements OnInit {
   title = 'coupon_couzin';
 
- constructor(private api: ApiService){}
+ constructor(private meta: Meta){}
 
   ngOnInit(): void {
-  
+    this.meta.addTag({ name: 'description', content: 'This is the component where all the aplication runs through.' });
   }
 
 }

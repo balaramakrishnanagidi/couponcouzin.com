@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DealModalComponent } from 'src/app/shared/comp/deal-modal/deal-modal.component';
@@ -20,9 +21,13 @@ export class CouponDetailsComponent implements OnInit {
   data: any[] = [];
   constructor(private api: ApiService,
               private route: ActivatedRoute,
-              private modalService: NgbModal){}
+              private modalService: NgbModal,
+              private meta: Meta){}
 
   ngOnInit(): void {
+    this.meta.addTag({ name:"keywords", content:"couponcouzin, couponcouzin.com, loot deals, best deals, coupon codes, travel, electronics" });
+    this.meta.addTag({ name: 'description', content: 'This is the page that shows coupon details.' });
+
     // Retrieve the category value from the URL
     this.route.params.subscribe((params) => {
       this.category = params['category'];

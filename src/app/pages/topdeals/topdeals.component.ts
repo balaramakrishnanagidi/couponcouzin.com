@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/shared/services/api.service';
 
@@ -20,9 +21,13 @@ export class TopdealsComponent implements OnInit{
   profile = true;
   showH3Element = false;
 
-  constructor(private api: ApiService, private router: Router) {}
+  constructor(private api: ApiService, private meta: Meta) {}
 
   ngOnInit(): void {
+
+    this.meta.addTag({ name: 'description', content: 'Top deals you cannot miss' });
+    this.meta.addTag({ name:"keywords", content:"couponcouzin, couponcouzin.com, loot deals, best deals, coupon codes, travel, electronics" });
+
     this.topDeals();
     this.popularStores();
     setTimeout(() => {

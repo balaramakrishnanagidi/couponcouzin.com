@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/shared/services/api.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { query } from '@angular/animations';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-search',
@@ -22,9 +22,14 @@ export class SearchComponent implements OnInit {
 
 
   constructor(private api: ApiService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private meta: Meta) { }
 
   ngOnInit(): void {
+
+    this.meta.addTag({ name: 'description', content: 'Search here for the products or coupons in couponcouzin.com' });
+    this.meta.addTag({ name:"keywords", content:"couponcouzin, couponcouzin.com, loot deals, best deals, coupon codes, travel, electronics" });
+
     this.route.queryParams.subscribe((queryParams) => {
       this.searchedText = queryParams['query'];
       if (this.searchedText) {
@@ -51,11 +56,11 @@ export class SearchComponent implements OnInit {
   updatecouponCardsArrays() {
     this.displayedCouponCards = this.couponCards.slice(0, this.cardsPerPage);
     this.remainingCouponCards = this.couponCards.slice(this.cardsPerPage);
-  if(this.displayedCouponCards.length === 8){
-    this.showMoreflag = true;
+    if (this.displayedCouponCards.length === 8) {
+      this.showMoreflag = true;
+    }
   }
-  }
-  
+
   loadMoreCouponCards() {
     // Load more cards when "Show More" is clicked
     if (this.remainingCouponCards.length > 0) {

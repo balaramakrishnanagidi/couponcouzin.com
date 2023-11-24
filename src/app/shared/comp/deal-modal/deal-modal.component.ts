@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ClipboardService } from 'ngx-clipboard';
 import { ToastrService } from 'ngx-toastr';
@@ -8,25 +9,28 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './deal-modal.component.html',
   styleUrls: ['./deal-modal.component.css']
 })
-export class DealModalComponent implements OnInit{
+export class DealModalComponent implements OnInit {
   @Input() data: any[] = [];
 
   profile = true;
-  
+
   constructor(public activeModal: NgbActiveModal,
-              private clipboardService: ClipboardService,
-              public toastr: ToastrService ) { }
+    private clipboardService: ClipboardService,
+    public toastr: ToastrService,
+    private meta: Meta) { }
 
   ngOnInit(): void {
+    this.meta.addTag({ name: 'description', content: 'modal of couponcouzin.com' });
+    this.meta.addTag({ name: "keywords", content: "couponcouzin, couponcouzin.com, loot deals, best deals, coupon codes, travel, electronics" });
     // console.log('data -- '  ,this.data); 
   }
 
-  copyCodeToClipboard(text: string){
-    if(this.clipboardService.copyFromContent(text)){
+  copyCodeToClipboard(text: string) {
+    if (this.clipboardService.copyFromContent(text)) {
       // console.log('Text copied to clipboard', text);
       this.toastr.success('Code copied to clipboard', 'Success');
     }
-    else{
+    else {
       console.log('failed to copy to clipboard');
       this.toastr.error('Copy failed', 'Error');
     }
