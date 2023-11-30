@@ -36,7 +36,7 @@ export class AllDealsComponent implements OnInit {
     this.api.allCoupons().subscribe(
       (data) => {
         this.couponCards = data.data.reverse();
-        // console.log('couponCards',this.couponCards);
+        console.log('couponCards',this.couponCards);
         this.updatecouponCardsArrays();
         this.loadingData = false;
       },

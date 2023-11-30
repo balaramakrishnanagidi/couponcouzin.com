@@ -13,6 +13,7 @@ export class DealModalComponent implements OnInit {
   @Input() data: any[] = [];
 
   profile = true;
+  isCouponCode = true;
 
   constructor(public activeModal: NgbActiveModal,
     private clipboardService: ClipboardService,
@@ -22,7 +23,13 @@ export class DealModalComponent implements OnInit {
   ngOnInit(): void {
     this.meta.addTag({ name: 'description', content: 'modal of couponcouzin.com' });
     this.meta.addTag({ name: "keywords", content: "couponcouzin, couponcouzin.com, loot deals, best deals, coupon codes, travel, electronics" });
-    // console.log('data -- '  ,this.data); 
+    console.log('data -- '  ,this.data); 
+    const code = (this.data[3]).toUpperCase();
+
+    if(code.includes('NO CODE') || code.includes('NOT REQUIRED') || code.includes('--') || code.includes('$$') || code.includes('**')){
+      this.isCouponCode = false;
+    }
+   
   }
 
   copyCodeToClipboard(text: string) {

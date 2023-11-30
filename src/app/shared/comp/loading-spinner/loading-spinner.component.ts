@@ -14,4 +14,4 @@ export class LoadingSpinnerComponent implements OnInit {
     this.meta.addTag({ name: 'description', content: 'Loading for couponcouzin.com' });
     this.meta.addTag({ name: "keywords", content: "couponcouzin, couponcouzin.com, loot deals, best deals, coupon codes, travel, electronics" });
   }
-}
+} 

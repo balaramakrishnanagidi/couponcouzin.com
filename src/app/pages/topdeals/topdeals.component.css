@@ -41,14 +41,15 @@
   transform: scale(1.05);
 }
 .product-title {
+  text-align: center;
   font-weight: bold;
   font-size: normal;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 3; /* Limit to three lines */
+  -webkit-line-clamp: 2; /* Limit to three lines */
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
-  width: 90%;
+  width: 100%;
 }
 
 .fancy-title{
@@ -106,7 +107,7 @@
   }
   .shopNow{
     height: fit-content;
-    font-weight: bold;
+    font-weight: 500;
     background-color: #ff9933 ;
     border: none;
     border-radius: 5px;

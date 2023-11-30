@@ -11,7 +11,7 @@ import { ApiService } from 'src/app/shared/services/api.service';
   styleUrls: ['./coupon-details.component.css']
 })
 export class CouponDetailsComponent implements OnInit {
-  
+
   category: string = '';
   posts: any[] = [];
   websites: any[] = [];
@@ -19,91 +19,108 @@ export class CouponDetailsComponent implements OnInit {
   maincategory: string = '';
   selectedCompany: string = '';
   data: any[] = [];
+  showBody = false;
+
   constructor(private api: ApiService,
-              private route: ActivatedRoute,
-              private modalService: NgbModal,
-              private meta: Meta){}
+    private route: ActivatedRoute,
+    private modalService: NgbModal,
+    private meta: Meta) { }
 
   ngOnInit(): void {
-    this.meta.addTag({ name:"keywords", content:"couponcouzin, couponcouzin.com, loot deals, best deals, coupon codes, travel, electronics" });
+    this.meta.addTag({ name: "keywords", content: "couponcouzin, couponcouzin.com, loot deals, best deals, coupon codes, travel, electronics" });
     this.meta.addTag({ name: 'description', content: 'This is the page that shows coupon details.' });
+
+    // to show and hide the discription
+    this.posts.forEach(post => post.showBody = true);
 
     // Retrieve the category value from the URL
     this.route.params.subscribe((params) => {
       this.category = params['category'];
-      if(this.category === 'food' || this.category === 'fashion' || 
-      this.category === 'travel' || this.category === 'tv' || 
-      this.category === 'mobiles' || this.category === 'beauty' || 
-      this.category === 'computer' || this.category === 'recharge' || 
-      this.category === 'appliences' || this.category === 'entertainment' || 
-      this.category === 'camera' || this.category === 'kids'){
+      if (this.category === 'food' || this.category === 'fashion' ||
+        this.category === 'travel' || this.category === 'tv' ||
+        this.category === 'mobiles' || this.category === 'beauty' ||
+        this.category === 'computer' || this.category === 'recharge' ||
+        this.category === 'appliences' || this.category === 'entertainment' ||
+        this.category === 'camera' || this.category === 'kids') {
         // Use the category to fetch data from the API and populate your table
-      this.api.getCouponsByCategory(this.category).subscribe(
-        (data: any) => {
-          if (data) {
-            this.posts = data.posts;
-            this.websites = data.websites
-            this.maincategory = data.posts[0].maincategory;
-            // console.log('coupons from posts',this.posts);
-            // console.log('coupons from websites',this.websites);
-          } else {
-            console.error('Invalid response from the API.');
+        this.api.getCouponsByCategory(this.category).subscribe(
+          (data: any) => {
+            if (data) {
+              this.posts = data.posts;
+              this.websites = data.websites
+              this.maincategory = data.posts[0].maincategory;
+              // console.log('coupons from posts',this.posts);
+              // console.log('coupons from websites',this.websites);
+            } else {
+              console.error('Invalid response from the API.');
+            }
+          },
+          (error) => {
+            console.log('Error:', error);
           }
-        },
-        (error) => {
-          console.log('Error:', error);
-        }
-      );
-      }else{
+        );
+      } else {
         // Use the Subcategory to fetch data from the API and populate your table
-      this.api.getCouponsBySubCategory(this.category).subscribe(
-        (data: any) => {
-          if (data) {
-            this.posts = data.posts;
-            this.websites = data.websites
-            this.maincategory = data.posts[0].maincategory;
-            // console.log('coupons from posts',this.posts);
-            // console.log('coupons from websites',this.websites);
-          } else {
-            console.error('Invalid response from the API.');
+        this.api.getCouponsBySubCategory(this.category).subscribe(
+          (data: any) => {
+            if (data) {
+              this.posts = data.posts;
+              this.websites = data.websites
+              this.maincategory = data.posts[0].maincategory;
+              // console.log('coupons from posts',this.posts);
+              // console.log('coupons from websites',this.websites);
+            } else {
+              console.error('Invalid response from the API.');
+            }
+          },
+          (error) => {
+            console.log('Error:', error);
           }
-        },
-        (error) => {
-          console.log('Error:', error);
-        }
-      );
+        );
       }
 
     });
   }
 
+
   //For loading cards if there is a selected company
-  couponbywebsite(company: string){
+  couponbywebsite(company: string) {
     this.selectedCompany = company;
-    this.api.couponbywebsite(company).subscribe( data => {
+    this.api.couponbywebsite(company).subscribe(data => {
       this.posts = data.posts;
       // console.log('savesta',this.posts)
-    },error => {
+    }, error => {
       console.log(error);
     });
   }
 
 
- //error image handling
- onImageErrorP(event: any) {
-  event.target.src = '/assets/image_not_found.png';
-}
-onImageErrorW(event: any) {
-  event.target.src = '/assets/error-loading-image.png';
-}
+  //error image handling
+  onImageErrorP(event: any) {
+    event.target.src = '/assets/image_not_found.png';
+  }
+  onImageErrorW(event: any) {
+    event.target.src = '/assets/error-loading-image.png';
+  }
 
-openDealModal(websiteImage: any, WebsiteName:string , Name:string, couponCode: string, urlpath: string) {
-  const modalRef = this.modalService.open(DealModalComponent, { size: 'lg', centered: true });
-  // You can pass data to the modal if needed using modalRef.componentInstance
-  this.data = [websiteImage, WebsiteName, Name, couponCode, urlpath]
-  modalRef.componentInstance.data = this.data
-  setTimeout(() => {
-    window.open(urlpath, '_blank');
-  }, 2000);
-}
+  openDealModal(websiteImage: any, WebsiteName: string, Name: string, couponCode: string, urlpath: string) {
+    const modalRef = this.modalService.open(DealModalComponent, { size: 'lg', centered: true });
+    // You can pass data to the modal if needed using modalRef.componentInstance
+    this.data = [websiteImage, WebsiteName, Name, couponCode, urlpath]
+    modalRef.componentInstance.data = this.data
+    setTimeout(() => {
+      window.open(urlpath, '_blank');
+    }, 2000);
+  }
+
+  // for show and hide details
+  toggleBody(post: any): void {
+    post.showBody = !post.showBody;
+  }
+
+  // for handling description
+  getDescriptionItems(description: string): string[] {
+    return description.split('||');
+  }
+
 }
