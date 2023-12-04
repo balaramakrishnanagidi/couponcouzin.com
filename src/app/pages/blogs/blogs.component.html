@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="leftcolumn">
+            <div *ngFor="let post of blogData" class="card">
+                <h2>{{ post.title }}</h2>
+                <h6>{{ post.createdAt | date: 'medium' }}</h6>
+                <div class="image">
+                    <img [src]="profile
+                        ? 'http://192.168.0.158:2022/blogs/' + post.image[0]
+                        : '/img/avatars/3.png'" alt="image" />
+                </div>
+                <div class="subAndContent">
+                    <div class="content">
+                        <h4>{{ post.contents[0].subheading }}</h4>
+                        <p>{{ post.contents[0].content }}</p>
+                    </div>
+                </div>
+                <a routerLink="/blog details" type="button" class="btn btn-primary" (click)="blogId(post._id)">read more</a>
+            </div>
+        </div>
+        <div class="rightcolumn">
+            <div class="card">
+                <h2>About Me</h2>
+                <div class="fakeimg" style="height:100px;">Image</div>
+                <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+            </div>
+            <div class="card">
+                <h3>Popular Post</h3>
+                <div class="fakeimg">Image</div><br>
+                <div class="fakeimg">Image</div><br>
+                <div class="fakeimg">Image</div>
+            </div>
+            <div class="card">
+                <h3>Follow Me</h3>
+                <p>Some text..</p>
+            </div>
+        </div>
+    </div>
+
+
+</div>

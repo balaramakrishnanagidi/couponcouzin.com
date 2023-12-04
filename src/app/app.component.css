@@ -5,17 +5,16 @@
     width: 100%;
 }
 
-/*footer*/
-
 .footer {
     background-color: #ffd9b3;
     color: #333;
     padding: 10px 0;
+    margin-top: 15px;
 }
 
 .footer-contain {
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 100%;
+    margin: 0;
     display: flex;
     justify-content: space-evenly;
     align-items: center;

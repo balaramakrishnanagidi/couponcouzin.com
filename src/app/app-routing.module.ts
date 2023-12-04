@@ -11,6 +11,8 @@ import { PrivacyComponent } from './pages/privacy/privacy.component';
 import { TermsComponent } from './pages/terms/terms.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { DisplayCouponsComponent } from './pages/display-coupons/display-coupons.component';
+import { BlogsComponent } from './pages/blogs/blogs.component';
+import { BlogDetailedComponent } from './pages/blog-detailed/blog-detailed.component';
 
 const routes: Routes = [
   {path:'home', component: HomeComponent},
@@ -19,11 +21,13 @@ const routes: Routes = [
   {path:'coupons', component: DisplayCouponsComponent},
   {path:'search-results', component: SearchComponent},
   {path:'contact us', component: ContactComponent},
+  {path:'blogs', component: BlogsComponent},
   {path:'security tips', component: SecurityComponent},
   {path:'privacy policy', component: PrivacyComponent},
   {path:'terms and conditions', component: TermsComponent},
   {path:'about us', component: AboutUsComponent},
   {path:'Freaquently Asked Questions', component: FaqsComponent},
+  {path:'blog details/:id', component: BlogDetailedComponent},
   {path:'', component: HomeComponent},
   {path:'**', component: HomeComponent}
 ];
