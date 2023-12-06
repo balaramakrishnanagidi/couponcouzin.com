@@ -1,14 +1,13 @@
 
 * {
-    top: 2%;
     box-sizing: border-box;
   }
 
   .container-fluid {
     font-family: Arial;
     padding: 20px;
-    background: #f1f1f1;
-    margin-bottom: 200px;
+    background: #ffffff;
+    margin-bottom: 100px;
   }
   
   .leftcolumn {
@@ -59,6 +58,7 @@
 
   a {
     text-decoration: none;
+    cursor: pointer;
   } 
   .card a.btn {
     display: inline-block;
@@ -68,6 +68,49 @@
 
 .card a.btn.btn-primary {
     text-decoration: none;
+}
+
+.card.rclm{
+  background-color: #f1f1f1;
+}
+
+.recent a {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.recent a::after {
+  content: '\2192';
+  font-weight: bold;
+  font-size: large;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.notFound {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+}
+
+.social-icons {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pagination {
+  display: grid;
+  place-content: center;
 }
 
 @media screen and (max-width: 800px) {

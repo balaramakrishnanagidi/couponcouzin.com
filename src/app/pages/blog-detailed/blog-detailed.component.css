@@ -1,18 +1,65 @@
 * {
-  top: 2%;
   box-sizing: border-box;
 }
 
 .container-fluid {
   font-family: Arial;
   padding: 20px;
-  background: #f1f1f1;
+  background: #ffffff;
+}
+
+.row {
+  display: flex;
+  align-items: flex-start;
 }
 
 .leftcolumn {
   float: left;
   width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 25px;
 }
+
+.content p {
+  text-align: justify;
+}
+
+.commentSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 100%;
+}
+.comments {
+  width: 100%;
+}
+.spacer {
+  width: 100%;
+  margin-top: 10px;
+}
+.nameAndImage{
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+}
+.nameAndImage img{
+  max-width: 30px;
+  max-height: 30px;
+  margin-right: 10px;
+}
+
+#mimic {
+  background-color: #f2f2f2; 
+  text-align: justify;
+  color: #666; 
+  border: 1px solid #ccc; 
+  padding: 8px; 
+  margin: 0;
+  max-width: 100%;
+}
+
 
 .form-wrapper {
   max-width: 100%;
@@ -61,6 +108,11 @@ input {
   padding-left: 20px;
 }
 
+#searchLabel {
+  color: #666;
+  font-weight: bolder;
+}
+
 .image {
   background-color: #aaa;
   height: 350px;
@@ -78,9 +130,41 @@ input {
 .card {
   background-color: white;
   padding: 20px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
+.card.rclm{
+  background-color: #f1f1f1;
+}
+
+.card h2 {
+  margin-bottom: 15px;
+}
+.recent a {
+  overflow: hidden;
+  color: #0D83FA;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  margin-bottom: 15px;
+  position: relative;
+  cursor: pointer;
+}
+
+.recent a::after {
+  content: '\2192';
+  font-weight: bold;
+  font-size: large;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.recent a:hover {
+  color: #0A58D1;
+}
 .subAndContent {
   margin-top: 20px;
 }
@@ -89,7 +173,24 @@ input {
   margin-bottom: 10px;
 }
 
+.notFound {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+}
 
+.social-icons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pagination {
+  display: grid;
+  place-content: center;
+}
 
 @media screen and (max-width: 800px) {
 

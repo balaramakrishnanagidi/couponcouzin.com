@@ -14,7 +14,7 @@ import { CarouselComponent } from './shared/comp/carousel/carousel.component';
 import { TopCarouselComponent } from './shared/comp/top-carousel/top-carousel.component';
 import { TopdealsComponent } from './pages/topdeals/topdeals.component';
 import { FirstLetterUpperCasePipe } from './shared/pipes/first-letter-upper-case.pipe';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { AllDealsComponent } from './pages/all-deals/all-deals.component';
 import { LoadingSpinnerComponent } from './shared/comp/loading-spinner/loading-spinner.component';
 import { CouponDetailsComponent } from './pages/coupon-details/coupon-details.component';
@@ -24,7 +24,6 @@ import { SearchComponent } from './pages/search/search.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ContactComponent } from './pages/contact/contact.component';
 import { FaqsComponent } from './pages/faqs/faqs.component';
 import { SecurityComponent } from './pages/security/security.component';
@@ -35,7 +34,8 @@ import { TopStoresComponent } from './pages/top-stores/top-stores.component';
 import { DisplayCouponsComponent } from './pages/display-coupons/display-coupons.component';
 import { BlogsComponent } from './pages/blogs/blogs.component';
 import { BlogDetailedComponent } from './pages/blog-detailed/blog-detailed.component';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -63,7 +63,6 @@ import { BlogDetailedComponent } from './pages/blog-detailed/blog-detailed.compo
     DisplayCouponsComponent,
     BlogsComponent,
     BlogDetailedComponent,
-    
   ],
   imports: [
     BrowserModule,
@@ -73,13 +72,12 @@ import { BlogDetailedComponent } from './pages/blog-detailed/blog-detailed.compo
     HttpClientModule,
     TabsModule,
     FormsModule,
-    ReactiveFormsModule,
     ToastrModule.forRoot(),
     CarouselModule,
     TooltipModule.forRoot(),
     FlexLayoutModule,
     FontAwesomeModule,
-
+    NgxPaginationModule
   ],
   providers: [TabsetConfig],
   bootstrap: [AppComponent]

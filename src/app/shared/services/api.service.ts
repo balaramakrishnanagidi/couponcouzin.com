@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -11,8 +11,8 @@ export class ApiService {
 
   // baseUrl = 'https://192.168.0.128:2023';
   // private baseUrl = 'https://16.171.244.75:2023';
-  // baseUrl = 'https://couponcouzin.com:2023';
-  private baseUrl = 'http://192.168.0.158:2022';
+  baseUrl = 'https://couponcouzin.com:2023';
+  // private baseUrl = 'https://192.168.0.158:2023';
 
 
   //get
@@ -46,6 +46,13 @@ export class ApiService {
   fetch_blog_by_id(id: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/blog_by_id/${id}`);
   }
+  fetch_comments(blogId: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/get_comments/${blogId}`)
+  }
+  search_blog(searchText: string): Observable<any> {
+    const params = new HttpParams().set('title', searchText);
+    return this.http.get(`${this.baseUrl}/search`, { params });
+  }
 
   //post
   search(text: string): Observable<any> {
@@ -67,8 +74,8 @@ export class ApiService {
     const data = { company: website };
     return this.http.post(`${this.baseUrl}/couponbywebsite`, data);
   }
-  commentOnBlog(){
-    
+  post_comment_on_blog(commentData: any): Observable<any> {  
+    return this.http.post(`${this.baseUrl}/post_comment`, commentData)
   }
  
 }

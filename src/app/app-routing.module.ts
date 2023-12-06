@@ -28,6 +28,7 @@ const routes: Routes = [
   {path:'about us', component: AboutUsComponent},
   {path:'Freaquently Asked Questions', component: FaqsComponent},
   {path:'blog details/:id', component: BlogDetailedComponent},
+  { path: 'search', component: BlogDetailedComponent },
   {path:'', component: HomeComponent},
   {path:'**', component: HomeComponent}
 ];

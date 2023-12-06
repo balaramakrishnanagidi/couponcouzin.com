@@ -23,7 +23,7 @@
             "assets": [
               "src/favicon.png",
               "src/assets",
-              "src/google92b8bdb075d3bd4d.html"
+              "src/googled30c9be595bae1cf.html"
             ],
             "styles": [
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
@@ -33,8 +33,7 @@
               "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css",
               "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/ngx-toastr/toastr.css",
-              "node_modules/font-awesome/css/font-awesome.min.css"
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
@@ -99,7 +98,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/google92b8bdb075d3bd4d.html"
+              "src/googled30c9be595bae1cf.html"
             ],
             "styles": [
               "src/styles.css",
@@ -107,8 +106,7 @@
               "node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css",
               "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css",
-              "node_modules/ngx-toastr/toastr.css",
-              "node_modules/font-awesome/css/font-awesome.min.css"
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",

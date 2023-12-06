@@ -2,7 +2,7 @@
         <!-- coupons -->
     <div id="coupons" *ngIf="displayedCouponCards.length > 0">
         <div style="border-bottom: 5px solid seagreen;">
-            <h5> Search Results For: '{{searchedText}}' (coupons) </h5>
+            <h3> Search Results For: '{{searchedText}}' (coupons) </h3>
         </div>
         <div class="row top-border">
             <ng-container>
@@ -12,8 +12,7 @@
                         <a href="{{Coupon.urlpath}}" target="_blank">
                             <img [style.width.%]="90" [height]="110" [src]="profile
                                      ? 'https://couponcouzin.com/backend/couponcouzin/app/src/website/' + Coupon.websiteImage
-                                     : '/assets/null_product.png'" alt="image" (error)="onImageErrorP($event)"
-                                class="size-50 rounded-22 object-cover" />
+                                     : '/assets/null_product.png'" alt="image" (error)="onImageErrorP($event)"/>
                         </a>
                         <div class="name-section">
                             <p class="coupon-title" style="font-weight: bold; font-size: normal;">
@@ -51,8 +50,7 @@
                             <div class="image-container">
                                 <img  [src]="profile
                                      ? 'https://couponcouzin.com/backend/couponcouzin/app/src/posts/' + card.postimage
-                                     : '/assets/null_product.png'" alt="image" (error)="onImageErrorP($event)"
-                                class="size-50 rounded-22 object-cover" />
+                                     : '/assets/null_product.png'" alt="image" (error)="onImageErrorP($event)"/>
                                 </div>
                         </a>
                     </div>
