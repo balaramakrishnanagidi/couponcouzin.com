@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { Router } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { Meta } from '@angular/platform-browser';
 
 
 
@@ -20,10 +21,14 @@ export class CarouselComponent implements OnInit {
 
 
   constructor(private api: ApiService,
-    private router: Router) {
+    private router: Router,
+    private meta: Meta) {
   }
 
   ngOnInit(): void {
+    this.meta.addTag({ name: 'description', content: 'cards for deals more than 50% discount couponcouzin.com' });
+    this.meta.addTag({ name:"keywords", content:"couponcouzin, couponcouzin.com, loot deals, best deals, coupon codes, travel, electronics" });
+
     this.cardCrousel();
     setTimeout(() => {
       this.showH3Element = true;
@@ -48,19 +53,19 @@ export class CarouselComponent implements OnInit {
         items: 1
       },
       250: {
-        items: 2
+        items: 1
       },
       400: {
-        items: 3
+        items: 2
       },
       740: {
-        items: 4
+        items: 3
       },
       940: {
-        items: 5
+        items: 4
       },
       1225: {
-        items: 6
+        items: 5
       }
     },
     nav: true

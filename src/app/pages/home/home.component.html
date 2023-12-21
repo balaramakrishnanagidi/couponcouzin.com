@@ -1,4 +1,4 @@
-<div class="home" style="padding-top: 130px;">
+<div class="home">
     <div *ngIf="loadingData; else dataLoaded">
         <app-loading-spinner></app-loading-spinner>
         <div class="spinner"></div>
@@ -18,6 +18,10 @@
 
         <div class="topdeals">
             <app-topdeals></app-topdeals>
+            <h1></h1>
+        </div>
+        <div class="BankOffers">
+            <app-bank-wallet-offers></app-bank-wallet-offers>
         </div>
         <div class="top">
             <a type="button" class="btn" href="#jumpToTopDeals">

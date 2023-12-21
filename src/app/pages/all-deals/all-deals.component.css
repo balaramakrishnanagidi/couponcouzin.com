@@ -1,84 +1,120 @@
 .custom-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 5 cards in a row */
+  grid-template-columns: repeat(5, 1fr);
+  /* 5 cards in a row */
   gap: 10px;
 }
-.heading{
-    border-bottom: 5px solid #ff8000;
-    width: 100%;
+
+.heading {
+  border-bottom: 5px solid #ff8000;
+  width: 100%;
 }
 
-.coupon-image-container{
+.coupon-image-container {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.urlpath{
-    text-decoration: none;
-    color: rgb(61, 61, 61);
-  }
-  .urlpath:hover{
-    color: black;
-  }
-  .card {
-    display: inline-flex;
-    justify-content: space-between;
-    margin-top: 10px !important;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    margin-bottom: 10px;
-   }
-   .card-body{
-    background-color: white;
-    text-align: center;
-    position: relative;
-  }
-  /* .price-badge {
-    background-color: rgb(255, 0, 170);
-    color: #fff; 
-    padding: 4px 8px; 
-    border-radius: 0 18px 18px 0 ; 
-    font-weight: bold; 
-    position: absolute;
-    top: 10px;
-    left: 0; 
-    z-index: 1; 
-  } */
 
-  .price-section{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    font-family: 'Trebuchet MS';
-  }
-  .discount{
-    color: #ff3300;
-  }
+.coupon-image-container img {
+  object-fit: contain;
+  margin: 5px 0 10px 0;
+}
 
-  .image-container {
-    max-width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-  }
-  
-  .image-container img {
-    max-width: 100%;
-    height: auto;
-    max-height: 120px;
-    object-fit: contain;
-  }
+.urlpath {
+  text-decoration: none;
+  color: rgb(61, 61, 61);
+}
+
+.urlpath:hover {
+  color: black;
+}
+
+.get-deal-btn {
+  background-color: #cd3232;
+  cursor: pointer;
+  width: 100%;
+  height: 44px;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 44px;
+  letter-spacing: -0.3px;
+  text-align: center;
+  color: #fff;
+  border: none;
+  padding: 0px;
+}
+
+.coupon-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 
-  .card:hover {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transform: scale(1.05);
-  }
 
-  /* For coupon titles */
+.card {
+  display: inline-flex;
+  justify-content: space-between;
+  margin-top: 10px !important;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-bottom: 10px;
+}
+
+.card-body {
+  background-color: white;
+  text-align: center;
+  position: relative;
+}
+
+.coupon-description {
+  font-family: 'Trebuchet MS';
+}
+
+.price-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-family: 'Trebuchet MS';
+}
+
+.discount {
+  color: #ff3300;
+}
+
+.image-container {
+  max-width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  max-height: 120px;
+  object-fit: contain;
+}
+
+
+.card:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+.content-wrapper{
+  padding: 2px 0 0 7px;
+}
+
+/* For coupon titles */
 .coupon-title {
   font-weight: bold;
-  font-size: normal;
+  font-size: 13px;
+  font-family: Verdana;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -86,10 +122,16 @@
   text-overflow: ellipsis;
   width: 90%;
 }
+
 .coupon-title2 {
+  font-size: 12px;
+  color: green;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font-family: 'Trebuchet MS';
   font-weight: bold;
-  font-size: normal;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   overflow: hidden;
   text-overflow: ellipsis;
   width: 90%;
@@ -101,47 +143,49 @@
   font-size: normal;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 3; /* Limit to three lines */
+  -webkit-line-clamp: 3;
+  /* Limit to three lines */
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
   width: 90%;
 }
 
-.brand-logo img{
+.brand-logo img {
   object-fit: contain;
 }
- 
-  .shopNow{
-    height: fit-content;
-    font-weight: bold;
-    background-color: #ff8c1a ;
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-  }
 
-  .shopNow a{
-    margin: 0 3px;
-    color: white;
-    text-decoration: none;
-  }
+.shopNow {
+  height: fit-content;
+  font-weight: bold;
+  background-color: #ff8c1a;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
 
-  .shopNow:hover{
-    background-color: green;
-  }
+.shopNow a {
+  margin: 0 3px;
+  color: white;
+  text-decoration: none;
+}
 
-  .button2{
-    margin: 35px;
-    width: fit-content;
-    background-color: #fff;
-    color: #b35900;
-    border: 1px solid #b35900;
-    font-family: 'Verdana';
-  }
-  .button2:hover {
-    box-shadow: rgba(240, 172, 46, 0.3) 5px 5px, rgba(240, 179, 46, 0.2) 10px 10px, rgba(240, 179, 46, 0.1) 15px 15px, rgba(240, 162, 46, 0.05) 20px 20px;
-  }
+.shopNow:hover {
+  background-color: green;
+}
 
-  h3{
-    font-family: 'Georgia';
-  }
+.button2 {
+  margin: 35px;
+  width: fit-content;
+  background-color: #fff;
+  color: #b35900;
+  border: 1px solid #b35900;
+  font-family: 'Verdana';
+}
+
+.button2:hover {
+  box-shadow: rgba(240, 172, 46, 0.3) 5px 5px, rgba(240, 179, 46, 0.2) 10px 10px, rgba(240, 179, 46, 0.1) 15px 15px, rgba(240, 162, 46, 0.05) 20px 20px;
+}
+
+h3 {
+  font-family: 'Georgia';
+}

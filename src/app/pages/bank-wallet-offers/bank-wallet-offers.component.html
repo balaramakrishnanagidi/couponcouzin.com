@@ -1,0 +1,34 @@
+<div class="stores" *ngIf="storeChunks.length > 0">
+        <p style="font-family: 'Georgia';">Looking For More Offers?</p>
+   <div id="bankWallet">
+     <!-- bank offers -->
+     <div class="bank">
+        <h5>BANK OFFERS</h5>
+        <div class="custom-grid" *ngFor="let chunk of storeChunks">
+            <div *ngFor="let store of chunk" (click)="couponCompanyName(store.Name)">
+                <div class="secondCard">
+                    <div class="secondCard-body">
+                        <img [src]="profile ? 'https://couponcouzin.com/backend/couponcouzin/app/src/website/' + store.image : '/assets/null_product.png'"
+                            alt="image"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- wallet offers -->
+    <div class="wallet" *ngIf="walletChunks.length > 0">
+        <h5>WALLET OFFERS</h5>
+        <div class="custom-grid" *ngFor="let chunk of walletChunks">
+            <div *ngFor="let store of chunk" (click)="couponCompanyName(store.Name)">
+                <div class="secondCard">
+                    <div class="secondCard-body">
+                        <img [src]="profile ? 'https://couponcouzin.com/backend/couponcouzin/app/src/website/' + store.image : '/assets/null_product.png'"
+                            alt="image"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   </div>
+</div>

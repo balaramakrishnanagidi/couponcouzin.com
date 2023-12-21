@@ -11,12 +11,12 @@
     </div>
     <div class="cards">
       <div class="row">
-        <div class="card" *ngFor="let w of websites">
+        <div class="card brand-card" *ngFor="let w of websites">
           <div class="card-body">
             <a (click)="couponbywebsite(w.Name)">
               <img [width]="60" [height]="40"
                 [src]="profile ? 'https://couponcouzin.com/backend/couponcouzin/app/src/website/' + w.image : '/assets/null_product.png'"
-                alt="image" (error)="onImageErrorP($event)"/>
+                alt="image" (error)="onImageErrorP($event)" />
             </a>
             <a class="links" (click)="couponbywebsite(w.Name)">
               <span style="font-size: 12px; font-family: 'Trebuchet MS';" class="text-secondary">
@@ -29,28 +29,38 @@
     </div>
     <!-- posts -->
     <div class="container-fluid2">
-      <div class="card-wrapper">
-        <div class="card carddata" *ngFor="let p of posts; let i = index ">
-          <div class="card-content">
+      <div class="card card-data" *ngFor="let p of posts; let i = index">
+        <div class="header">
+          <div class="main-data">
             <div class="image">
-              <img [style.width.%]="70" [style.height.%]="40"
+              <img [style.width.%]="90" [style.height.%]="100"
                 [src]="profile ? 'https://couponcouzin.com/backend/couponcouzin/app/src/website/' + p.websiteImage : '/assets/null_product.png'"
                 alt="image" style="cursor: pointer;"
                 (click)="openDealModal(p.websiteImage, p.websiteName, p.Name, p.couponcode, p.urlpath)"
-                (error)="onImageErrorP($event)"/>
+                (error)="onImageErrorP($event)" />
             </div>
             <div class="details">
-              <span style="font-size: 25px; font-weight: bold; font-family: 'Verdana';" type="button" class="ellipsis"
+              <span style="font-size: 30px; font-weight: bold; font-family: 'Verdana';" type="button" class="ellipsis"
                 (click)="openDealModal(p.websiteImage, p.websiteName, p.Name, p.couponcode, p.urlpath)">{{ p.Name
                 }}</span>
-              <p style="font-size: 14px; font-family: 'Trebuchet MS';" class="text-secondary ellipsis">{{ p.description }}</p>
+              <p style="font-size: 18px;" class="text-secondary ellipsis"> {{ getDescriptionItems(p.description)[0].trim() }} </p>
             </div>
             <div class="button">
-              <button class="btn btn-danger"
+              <button class="btn"
                 (click)="openDealModal(p.websiteImage, p.websiteName, p.Name, p.couponcode, p.urlpath)">Get
                 Deal</button>
             </div>
           </div>
+        </div>
+
+        <div class="body body-toggle" (click)="toggleBody(p)">
+          <span>{{ p.showBody ? 'Hide Details' : 'Show Details' }} </span>
+          <span class="arrow" [class.arrow-down]="p.showBody" [class.arrow-up]="!p.showBody"></span>
+        </div>
+        <div class="body" [ngClass]="{'hidden': !p.showBody}">
+            <ul>
+              <li *ngFor="let desc of getDescriptionItems(p.description)"> <p> {{desc.trim()}} </p> </li>
+            </ul>
         </div>
       </div>
     </div>

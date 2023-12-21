@@ -1,0 +1,86 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="leftcolumn">
+            <div *ngFor="let post of paginatedBlogData | 
+            paginate: { 
+                itemsPerPage: pageSize, 
+                currentPage: page,
+                totalItems: blogData.length 
+                }
+                " class="card">
+                <a (click)="blogId(post._id)">
+                    <div class="image">
+                        <img [src]="profile
+                            ? 'https://couponcouzin.com/backend/couponcouzin/app/src/blogs/' + post.image[0]
+                            : '/img/avatars/3.png'" alt="image" />
+                    </div>
+                </a>
+                <p style="margin-top: 10px;">{{ post.createdAt | date: 'medium' }}</p>
+                <a (click)="blogId(post._id)">
+                    <u>
+                        <h2>{{ post.title }}</h2>
+                    </u>
+                </a>
+                <div class="subAndContent">
+                    <div class="content">
+                        <h4>{{ post.contents[0].subheading }}</h4>
+                        <p>{{ post.contents[0].content }}</p>
+                    </div>
+                </div>
+                <a routerLink="/blog details" type="button" class="btn btn-primary" (click)="blogId(post._id)">read
+                    more</a>
+            </div>
+
+        </div>
+
+        <!-- Left column for no blogs found -->
+
+        <div class="leftcolumn" *ngIf="blogData.length < 1">
+            <div class="card">
+                <div class="notFound">
+                    <img src="assets/no-data.gif" alt="My GIF">
+                    <p>Sorry, but nothing matched your search terms. Please try again with some different keywords.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="rightcolumn">
+            <div class="card rclm">
+                <div class="search">
+                    <label for="search" id="searchLabel">Search</label>
+                    <div class="form-group" style="display: flex; flex-direction: row; gap: 5px;">
+                        <input type="text" [(ngModel)]="searchInput" (keyup.enter)="search()">
+                        <button type="button" class="btn btn-secondary" (click)="search()"
+                            [disabled]="isSearchInputEmpty()"> search </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card rclm">
+                <h2>Recent Posts</h2>
+                <div *ngFor="let r of recentPosts" class="recent">
+                    <u><a routerLink="/blog details" (click)="blogId(r._id)"> {{ r.title }} </a></u>
+                </div>
+            </div>
+            <div class="card rclm">
+                <h3>Follow Me</h3>
+                <br>
+                <div class="social-icons">
+                    <fa-icon class="icon" [icon]="faYoutube" style="color: #FF0000; cursor: pointer;"
+                        size="2x"></fa-icon>
+                    <fa-icon class="icon" [icon]="faInsta" style="color: #E4405F; cursor: pointer;" size="2x"></fa-icon>
+                    <fa-icon class="icon" [icon]="faFacebook" style="color: #1877F2; cursor: pointer;"
+                        size="2x"></fa-icon>
+                    <fa-icon class="icon" [icon]="faTwitter" style="color: #08141b; cursor: pointer;"
+                        size="2x"></fa-icon>
+                    <fa-icon class="icon" [icon]="faTelegram" style="color: #0088cc; cursor: pointer;"
+                        size="2x"></fa-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pagination">
+    <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="pageChanged($event)">
+    </pagination-controls>
+</div>

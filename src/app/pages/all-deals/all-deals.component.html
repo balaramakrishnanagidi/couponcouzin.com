@@ -1,4 +1,4 @@
-<div class="container" style="padding-top: 10%;">
+<div class="container-fluid">
     <div *ngIf="loadingData; else dataLoaded">
         <app-loading-spinner></app-loading-spinner>
         <div class="spinner"></div>
@@ -6,32 +6,40 @@
     <ng-template #dataLoaded>
         <div class="heading">
             <span class="coupons">
-                <h3> Coupons: </h3>
+                <h3> Shop By Stores: </h3>
             </span>
         </div>
         <div class="top-border custom-grid">
             <ng-container *ngIf="displayedCouponCards.length > 0; else noCouponData">
                 <div class="card" *ngFor="let Coupon of displayedCouponCards">
-                    <div class="card-header">
+                    <div class="card-header coupon-header" style="height: 100%;">
+                       <div class="contents">
                         <a href="{{Coupon.urlpath}}" target="_blank">
                             <div class="coupon-image-container">
-                                <img [style.width.%]="100" [height]="70" [src]="profile
+                                <img [style.width.%]="80" [height]="55" [src]="profile
                                      ? 'https://couponcouzin.com/backend/couponcouzin/app/src/website/' + Coupon.website
                                      : '/assets/null_product.png'" alt="image" (error)="onImageErrorP($event)"/>
                             </div>
                         </a>
-                        <div class="name-section">
-                            <p class="coupon-title" style="font-weight: bold; font-size: 13px; font-family: 'Verdana';">
-                                <a class="urlpath" href="{{Coupon.urlpath}}" target="_blank">{{ Coupon.Name }}</a>
-                            </p>
+                        <div class="content-wrapper">
+                            <div class="coupon-name">
+                                <p class="coupon-title">
+                                    <a class="urlpath" href="{{Coupon.urlpath}}" target="_blank">{{ Coupon.Name }}</a>
+                                </p>
+                            </div>
+                            <div class="coupon-description">
+                                <p class="coupon-title2">
+                                    {{ Coupon.description }}
+                                </p>
+                            </div>
                         </div>
-                        <div class="price-section">
-                            <p class="coupon-title2" style="font-weight: bold; font-size: 12px; color: green; font-family: 'Trebuchet MS';">
-                                {{ Coupon.description }}
-                            </p>
-                        </div>
+                       </div>
+                        <a href="{{Coupon.urlpath}}" target="_blank" style="text-decoration: none;" >
+                            <div class="get-deal-btn get-cd-deal" data-id="skF0jHXAis">Get Deal</div>
+                        </a>
                     </div>
                 </div>
+
             </ng-container>
             <ng-template #noCouponData>
                 <div class="col-md-12 text-center" style="margin-top: 50px; font-style: italic; font-family: 'Trebuchet MS';">
@@ -46,7 +54,7 @@
         <br>
         <div class="heading">
             <span class="products">
-                <h3> Products: </h3>
+                <h3>Shop By Products: </h3>
             </span>
         </div>
         <div class="top-border custom-grid">

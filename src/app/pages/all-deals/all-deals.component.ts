@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 import { ApiService } from 'src/app/shared/services/api.service';
 
 
@@ -21,9 +22,12 @@ export class AllDealsComponent implements OnInit {
   showMoreflag = false;
   cardsPerPage = 10;
 
-  constructor( private api: ApiService){}
+  constructor( private api: ApiService, private meta: Meta){}
 
   ngOnInit(): void {
+    this.meta.addTag({ name: 'description', content: 'All deals in couponcouzin.com' });
+    this.meta.addTag({ name:"keywords", content:"couponcouzin, couponcouzin.com, loot deals, best deals, coupon codes, travel, electronics" });
+
     this.allProducts();
     this.allCoupons();
   }
@@ -94,10 +98,10 @@ export class AllDealsComponent implements OnInit {
 
   //error image handling
   onImageErrorP(event: any) {
-    event.target.src = '/assets/image_not_found.png';
+    event.target.src = '/assets/no-image.jpg';
   }
   onImageErrorW(event: any) {
-    event.target.src = '/assets/error-loading-image.png';
+    event.target.src = '/assets/no-image.jpg';
   }
 
 

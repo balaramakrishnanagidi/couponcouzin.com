@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ApiService } from 'src/app/shared/services/api.service';
 import { DealModalComponent } from 'src/app/shared/comp/deal-modal/deal-modal.component';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-display-coupons',
@@ -24,20 +25,26 @@ export class DisplayCouponsComponent implements OnInit {
   constructor(
     private api: ApiService,
     private route: ActivatedRoute,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private meta: Meta
   ) {}
 
   ngOnInit(): void {
+    this.meta.addTag({ name:"keywords", content:"couponcouzin, couponcouzin.com, loot deals, best deals, coupon codes, travel, electronics" });
+    this.meta.addTag({ name: 'description', content: 'This page displays coupons.' });
+
     this.route.queryParams.subscribe((params) => {
       this.category = params['name'];
       this.couponbywebsite(this.category);
+      
     });
   }
 
   // For loading cards if there is a selected company
-  couponbywebsite(company: string) {
+  couponbywebsite(company: string) {    
     this.api.couponbywebsite(company).subscribe((data) => {
       this.posts = data.posts;
+      this.posts = this.posts.reverse();
       this.calculatePages();
       this.changePage(1);
     }, (error) => {
@@ -109,5 +116,13 @@ export class DisplayCouponsComponent implements OnInit {
     setTimeout(() => {
       window.open(urlpath, '_blank');
     }, 2000);
+  }
+  
+  toggleBody(post: any): void {
+    post.showBody = !post.showBody;
+  }
+
+  getDescriptionItems(description: string): string[] {
+    return description.split('||');
   }
 }

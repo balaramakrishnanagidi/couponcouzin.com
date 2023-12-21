@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { CarouselConfig } from 'ngx-bootstrap/carousel';
 import { ApiService } from '../../services/api.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-top-carousel',
   templateUrl: './top-carousel.component.html',
   providers: [
     { provide: CarouselConfig, useValue: { interval: 1500, noPause: false, showIndicators: true } }
- ],
+  ],
   styleUrls: ['./top-carousel.component.css']
 })
 export class TopCarouselComponent implements OnInit {
@@ -18,17 +19,21 @@ export class TopCarouselComponent implements OnInit {
   slides: any[] = [];
   profile = true;
 
-  constructor(private api: ApiService){}
+  constructor(private api: ApiService, private meta: Meta) { }
 
   ngOnInit(): void {
+
+    this.meta.addTag({ name: 'description', content: 'Banners of couponcouzin.com' });
+    this.meta.addTag({ name: "keywords", content: "couponcouzin, couponcouzin.com, loot deals, best deals, coupon codes, travel, electronics" });
+
     this.fetchPosters();
-  } 
+  }
 
   //owl carousel
   customOptions: OwlOptions = {
     loop: true,
     autoplay: true,
-    autoplayTimeout:3000,
+    autoplayTimeout: 5000,
     mouseDrag: true,
     touchDrag: true,
     pullDrag: true,
@@ -53,17 +58,17 @@ export class TopCarouselComponent implements OnInit {
     },
     nav: true
   }
-//
+  //
 
-  fetchPosters(){
-    this.api.getAllPosters().subscribe( data => {
+  fetchPosters() {
+    this.api.getAllPosters().subscribe(data => {
       if (data.Status && data.banner) {
         this.slides = data.banner;
       }
-    },error => {
+    }, error => {
       console.log(error);
     });
   }
 
-  
+
 }

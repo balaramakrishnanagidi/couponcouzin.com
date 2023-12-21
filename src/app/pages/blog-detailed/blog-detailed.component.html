@@ -1,0 +1,151 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="leftcolumn" *ngIf="!isSearched">
+      <div *ngFor="let post of blogData" class="card">
+        <h2>{{ post.title }}</h2>
+        <h6>{{ post.createdAt | date: 'MMMM d, y' }}</h6>
+        <div class="image">
+          <a href="{{post.itemUrl}}" target="_blank">
+            <img
+              [src]="profile ? 'https://couponcouzin.com/backend/couponcouzin/app/src/blogs/' + post.image[0] : '/img/avatars/3.png'"
+              alt="image" />
+          </a>
+        </div>
+        <div class="subAndContent">
+          <div *ngFor="let content of post.contents" class="content">
+            <h4>{{ content.subheading }}</h4>
+            <p>{{ content.content }}</p>
+          </div>
+        </div>
+        <div class="subAndContent">
+          <div class="buyNow" style="display: flex; flex-direction: column;">
+            <a href="{{post.itemUrl}}" target="_blank">
+              <img style="width: 30%; height: 20%;"
+                [src]="profile ? 'https://couponcouzin.com/backend/couponcouzin/app/src/blogs/' + post.image[0] : '/img/avatars/3.png'"
+                alt="image" /></a>
+            <div class="link" style="display: flex; flex-direction: row;">
+              <span>Click here: &nbsp;</span>
+              <a href="{{post.itemUrl}}" target="_blank"> {{ post.itemUrl }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="commentSection">
+
+        <div class="comments" *ngIf="comments.length > 0">
+          <h3>Comments</h3>
+          <div class="card" *ngFor="let c of comments">
+            <div class="card-body">
+              <div class="nameAndImage">
+                <img src="../../../assets/no-avatar-300x300.png">
+                <p>{{c.name}} commented as: </p>
+              </div>
+              <div class="text">
+                <p id="mimic">{{ c.text }}</p>
+              </div>
+              <p style="font-size: x-small; color: rgb(0, 137, 250);"><u><i>{{ c.createdAt | date: 'medium' }}</i></u>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="spacer" style="height: 10px;"></div>
+
+        <div class="newComment">
+          <div class="form-wrapper">
+            <form (ngSubmit)="submitForm()">
+              <h1>Leave a Comment</h1>
+              <p id="note"> Your email address will not be published anywhere. Required fields are marked * </p>
+
+              <div class="form-group">
+                <label for="text">Comment*</label>
+                <textarea rows="1" [(ngModel)]="myForm.text" name="text" id="text" maxlength="500"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="name">Name*</label>
+                <input type="text" [(ngModel)]="myForm.name" name="name" id="name" maxlength="15">
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email*</label>
+                <input type="text" [(ngModel)]="myForm.email" name="email" id="email" maxlength="30">
+              </div>
+
+              <div class="form-group">
+                <label for="website">Website</label>
+                <input type="text" [(ngModel)]="myForm.website" name="website" id="website" maxlength="30">
+              </div>
+
+              <button type="submit" class="submit btn btn-secondary" [disabled]="isSubmitDisabled()">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Left column after search -->
+
+    <div class="leftcolumn" *ngIf="isSearched">
+      <h1 *ngIf="isResult">Search Results For: {{displayedSearchText}} </h1>
+      <div *ngFor="let post of searchResult" class="card">
+        <h2>{{ post.title }}</h2>
+        <h6>{{ post.createdAt | date: 'MMMM d, y' }}</h6>
+        <div class="image">
+          <img
+            [src]="profile ? 'https://couponcouzin.com/backend/couponcouzin/app/src/blogs/' + post.image[0] : '/img/avatars/3.png'"
+            alt="image" />
+        </div>
+        <div class="subAndContent">
+          <div *ngFor="let content of post.contents" class="content">
+            <h4>{{ content.subheading }}</h4>
+            <p>{{ content.content }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Left column for no search found -->
+
+    <div class="leftcolumn" *ngIf="isSearched && !isResult">
+      <div class="card">
+        <div class="notFound">
+          <img src="assets/no-data.gif" alt="My GIF">
+          <p>Sorry, but nothing matched your search terms. Please try again with some different keywords.</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="rightcolumn">
+      <div class="card rclm">
+        <div class="search">
+          <label for="search" id="searchLabel">Search</label>
+          <div class="form-group" style="display: flex; flex-direction: row; gap: 5px;">
+            <input type="text" [(ngModel)]="searchInput" (keyup.enter)="search()">
+            <button type="button" class="btn btn-secondary" (click)="search()" [disabled]="isSearchInputEmpty()"> search
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card rclm">
+        <h2>Recent Posts</h2>
+        <div *ngFor="let r of recentPosts" class="recent">
+          <u><a (click)="get_blogId(r._id)"> {{ r.title }} </a></u>
+        </div>
+      </div>
+      <div class="card rclm">
+        <h3>Follow Me</h3>
+        <br>
+        <div class="social-icons">
+          <fa-icon class="icon" id="youtube" [icon]="faYoutube" size="2x"></fa-icon>
+          <fa-icon class="icon" id="insta" [icon]="faInsta" size="2x"></fa-icon>
+          <fa-icon class="icon" id="facebook" [icon]="faFacebook" size="2x"></fa-icon>
+          <fa-icon class="icon" id="twitter" [icon]="faTwitter" size="2x"></fa-icon>
+          <fa-icon class="icon" id="telegram" [icon]="faTelegram" size="2x"></fa-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

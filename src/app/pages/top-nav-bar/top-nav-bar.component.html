@@ -18,7 +18,7 @@
         <li >
   
           <div class="list" (mouseenter)="openDropdown()" (mouseleave)="closeDropdown()">
-            <button class="dropdown-btn nav-item flags">COUPONS</button>
+            <button class="dropdown-btn nav-item flags">CATEGORIES</button>
             <ul *ngIf="isDropdownOpen" class="dropdown-list">
               <div class="list-container row" style="display: flex;  height: 250px; width: 900px;">
                 <div class="col-md-4 category" style="display: flex;justify-content: space-between; margin-top: 10px;">
@@ -113,7 +113,9 @@
             </ul>
           </div>
         </li>
-  
+        <li >
+          <a class="nav-item flags" routerLink="/blogs">BLOGS</a>
+        </li>
         <li >
           <a class="nav-item flags" routerLink="contact us" routerLinkActive="active">CONTACT</a>
         </li>
@@ -130,7 +132,7 @@
 
 
   <div class="search-bar">
-    <input type="text" placeholder="Search For Products, Brands and More" [(ngModel)]="searchedText" autocomplete="off" (keyup.enter)="search()" />
+    <input type="text" placeholder="Search for partners or deals" [(ngModel)]="searchedText" autocomplete="off" (keyup.enter)="search()" />
     <button class="btn" (click)="search()">Search</button>
   </div>
 </div>
