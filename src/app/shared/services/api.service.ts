@@ -64,6 +64,8 @@ export class ApiService {
   }
   getCouponsByCategory(category: string): Observable<any> {
     const data = { maincategory: category };
+    // console.log(data);
+    
     return this.http.post(`${this.baseUrl}/couponcompany`, data);
   }
   getCouponsBySubCategory(Subcategory: string): Observable<any> {

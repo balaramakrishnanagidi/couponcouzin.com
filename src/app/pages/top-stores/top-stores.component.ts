@@ -81,7 +81,6 @@ export class TopStoresComponent implements OnInit {
 
   couponCompanyName(Name: string){
     this.router.navigate(['/coupons'], {relativeTo: this.route, queryParams: {name: Name}});
-    
   }
 
 }

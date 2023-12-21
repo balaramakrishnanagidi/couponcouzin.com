@@ -8,13 +8,19 @@
                 totalItems: blogData.length 
                 }
                 " class="card">
-                <div class="image">
-                    <img [src]="profile
-                        ? 'https://couponcouzin.com/backend/couponcouzin/app/src/blogs/' + post.image[0]
-                        : '/img/avatars/3.png'" alt="image" />
-                </div>
+                <a (click)="blogId(post._id)">
+                    <div class="image">
+                        <img [src]="profile
+                            ? 'https://couponcouzin.com/backend/couponcouzin/app/src/blogs/' + post.image[0]
+                            : '/img/avatars/3.png'" alt="image" />
+                    </div>
+                </a>
                 <p style="margin-top: 10px;">{{ post.createdAt | date: 'medium' }}</p>
-                <u><h2>{{ post.title }}</h2></u>
+                <a (click)="blogId(post._id)">
+                    <u>
+                        <h2>{{ post.title }}</h2>
+                    </u>
+                </a>
                 <div class="subAndContent">
                     <div class="content">
                         <h4>{{ post.contents[0].subheading }}</h4>
@@ -29,14 +35,14 @@
 
         <!-- Left column for no blogs found -->
 
-    <div class="leftcolumn" *ngIf="blogData.length < 1">
-        <div class="card">
-          <div class="notFound">
-            <img src="assets/no-data.gif" alt="My GIF">
-            <p>Sorry, but nothing matched your search terms. Please try again with some different keywords.</p> 
-          </div>
+        <div class="leftcolumn" *ngIf="blogData.length < 1">
+            <div class="card">
+                <div class="notFound">
+                    <img src="assets/no-data.gif" alt="My GIF">
+                    <p>Sorry, but nothing matched your search terms. Please try again with some different keywords.</p>
+                </div>
+            </div>
         </div>
-      </div>
 
         <div class="rightcolumn">
             <div class="card rclm">
@@ -75,5 +81,6 @@
 </div>
 
 <div class="pagination">
-    <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="pageChanged($event)"> </pagination-controls>
+    <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="pageChanged($event)">
+    </pagination-controls>
 </div>

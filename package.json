@@ -34,6 +34,7 @@
     "jquery": "^3.7.1",
     "ngx-bootstrap": "^11.0.2",
     "ngx-clipboard": "^16.0.0",
+    "ngx-google-analytics": "^14.0.1",
     "ngx-meta": "^0.0.1",
     "ngx-owl-carousel": "^2.0.7",
     "ngx-owl-carousel-o": "^16.0.0",

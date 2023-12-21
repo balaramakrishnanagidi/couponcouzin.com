@@ -1,0 +1,83 @@
+.stores {
+    width: 100%;
+    height: fit-content;
+    background-color: white;
+    display: block;
+}
+
+p {
+    font-size: 30px;
+    padding-left: 10px;
+}
+
+#bankWallet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+
+.bank, .wallet {
+    width: 50%;
+    height: 100%;
+    padding: 8px 15px 15px;
+    margin: 20px;
+    background-color: rgb(247, 247, 247);
+    display: flex;
+    flex-direction: column;
+}
+
+.bank h5, .wallet h5 {
+    margin: 10px 0;
+    padding-left: 10px;
+    color: #4d4d4d;
+    font-weight: bolder; 
+
+}
+
+.custom-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    padding: 10px;
+    gap: 10px    ;
+    margin: 0;
+}
+
+.secondCard {
+    max-width: 100%;
+    height: 80px;
+    overflow: hidden;
+    background-color: #ffffff;
+    border-radius: 3%;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    cursor: pointer;
+    border: 1px #dfdfdf solid;
+}
+
+.secondCard:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.secondCard-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.secondCard-body img {
+    max-width: 70%;
+    max-height: 70%;
+    height: 80px;
+    object-fit: contain;
+}
+
+a {
+    text-decoration: none;
+    font-family: 'Trebuchet MS';
+    color: #ffffff;
+}

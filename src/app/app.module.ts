@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxGoogleAnalyticsModule, NgxGoogleAnalyticsRouterModule } from 'ngx-google-analytics';
 
 
 import { TabsModule, TabsetConfig } from 'ngx-bootstrap/tabs';
@@ -36,6 +37,7 @@ import { BlogsComponent } from './pages/blogs/blogs.component';
 import { BlogDetailedComponent } from './pages/blog-detailed/blog-detailed.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { BankWalletOffersComponent } from './pages/bank-wallet-offers/bank-wallet-offers.component';
 
 
 
@@ -63,6 +65,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     DisplayCouponsComponent,
     BlogsComponent,
     BlogDetailedComponent,
+    BankWalletOffersComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,7 +80,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     TooltipModule.forRoot(),
     FlexLayoutModule,
     FontAwesomeModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgxGoogleAnalyticsModule.forRoot('MEASUREMENT-ID'),
+    NgxGoogleAnalyticsRouterModule
   ],
   providers: [TabsetConfig],
   bootstrap: [AppComponent]

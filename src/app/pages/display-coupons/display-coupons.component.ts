@@ -36,13 +36,15 @@ export class DisplayCouponsComponent implements OnInit {
     this.route.queryParams.subscribe((params) => {
       this.category = params['name'];
       this.couponbywebsite(this.category);
+      
     });
   }
 
   // For loading cards if there is a selected company
-  couponbywebsite(company: string) {
+  couponbywebsite(company: string) {    
     this.api.couponbywebsite(company).subscribe((data) => {
       this.posts = data.posts;
+      this.posts = this.posts.reverse();
       this.calculatePages();
       this.changePage(1);
     }, (error) => {
@@ -114,5 +116,13 @@ export class DisplayCouponsComponent implements OnInit {
     setTimeout(() => {
       window.open(urlpath, '_blank');
     }, 2000);
+  }
+  
+  toggleBody(post: any): void {
+    post.showBody = !post.showBody;
+  }
+
+  getDescriptionItems(description: string): string[] {
+    return description.split('||');
   }
 }

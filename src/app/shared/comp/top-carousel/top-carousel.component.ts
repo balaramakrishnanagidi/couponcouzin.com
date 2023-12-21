@@ -33,7 +33,7 @@ export class TopCarouselComponent implements OnInit {
   customOptions: OwlOptions = {
     loop: true,
     autoplay: true,
-    autoplayTimeout: 3000,
+    autoplayTimeout: 5000,
     mouseDrag: true,
     touchDrag: true,
     pullDrag: true,

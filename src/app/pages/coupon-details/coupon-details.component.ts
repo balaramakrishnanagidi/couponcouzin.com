@@ -36,11 +36,12 @@ export class CouponDetailsComponent implements OnInit {
     // Retrieve the category value from the URL
     this.route.params.subscribe((params) => {
       this.category = params['category'];
+
       if (this.category === 'food' || this.category === 'fashion' ||
         this.category === 'travel' || this.category === 'tv' ||
         this.category === 'mobiles' || this.category === 'beauty' ||
         this.category === 'computer' || this.category === 'recharge' ||
-        this.category === 'appliences' || this.category === 'entertainment' ||
+        this.category === 'appliances' || this.category === 'entertainment' ||
         this.category === 'camera' || this.category === 'kids') {
         // Use the category to fetch data from the API and populate your table
         this.api.getCouponsByCategory(this.category).subscribe(
@@ -49,8 +50,6 @@ export class CouponDetailsComponent implements OnInit {
               this.posts = data.posts;
               this.websites = data.websites
               this.maincategory = data.posts[0].maincategory;
-              // console.log('coupons from posts',this.posts);
-              // console.log('coupons from websites',this.websites);
             } else {
               console.error('Invalid response from the API.');
             }
@@ -61,14 +60,13 @@ export class CouponDetailsComponent implements OnInit {
         );
       } else {
         // Use the Subcategory to fetch data from the API and populate your table
+       
         this.api.getCouponsBySubCategory(this.category).subscribe(
           (data: any) => {
             if (data) {
               this.posts = data.posts;
               this.websites = data.websites
               this.maincategory = data.posts[0].maincategory;
-              // console.log('coupons from posts',this.posts);
-              // console.log('coupons from websites',this.websites);
             } else {
               console.error('Invalid response from the API.');
             }
@@ -97,10 +95,10 @@ export class CouponDetailsComponent implements OnInit {
 
   //error image handling
   onImageErrorP(event: any) {
-    event.target.src = '/assets/image_not_found.png';
+    event.target.src = '/assets/no-image.jpg';
   }
   onImageErrorW(event: any) {
-    event.target.src = '/assets/error-loading-image.png';
+    event.target.src = '/assets/no-image.jpg';
   }
 
   openDealModal(websiteImage: any, WebsiteName: string, Name: string, couponCode: string, urlpath: string) {

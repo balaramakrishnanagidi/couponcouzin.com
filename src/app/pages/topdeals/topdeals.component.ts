@@ -38,10 +38,10 @@ export class TopdealsComponent implements OnInit{
 
   //error image handling
   onImageErrorP(event: any) {
-    event.target.src = '/assets/image_not_found.png';
+    event.target.src = '/assets/no-image.jpg';
   }
   onImageErrorW(event: any) {
-    event.target.src = '/assets/error-loading-image.png';
+    event.target.src = '/assets/no-image.jpg';
   }
 
   couponByCompany(Name: string) {

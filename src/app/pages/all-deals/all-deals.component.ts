@@ -36,7 +36,7 @@ export class AllDealsComponent implements OnInit {
     this.api.allCoupons().subscribe(
       (data) => {
         this.couponCards = data.data.reverse();
-        console.log('couponCards',this.couponCards);
+        // console.log('couponCards',this.couponCards);
         this.updatecouponCardsArrays();
         this.loadingData = false;
       },
@@ -98,10 +98,10 @@ export class AllDealsComponent implements OnInit {
 
   //error image handling
   onImageErrorP(event: any) {
-    event.target.src = '/assets/image_not_found.png';
+    event.target.src = '/assets/no-image.jpg';
   }
   onImageErrorW(event: any) {
-    event.target.src = '/assets/error-loading-image.png';
+    event.target.src = '/assets/no-image.jpg';
   }
 
 

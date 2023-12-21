@@ -1,6 +1,7 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faYoutube, faInstagram, faXTwitter, faTelegram, faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { faStore } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/shared/services/api.service';
 
@@ -32,6 +33,7 @@ export class BlogDetailedComponent implements OnInit {
   faTwitter = faXTwitter;
   faTelegram = faTelegram;
   faFacebook = faFacebook;
+  faFirstOrder =  faStore;
 
   constructor(
     private api: ApiService,
@@ -148,7 +150,7 @@ export class BlogDetailedComponent implements OnInit {
     });
     setTimeout( () => {
     window.location.reload();
-    }, 800);
+    }, 1000);
   }
 
 

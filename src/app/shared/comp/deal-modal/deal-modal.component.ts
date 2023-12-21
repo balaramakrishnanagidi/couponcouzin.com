@@ -48,6 +48,6 @@ export class DealModalComponent implements OnInit {
     this.activeModal.dismiss('Close click');
   }
   onImageErrorP(event: any) {
-    event.target.src = '/assets/image_not_found.png';
+    event.target.src = '/assets/no-image.jpg';
   }
 }
