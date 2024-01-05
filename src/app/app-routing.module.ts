@@ -13,6 +13,7 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { DisplayCouponsComponent } from './pages/display-coupons/display-coupons.component';
 import { BlogsComponent } from './pages/blogs/blogs.component';
 import { BlogDetailedComponent } from './pages/blog-detailed/blog-detailed.component';
+import { CategoryiconsComponent } from './pages/categoryicons/categoryicons.component';
 
 const routes: Routes = [
   {path:'home', component: HomeComponent},
@@ -28,7 +29,7 @@ const routes: Routes = [
   {path:'about us', component: AboutUsComponent},
   {path:'Freaquently Asked Questions', component: FaqsComponent},
   {path:'blog details/:id', component: BlogDetailedComponent},
-  { path: 'search', component: BlogDetailedComponent },
+  {path: 'search', component: BlogDetailedComponent},
   {path:'', component: HomeComponent},
   {path:'**', component: HomeComponent}
 ];

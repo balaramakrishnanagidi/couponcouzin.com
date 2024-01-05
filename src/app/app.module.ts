@@ -38,6 +38,7 @@ import { BlogDetailedComponent } from './pages/blog-detailed/blog-detailed.compo
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BankWalletOffersComponent } from './pages/bank-wallet-offers/bank-wallet-offers.component';
+import { CategoryiconsComponent } from './pages/categoryicons/categoryicons.component';
 
 
 
@@ -66,6 +67,7 @@ import { BankWalletOffersComponent } from './pages/bank-wallet-offers/bank-walle
     BlogsComponent,
     BlogDetailedComponent,
     BankWalletOffersComponent,
+    CategoryiconsComponent,
   ],
   imports: [
     BrowserModule,
