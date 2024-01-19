@@ -7,7 +7,7 @@
   </div>
   <div class="is-data" *ngIf="websites.length > 0">
     <div class="heading">
-      <h3> {{ maincategory | firstLetterUpperCase }} Offers & Coupons: </h3>
+      <h3 style="font-size: xx-large;"> {{ maincategory | firstLetterUpperCase }} Offers & Coupons: </h3>
     </div>
 
     <!--  -->
@@ -28,7 +28,7 @@
                   {{ w.Name | firstLetterUpperCase }} <br>
                 </span>
                 <span style="font-size: 12px; font-family: 'Trebuchet MS';" class="text-secondary">
-                  {{ w.count }} {{ w.count > 1 ? 'Offers' : 'Offer' }} Available
+                  {{ w.count > 9 ? w.count : "0" + (w.count) }} {{ w.count > 1 ? 'Offers' : 'Offer' }}
                 </span>
               </a>
             </div>
@@ -51,10 +51,10 @@
                 (error)="onImageErrorP($event)" />
             </div>
             <div class="details">
-              <span style="font-size: 30px; font-weight: bold; font-family: 'Verdana';" type="button" class="ellipsis"
+              <span style="font-size: 25px; font-weight: bold; font-family: 'Verdana'; min-height: 23px;" type="button" class="ellipsis"
                 (click)="openDealModal(p.websiteImage, p.websiteName, p.Name, p.couponcode, p.urlpath)">{{ p.Name
                 }}</span>
-              <p style="font-size: 18px;" class="text-secondary ellipsis"> {{ getDescriptionItems(p.description)[0].trim() }} </p>
+              <p style="font-size: 18px; margin-top: 5px;" class="text-secondary ellipsis"> {{ getDescriptionItems(p.description)[0].trim() }} </p>
             </div>
             <div class="button">
               <button class="btn"
