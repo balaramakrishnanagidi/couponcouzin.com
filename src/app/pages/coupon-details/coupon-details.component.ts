@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DealModalComponent } from 'src/app/shared/comp/deal-modal/deal-modal.component';
 import { ApiService } from 'src/app/shared/services/api.service';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-coupon-details',
@@ -25,6 +26,43 @@ export class CouponDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private modalService: NgbModal,
     private meta: Meta) { }
+
+  //owl carousel
+  customOptions: OwlOptions = {
+    loop: true,
+    autoplay: false,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    navText: ['<i class="fa-solid fa-square-caret-left"></i>', '<i class="fa-solid fa-square-caret-right"></i>'],
+    stagePadding: 20,    
+    // margin: 5,
+    dots: false,
+    responsive: {
+      0: {
+        items: 2
+      },
+      250: {
+        items: 3
+      },
+      400: {
+        items: 4
+      },
+      740: {
+        items: 5
+      },
+      940: {
+        items: 6
+      },
+      1225: {
+        items: 7
+      }
+    },
+    nav: true,
+  }
+
+  //
+
 
   ngOnInit(): void {
     this.meta.addTag({ name: "keywords", content: "couponcouzin, couponcouzin.com, loot deals, best deals, coupon codes, travel, electronics" });
@@ -48,7 +86,7 @@ export class CouponDetailsComponent implements OnInit {
           (data: any) => {
             if (data) {
               this.posts = data.posts;
-              this.websites = data.websites
+              this.websites = data.websites.reverse();
               this.maincategory = data.posts[0].maincategory;
             } else {
               console.error('Invalid response from the API.');

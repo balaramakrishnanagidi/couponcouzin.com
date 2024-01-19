@@ -64,6 +64,7 @@ export class TopCarouselComponent implements OnInit {
     this.api.getAllPosters().subscribe(data => {
       if (data.Status && data.banner) {
         this.slides = data.banner;
+        this.slides = this.slides.reverse();
       }
     }, error => {
       console.log(error);

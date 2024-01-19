@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
-import { Router } from '@angular/router';
 import { ApiService } from 'src/app/shared/services/api.service';
 
 
@@ -16,7 +15,7 @@ export class TopdealsComponent implements OnInit{
   remainingCards: any[] = [];
   couponByCompanyArray: any[] = [];
   selectedCompany: string | null = null;
-  cardsPerPage = 20;
+  cardsPerPage = 50;
   showMoreflag = false;
   profile = true;
   showH3Element = false;

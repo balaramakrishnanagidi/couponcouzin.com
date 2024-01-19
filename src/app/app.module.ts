@@ -39,6 +39,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BankWalletOffersComponent } from './pages/bank-wallet-offers/bank-wallet-offers.component';
 import { CategoryiconsComponent } from './pages/categoryicons/categoryicons.component';
+import { MatTabsModule } from '@angular/material/tabs';
 
 
 
@@ -84,7 +85,8 @@ import { CategoryiconsComponent } from './pages/categoryicons/categoryicons.comp
     FontAwesomeModule,
     NgxPaginationModule,
     NgxGoogleAnalyticsModule.forRoot('MEASUREMENT-ID'),
-    NgxGoogleAnalyticsRouterModule
+    NgxGoogleAnalyticsRouterModule,
+    MatTabsModule
   ],
   providers: [TabsetConfig],
   bootstrap: [AppComponent]

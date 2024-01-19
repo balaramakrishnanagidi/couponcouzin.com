@@ -9,23 +9,34 @@
     <div class="heading">
       <h3> {{ maincategory | firstLetterUpperCase }} Offers & Coupons: </h3>
     </div>
-    <div class="cards">
-      <div class="row">
-        <div class="card brand-card" *ngFor="let w of websites">
-          <div class="card-body">
-            <a (click)="couponbywebsite(w.Name)">
-              <img [width]="60" [height]="40"
-                [src]="profile ? 'https://couponcouzin.com/backend/couponcouzin/app/src/website/' + w.image : '/assets/null_product.png'"
-                alt="image" (error)="onImageErrorP($event)" />
-            </a>
-            <a class="links" (click)="couponbywebsite(w.Name)">
-              <span style="font-size: 12px; font-family: 'Trebuchet MS';" class="text-secondary">
-                {{ w.Name }} | {{ w.count }} Offers
-              </span>
-            </a>
+
+    <!--  -->
+    <div class="brands">
+      <owl-carousel-o [options]="customOptions">
+        <ng-template carouselSlide *ngFor="let w of websites" >
+      <div class="cards">
+        <div class="row">
+          <div class="card brand-card" >
+            <div class="card-body">
+              <a (click)="couponbywebsite(w.Name)">
+                <img [width]="60" [height]="40"
+                  [src]="profile ? 'https://couponcouzin.com/backend/couponcouzin/app/src/website/' + w.image : '/assets/null_product.png'"
+                  alt="image" (error)="onImageErrorP($event)" />
+              </a>
+              <a class="links" (click)="couponbywebsite(w.Name)">
+                <span style="font-size: 12px; font-family: 'Trebuchet MS';" class="text-secondary">
+                  {{ w.Name | firstLetterUpperCase }} <br>
+                </span>
+                <span style="font-size: 12px; font-family: 'Trebuchet MS';" class="text-secondary">
+                  {{ w.count }} {{ w.count > 1 ? 'Offers' : 'Offer' }} Available
+                </span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
+    </ng-template>
+  </owl-carousel-o>
     </div>
     <!-- posts -->
     <div class="container-fluid2">
