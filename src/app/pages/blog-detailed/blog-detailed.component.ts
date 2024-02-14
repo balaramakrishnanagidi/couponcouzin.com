@@ -1,6 +1,6 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { faYoutube, faInstagram, faXTwitter, faTelegram, faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { faYoutube, faInstagram, faXTwitter, faTelegram, faFacebook, faPinterest } from '@fortawesome/free-brands-svg-icons';
 import { faStore } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/shared/services/api.service';
@@ -34,6 +34,7 @@ export class BlogDetailedComponent implements OnInit {
   faTelegram = faTelegram;
   faFacebook = faFacebook;
   faFirstOrder =  faStore;
+  faPinterest = faPinterest;
 
   constructor(
     private api: ApiService,

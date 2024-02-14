@@ -85,7 +85,7 @@ export class CouponDetailsComponent implements OnInit {
         this.api.getCouponsByCategory(this.category).subscribe(
           (data: any) => {
             if (data) {
-              this.posts = data.posts;
+              this.posts = data.posts.reverse();
               this.websites = data.websites.reverse();
               this.maincategory = data.posts[0].maincategory;
             } else {
@@ -102,8 +102,8 @@ export class CouponDetailsComponent implements OnInit {
         this.api.getCouponsBySubCategory(this.category).subscribe(
           (data: any) => {
             if (data) {
-              this.posts = data.posts;
-              this.websites = data.websites
+              this.posts = data.posts.reverse();
+              this.websites = data.websites.reverse();
               this.maincategory = data.posts[0].maincategory;
             } else {
               console.error('Invalid response from the API.');

@@ -8,16 +8,16 @@
     padding-bottom: 30px;
 
 }
-h3{
+h1{
     font-family: 'Georgia';
 }
-h5{
+h4{
     font-family: 'Verdana';
 }
-h6{
+h5{
     margin: 15px 0 25px 45px;
 }
-h6 a{
+h5 a{
     text-decoration: none;
     color: rgb(14, 182, 14);
 }

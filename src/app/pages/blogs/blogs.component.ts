@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/shared/services/api.service';
-import { faFacebook, faInstagram, faTelegram, faXTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faInstagram, faTelegram, faXTwitter, faYoutube, faPinterest } from '@fortawesome/free-brands-svg-icons';
 @Component({
   selector: 'app-blogs',
   templateUrl: './blogs.component.html',
@@ -20,6 +20,7 @@ export class BlogsComponent implements OnInit{
   faTwitter = faXTwitter;
   faTelegram = faTelegram;
   faFacebook = faFacebook;
+  faPintrest = faPinterest;
 
   page: number = 1;
   pageSize: number = 4;
