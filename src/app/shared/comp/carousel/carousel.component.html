@@ -35,9 +35,9 @@
               </div>
             </div>
             <div class="card-footer" style="display: flex; justify-content: space-between;">
-              <img [width]="60" [height]="35" [src]="profile
+              <img [width]="40" [height]="35" [src]="profile
                                   ? 'https://couponcouzin.com/backend/couponcouzin/app/src/website/' + card.website
-                                  : '/assets/null_product.png'" alt="image" class="size-50 rounded-22 object-cover" />
+                                  : '/assets/null_product.png'" alt="image" class="size-50 rounded-22 object-contain" style=" padding: 0 15px 0 15px;"/>
               <button class="btn shopNow button3"> <a href="{{card.urlpath}}" target="_blank"> Check </a> </button>
             </div>
           </div>
