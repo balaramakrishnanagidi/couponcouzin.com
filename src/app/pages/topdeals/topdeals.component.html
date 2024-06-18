@@ -14,7 +14,7 @@
                     </div>
                 </ng-container>
                 <ng-template #topDealsHeading>
-                    <p style="font-family: 'Georgia'; font-size: x-large;">Top Deals</p>
+                    <p style="font-family: 'Georgia'; font-size: x-large; font-weight: bold;">Top Deals</p>
                 </ng-template>
             </h3>
             <h3>
@@ -79,23 +79,20 @@
     <div class="stores col-md-3 ">
         <div class="fancy-title title2-bottom-border" style="margin-top: 25px;">
             <h3 *ngIf="showH3Element">
-                <p style="font-family: 'Georgia'; font-size: x-large;">Pick By Stores</p>
+                <p style="font-family: 'Georgia'; font-size: x-large; font-weight: bold;">Pick By Stores</p>
             </h3>
         </div>
-        <div class="row">
+        <div class="row card-container">
             <ng-container *ngFor="let w of websites">
-                <div class="card col-md-6"
-                    style="margin: 1px; margin-bottom: 15px;  width: calc(50% - 4px);align-content: center;">
+                <div class="card col-md-6" style="margin: 1px; margin-bottom: 15px;  width: calc(50% - 4px);align-content: center;">
                     <div class="card-boddy">
                         <button class="btn button3" (click)="couponByCompany(w.Name)">
-                            <img [style.width.%]="100" [style.height.%]="100" [src]="profile
-                                             ? 'https://couponcouzin.com/backend/couponcouzin/app/src/website/' + w.image[0]
-                                             : '/assets/null_product.png'" alt="image"
-                                (error)="onImageErrorW($event)" />
+                            <img [style.width.%]="100" [style.height.%]="100" [src]="profile ? 'https://couponcouzin.com/backend/couponcouzin/app/src/website/' + w.image[0] : '/assets/null_product.png'" alt="image" (error)="onImageErrorW($event)" />
                         </button>
                     </div>
                 </div>
             </ng-container>
         </div>
     </div>
+    
 </div>

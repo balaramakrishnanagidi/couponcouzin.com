@@ -130,3 +130,8 @@
   .card-boddy img{
     object-fit: contain;
   }
+
+  .card-container {
+    height: 400px;
+    overflow-y: auto;
+}

@@ -119,4 +119,5 @@ export class TopdealsComponent implements OnInit{
   isDiscountNumber(discount: any): boolean {
     return !isNaN(discount);
   }
+
 }

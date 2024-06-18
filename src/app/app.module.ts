@@ -40,6 +40,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { BankWalletOffersComponent } from './pages/bank-wallet-offers/bank-wallet-offers.component';
 import { CategoryiconsComponent } from './pages/categoryicons/categoryicons.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 
@@ -86,7 +87,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     NgxPaginationModule,
     NgxGoogleAnalyticsModule.forRoot('MEASUREMENT-ID'),
     NgxGoogleAnalyticsRouterModule,
-    MatTabsModule
+    MatTabsModule,
+    MatTooltipModule
   ],
   providers: [TabsetConfig],
   bootstrap: [AppComponent]

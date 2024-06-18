@@ -16,7 +16,8 @@ import { BlogDetailedComponent } from './pages/blog-detailed/blog-detailed.compo
 import { CategoryiconsComponent } from './pages/categoryicons/categoryicons.component';
 
 const routes: Routes = [
-  {path:'home', component: HomeComponent},
+  {path:'', component: HomeComponent},
+  // {path:'home', component: HomeComponent},
   {path:'allDeals', component: AllDealsComponent},
   {path:'coupon/:category', component: CouponDetailsComponent},
   {path:'coupons', component: DisplayCouponsComponent},
@@ -30,7 +31,6 @@ const routes: Routes = [
   {path:'Freaquently Asked Questions', component: FaqsComponent},
   {path:'blog details/:id', component: BlogDetailedComponent},
   {path: 'search', component: BlogDetailedComponent},
-  {path:'', component: HomeComponent},
   {path:'**', component: HomeComponent}
 ];
 

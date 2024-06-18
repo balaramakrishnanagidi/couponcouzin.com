@@ -33,6 +33,7 @@
     "bootstrap": "^5.3.2",
     "font-awesome": "^4.7.0",
     "jquery": "^3.7.1",
+    "ng2-adsense": "^13.0.0",
     "ngx-bootstrap": "^11.0.2",
     "ngx-clipboard": "^16.0.0",
     "ngx-google-analytics": "^14.0.1",
