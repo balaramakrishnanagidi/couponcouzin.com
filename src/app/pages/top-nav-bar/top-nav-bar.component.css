@@ -94,6 +94,8 @@ nav ul li a:hover:before {
   display: flex;
   align-items: center;
   flex-grow: 3;
+  padding-right: 25px;
+  gap: 5px;
 }
 
 .search-bar input {

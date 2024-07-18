@@ -39,7 +39,7 @@ export class TopCarouselComponent implements OnInit {
     pullDrag: true,
     dots: true,
     navSpeed: 700,
-    stagePadding: 50,
+    stagePadding: 0,
     margin: 25,
     navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
     responsive: {

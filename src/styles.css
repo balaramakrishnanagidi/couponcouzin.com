@@ -29,12 +29,12 @@
 }
 
 .banners .owl-next {
-    right: 40px;
+    right: -20px;
     transform: translate(-50%, -50%);
 }
 
 .banners .owl-prev {
-    left: 80px;
+    left: 20px;
     transform: translate(-50%, -50%);
 }
 
@@ -68,7 +68,7 @@
 }
 
 .stores .owl-next {
-    right: -40px;
+    right: -35px;
     transform: translate(-50%, -50%);
 }
 
