@@ -15,7 +15,7 @@ export class TopdealsComponent implements OnInit{
   remainingCards: any[] = [];
   couponByCompanyArray: any[] = [];
   selectedCompany: string | null = null;
-  cardsPerPage = 50;
+  cardsPerPage = 48;
   showMoreflag = false;
   profile = true;
   showH3Element = false;

@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="topDeals col-md-9 ">
         <div class="fancy-title" style="margin-top: 25px;display: flex; align-items: center;">
-            <h3 *ngIf="showH3Element">
+            <h1 *ngIf="showH3Element">
                 <!-- current -->
                 <ng-container *ngIf="selectedCompany; else topDealsHeading">
                     <!-- <p style="font-family: 'Georgia';"><b> {{ selectedCompany |
@@ -16,7 +16,7 @@
                 <ng-template #topDealsHeading>
                     <p style="font-family: 'Georgia'; font-size: x-large; font-weight: bold;">Top Deals</p>
                 </ng-template>
-            </h3>
+            </h1>
             <h3>
                 <span class="align-text-bottom">
                     <a class="btn btn-primary" (click)="pageReload()"
@@ -92,6 +92,10 @@
                     </div>
                 </div>
             </ng-container>
+        </div>
+        <!-- Ads -->
+        <div class="adsV">
+            <app-vertical-ad></app-vertical-ad>
         </div>
     </div>
     

@@ -41,6 +41,10 @@ import { BankWalletOffersComponent } from './pages/bank-wallet-offers/bank-walle
 import { CategoryiconsComponent } from './pages/categoryicons/categoryicons.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { AdComponent } from './google_ads/horizontalAd/ad.component';
+import { VerticalAdComponent } from './google_ads/verticalAd/vertical-ad.component';
+import { HorizontaAd2Component } from './google_ads/horizonta-ad2/horizonta-ad2.component';
+import { MultiplxAdComponent } from './google_ads/multiplx-ad/multiplx-ad.component';
 
 
 
@@ -70,6 +74,10 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     BlogDetailedComponent,
     BankWalletOffersComponent,
     CategoryiconsComponent,
+    AdComponent,
+    VerticalAdComponent,
+    HorizontaAd2Component,
+    MultiplxAdComponent
   ],
   imports: [
     BrowserModule,

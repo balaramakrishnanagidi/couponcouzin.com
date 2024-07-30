@@ -196,3 +196,12 @@ p {
 .body ul {
     margin-left: 15px;
 }
+
+
+/* Ads */
+.ads {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}

@@ -2,5 +2,10 @@
     "editor.linkedEditing": true,
     "vscode-pets.petSize": "medium",
     "vscode-pets.petType": "dog",
-    "vscode-pets.position": "explorer"
+    "vscode-pets.position": "explorer",
+    "cSpell.words": [
+        "boddy",
+        "postimage",
+        "urlpath"
+    ]
 }

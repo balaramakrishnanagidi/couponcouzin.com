@@ -240,3 +240,17 @@ input {
   }
 
 }
+
+
+/* Ads */
+.ads {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.adsV {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

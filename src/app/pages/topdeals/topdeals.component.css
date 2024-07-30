@@ -135,3 +135,11 @@
     height: 655px;
     overflow-y: auto;
 }
+
+/* Ads */
+.adsV {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% - 10px);
+}

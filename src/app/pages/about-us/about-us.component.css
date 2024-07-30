@@ -18,3 +18,11 @@ p{
     font-family: 'Trebuchet MS';
     margin-top: 6px;
 }
+
+/* Ads */
+.ads {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 10px);
+}
