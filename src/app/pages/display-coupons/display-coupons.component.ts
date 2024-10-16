@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ApiService } from 'src/app/shared/services/api.service';
 import { DealModalComponent } from 'src/app/shared/comp/deal-modal/deal-modal.component';
-import { Meta } from '@angular/platform-browser';
+import { Breadcrumbs } from 'src/app/shared/models/breadcrumb.model';
 
 @Component({
   selector: 'app-display-coupons',
@@ -21,41 +21,31 @@ export class DisplayCouponsComponent implements OnInit {
   pagedPosts: any[] = [];
   pages: number[] = [];
   pagesToShowCount = 1;
+  breadcrumbs: Breadcrumbs[] = [];
 
   constructor(
     private api: ApiService,
     private route: ActivatedRoute,
     private modalService: NgbModal,
-    private meta: Meta
   ) {}
 
   ngOnInit(): void {
-    this.meta.addTag({ name:"keywords", content:"couponcouzin, couponcouzin.com, loot deals, best deals, coupon codes, travel, electronics" });
-    this.meta.addTag({ name: 'description', content: 'This page displays coupons.' });
-
-    this.route.queryParams.subscribe((params) => {
-      this.category = params['name'];
-      this.couponbywebsite(this.category);
-      
-    });
-  }
-
-  // For loading cards if there is a selected company
-  couponbywebsite(company: string) {    
-    this.api.couponbywebsite(company).subscribe((data) => {
-      this.posts = data.posts;
-      this.posts = this.posts.reverse();
+    this.api.allCoupons().subscribe((data: any) => {
+      this.posts = data.data;
+      this.posts = this.posts.reverse();      
       this.calculatePages();
-      this.changePage(1);
-    }, (error) => {
-      console.log(error);
+      this.changePage(1); 
+    }, (err) => {
+      console.error(err);
     });
+    this.setBreadcrumbs();
   }
 
   // Function to calculate the pages and lastPage
   calculatePages() {
     this.lastPage = Math.ceil(this.posts.length / this.itemsPerPage);
     this.pages = Array.from({ length: this.lastPage }, (_, i) => i + 1);
+    this.changePage(this.currentPage);
   }
 
   // Function to change the current page
@@ -124,5 +114,15 @@ export class DisplayCouponsComponent implements OnInit {
 
   getDescriptionItems(description: string): string[] {
     return description.split('||');
+  }
+
+  setBreadcrumbs() {
+    // Get the current route parameters
+    const category = this.route.snapshot.url[1]?.path || 'default'; // Extract the dynamic part of the URL
+
+    this.breadcrumbs = [
+      { label: 'Home', url: '/' },
+      { label: 'Coupons', url: '/coupons' }
+    ];
   }
 }

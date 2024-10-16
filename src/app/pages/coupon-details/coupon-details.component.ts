@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DealModalComponent } from 'src/app/shared/comp/deal-modal/deal-modal.component';
 import { ApiService } from 'src/app/shared/services/api.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { Breadcrumbs } from 'src/app/shared/models/breadcrumb.model';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-coupon-details',
@@ -21,11 +22,12 @@ export class CouponDetailsComponent implements OnInit {
   selectedCompany: string = '';
   data: any[] = [];
   showBody = false;
+  breadcrumbs: Breadcrumbs[] = [];
 
   constructor(private api: ApiService,
     private route: ActivatedRoute,
     private modalService: NgbModal,
-    private meta: Meta) { }
+    private router: Router,) { }
 
   //owl carousel
   customOptions: OwlOptions = {
@@ -35,7 +37,7 @@ export class CouponDetailsComponent implements OnInit {
     touchDrag: true,
     pullDrag: true,
     navText: ['<i class="fa-solid fa-square-caret-left"></i>', '<i class="fa-solid fa-square-caret-right"></i>'],
-    stagePadding: 20,    
+    stagePadding: 20,
     // margin: 5,
     dots: false,
     responsive: {
@@ -64,64 +66,99 @@ export class CouponDetailsComponent implements OnInit {
   //
 
 
-  ngOnInit(): void {
-    this.meta.addTag({ name: "keywords", content: "couponcouzin, couponcouzin.com, loot deals, best deals, coupon codes, travel, electronics" });
-    this.meta.addTag({ name: 'description', content: 'This is the page that shows coupon details.' });
+  ngOnInit(): void {  
 
-    // to show and hide the discription
-    this.posts.forEach(post => post.showBody = true);
+    // Subscribe to route changes
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd) // Only trigger on URL changes
+    ).subscribe(() => {
+      this.setBreadcrumbs();
+    });
 
-    // Retrieve the category value from the URL
     this.route.params.subscribe((params) => {
       this.category = params['category'];
-
-      if (this.category === 'food' || this.category === 'fashion' ||
-        this.category === 'travel' || this.category === 'tv' ||
-        this.category === 'mobiles' || this.category === 'beauty' ||
-        this.category === 'computer' || this.category === 'recharge' ||
-        this.category === 'appliances' || this.category === 'entertainment' ||
-        this.category === 'camera' || this.category === 'kids') {
-        // Use the category to fetch data from the API and populate your table
-        this.api.getCouponsByCategory(this.category).subscribe(
-          (data: any) => {
-            if (data) {
-              this.posts = data.posts.reverse();
-              this.websites = data.websites.reverse();
-              this.maincategory = data.posts[0].maincategory;
-            } else {
-              console.error('Invalid response from the API.');
+  
+      // Get the company from the query params (if available)
+      this.route.queryParams.subscribe(queryParams => {
+        const company = queryParams['company'] ? queryParams['company'].toLowerCase() : null;
+  
+        if (this.category === 'food' || this.category === 'fashion' ||
+          this.category === 'travel' || this.category === 'tv' ||
+          this.category === 'mobiles' || this.category === 'beauty' ||
+          this.category === 'computer' || this.category === 'recharge' ||
+          this.category === 'appliances' || this.category === 'entertainment' ||
+          this.category === 'camera' || this.category === 'kids') {
+          
+          // Fetch data based on the category
+          this.api.getCouponsByCategory(this.category).subscribe(
+            (data: any) => {
+              if (data) {
+                this.posts = data.posts.reverse();
+                this.websites = data.websites.reverse();
+                this.maincategory = data.posts[0].maincategory;
+  
+                // If a company is specified in the query params, filter the posts
+                if (company) {
+                  this.filterPostsByCompany(company);
+                }
+              } else {
+                console.error('Invalid response from the API.');
+              }
+            },
+            (error) => {
+              console.log('Error:', error);
             }
-          },
-          (error) => {
-            console.log('Error:', error);
-          }
-        );
-      } else {
-        // Use the Subcategory to fetch data from the API and populate your table
-       
-        this.api.getCouponsBySubCategory(this.category).subscribe(
-          (data: any) => {
-            if (data) {
-              this.posts = data.posts.reverse();
-              this.websites = data.websites.reverse();
-              this.maincategory = data.posts[0].maincategory;
-            } else {
-              console.error('Invalid response from the API.');
+          );
+        } else {
+          // Fetch data based on the subcategory
+          this.api.getCouponsBySubCategory(this.category).subscribe(
+            (data: any) => {
+              if (data) {
+                this.posts = data.posts.reverse();
+                this.websites = data.websites.reverse();
+                this.maincategory = data.posts[0].maincategory;
+  
+                // If a company is specified in the query params, filter the posts
+                if (company) {
+                  this.filterPostsByCompany(company);
+                }
+              } else {
+                console.error('Invalid response from the API.');
+              }
+            },
+            (error) => {
+              console.log('Error:', error);
             }
-          },
-          (error) => {
-            console.log('Error:', error);
-          }
-        );
-      }
-
+          );
+        }
+      });
     });
+
+    this.setBreadcrumbs();
   }
 
+  // Function to filter posts by company
+filterPostsByCompany(company: string): void {
+  // Format the company name from the query parameter
+  const formattedCompany = company.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]/g, '');
+
+  // Filter the posts by matching company names
+  this.posts = this.posts.filter(post => 
+    post.websiteName.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]/g, '') === formattedCompany
+  );
+}
 
   //For loading cards if there is a selected company
   couponbywebsite(company: string) {
     this.selectedCompany = company;
+    const formattedCompany = company.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]/g, '');
+    // Update the URL without reloading the page
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParamsHandling: 'merge',
+      queryParams: { company: formattedCompany }
+    });
+
     this.api.couponbywebsite(company).subscribe(data => {
       this.posts = data.posts;
       // console.log('savesta',this.posts)
@@ -146,7 +183,7 @@ export class CouponDetailsComponent implements OnInit {
     modalRef.componentInstance.data = this.data
     setTimeout(() => {
       window.open(urlpath, '_blank');
-    }, 2000);
+    }, 3000);
   }
 
   // for show and hide details
@@ -157,6 +194,17 @@ export class CouponDetailsComponent implements OnInit {
   // for handling description
   getDescriptionItems(description: string): string[] {
     return description.split('||');
+  }
+
+  setBreadcrumbs() {
+    // Get the current route parameters
+    const category = this.route.snapshot.url[1]?.path || 'default'; // Extract the dynamic part of the URL
+
+    this.breadcrumbs = [
+      { label: 'Home', url: '/' },
+      { label: 'Coupons', url: '/coupons' },
+      { label: category, url: `/coupons/${category}` },
+    ];
   }
 
 }

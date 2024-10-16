@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CarouselConfig } from 'ngx-bootstrap/carousel';
 import { ApiService } from '../../services/api.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
-import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-top-carousel',
@@ -19,13 +18,9 @@ export class TopCarouselComponent implements OnInit {
   slides: any[] = [];
   profile = true;
 
-  constructor(private api: ApiService, private meta: Meta) { }
+  constructor(private api: ApiService) { }
 
   ngOnInit(): void {
-
-    this.meta.addTag({ name: 'description', content: 'Banners of couponcouzin.com' });
-    this.meta.addTag({ name: "keywords", content: "couponcouzin, couponcouzin.com, loot deals, best deals, coupon codes, travel, electronics" });
-
     this.fetchPosters();
   }
 

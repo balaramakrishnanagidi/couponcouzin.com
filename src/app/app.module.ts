@@ -45,7 +45,9 @@ import { AdComponent } from './google_ads/horizontalAd/ad.component';
 import { VerticalAdComponent } from './google_ads/verticalAd/vertical-ad.component';
 import { HorizontaAd2Component } from './google_ads/horizonta-ad2/horizonta-ad2.component';
 import { MultiplxAdComponent } from './google_ads/multiplx-ad/multiplx-ad.component';
-
+import { ProductDetailsComponent } from './pages/product-details/product-details.component';
+import { AmazonStoreComponent } from './pages/amazon-store/amazon-store.component';
+import { FlipkartStoreComponent } from './pages/flipkart-store/flipkart-store.component';
 
 
 @NgModule({
@@ -77,7 +79,10 @@ import { MultiplxAdComponent } from './google_ads/multiplx-ad/multiplx-ad.compon
     AdComponent,
     VerticalAdComponent,
     HorizontaAd2Component,
-    MultiplxAdComponent
+    MultiplxAdComponent,
+    ProductDetailsComponent,
+    AmazonStoreComponent,
+    FlipkartStoreComponent
   ],
   imports: [
     BrowserModule,
@@ -97,6 +102,7 @@ import { MultiplxAdComponent } from './google_ads/multiplx-ad/multiplx-ad.compon
     NgxGoogleAnalyticsRouterModule,
     MatTabsModule,
     MatTooltipModule
+  
   ],
   providers: [TabsetConfig],
   bootstrap: [AppComponent]

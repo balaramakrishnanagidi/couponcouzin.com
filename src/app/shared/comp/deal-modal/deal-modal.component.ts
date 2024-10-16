@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ClipboardService } from 'ngx-clipboard';
 import { ToastrService } from 'ngx-toastr';
@@ -17,19 +16,23 @@ export class DealModalComponent implements OnInit {
 
   constructor(public activeModal: NgbActiveModal,
     private clipboardService: ClipboardService,
-    public toastr: ToastrService,
-    private meta: Meta) { }
+    public toastr: ToastrService) { }
 
-  ngOnInit(): void {
-    this.meta.addTag({ name: 'description', content: 'modal of couponcouzin.com' });
-    this.meta.addTag({ name: "keywords", content: "couponcouzin, couponcouzin.com, loot deals, best deals, coupon codes, travel, electronics" });
-    console.log('data -- '  ,this.data); 
+    loading: boolean | undefined;
+
+  ngOnInit(): void { 
     const code = (this.data[3]).toUpperCase();
 
     if(code.includes('NO CODE') || code.includes('NOT REQUIRED') || code.includes('--') || code.includes('$$') || code.includes('**')){
       this.isCouponCode = false;
     }
    
+    this.loading = true;
+
+    setTimeout( () => {
+      this.loading = false;
+    },3000);
+
   }
 
   copyCodeToClipboard(text: string) {

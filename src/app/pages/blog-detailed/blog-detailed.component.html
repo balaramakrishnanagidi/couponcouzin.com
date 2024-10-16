@@ -1,4 +1,16 @@
 <div class="container-fluid">
+  <nav class="breadcrumb">
+    <ng-container *ngFor="let breadcrumb of breadcrumbs; let last = last">
+        <ng-container *ngIf="!last">
+            <a class="breadcrumb-item" [routerLink]="breadcrumb.url">{{ breadcrumb.label }}</a>
+            <span class="breadcrumb-separator">&gt;</span>
+        </ng-container>
+        <ng-container *ngIf="last">
+            <span class="breadcrumb-item active">{{ breadcrumb.label }}</span>
+        </ng-container>
+    </ng-container>
+</nav>
+
   <div class="row">
     <div class="leftcolumn" *ngIf="!isSearched">
       <div *ngFor="let post of blogData" class="card">

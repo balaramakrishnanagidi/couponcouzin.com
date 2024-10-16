@@ -2,9 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { Router } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
-import { Meta } from '@angular/platform-browser';
-
-
 
 @Component({
   selector: 'app-carousel',
@@ -17,18 +14,14 @@ export class CarouselComponent implements OnInit {
   chunkedSlides: any[] = [];
   profile = true;
   showH3Element = false;
-  
+
 
 
   constructor(private api: ApiService,
-    private router: Router,
-    private meta: Meta) {
+    private router: Router) {
   }
 
   ngOnInit(): void {
-    this.meta.addTag({ name: 'description', content: 'cards for deals more than 50% discount couponcouzin.com' });
-    this.meta.addTag({ name:"keywords", content:"couponcouzin, couponcouzin.com, loot deals, best deals, coupon codes, travel, electronics" });
-
     this.cardCrousel();
     setTimeout(() => {
       this.showH3Element = true;

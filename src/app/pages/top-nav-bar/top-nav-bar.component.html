@@ -1,122 +1,134 @@
 <div class="navbar">
   <div class="logo_navitems">
     <div class="logo">
-      <a routerLink="" fragment="logo" routerLinkActive="active"> 
+      <a routerLink="" fragment="logo" routerLinkActive="active">
         <img src="/assets/couponcouzin_nav.png" id="logo" alt="Logo" />
       </a>
     </div>
-  
-  
+
+
     <nav class="responsive-menu">
       <ul class="navbar-links">
-        <li >
-          <a class="nav-item flags" routerLink="" fragment="home">HOME</a>
+        <li>
+          <a class="nav-item flags" routerLink="/">HOME</a>
         </li>
-        <li >
+        <li>
           <a class="nav-item flags" routerLink="allDeals" routerLinkActive="active"> LOOT DEALS </a>
         </li>
-        <li >
-  
+        <li>
+
           <div class="list" (mouseenter)="openDropdown()" (mouseleave)="closeDropdown()">
             <button class="dropdown-btn nav-item flags">CATEGORIES</button>
             <ul *ngIf="isDropdownOpen" class="dropdown-list">
               <div class="list-container row" style="display: flex;  height: 250px; width: 900px;">
                 <div class="col-md-4 category" style="display: flex;justify-content: space-between; margin-top: 10px;">
                   <div style="width: 150px;">
-                    <li class="list-item-main"><a routerLink="coupon" (click)="assignValueToVariable('recharge')">
+                    <li class="list-item-main"><a routerLink="coupons" (click)="assignValueToVariable('recharge')">
                         Recharge
                       </a></li>
                     <li class="list-item">
-                      <a routerLink="coupon" routerLinkActive="active"
+                      <a routerLink="coupons" routerLinkActive="active"
                         (click)="assignValueToVariable('bill_payments')">Bill Payments</a>
                     </li>
                     <li class="list-item">
-                      <a routerLink="coupon" routerLinkActive="active" (click)="assignValueToVariable('DTH')">
+                      <a routerLink="coupons" routerLinkActive="active" (click)="assignValueToVariable('DTH')">
                         DTH Recharge</a>
                     </li>
                     <li class="list-item">
-                      <a routerLink="coupon" routerLinkActive="active"
+                      <a routerLink="coupons" routerLinkActive="active"
                         (click)="assignValueToVariable('mobile_recharge')">Mobile Recharge</a>
                     </li>
                     <li class="list-item">
-                      <a routerLink="coupon" routerLinkActive="active" (click)="assignValueToVariable('ott')">OTT</a>
+                      <a routerLink="coupons" routerLinkActive="active" (click)="assignValueToVariable('ott')">OTT</a>
                     </li>
                   </div>
-  
+
                   <div style="width: 150px;">
-                    <li class="list-item-main"><a routerLink="coupon" (click)="assignValueToVariable('food')">
+                    <li class="list-item-main"><a routerLink="coupons" (click)="assignValueToVariable('food')">
                         Food & Dining
                       </a></li>
                     <li class="list-item">
-                      <a routerLink="coupon" (click)="assignValueToVariable('pizza')">Pizza</a>
+                      <a routerLink="coupons" (click)="assignValueToVariable('pizza')">Pizza</a>
                     </li>
                     <li class="list-item">
-                      <a routerLink="coupon" (click)="assignValueToVariable('food_ordering')">Food Delivery</a>
+                      <a routerLink="coupons" (click)="assignValueToVariable('food_ordering')">Food Delivery</a>
                     </li>
                     <li class="list-item">
-                      <a routerLink="coupon" (click)="assignValueToVariable('grocery')">Grocery</a>
+                      <a routerLink="coupons" (click)="assignValueToVariable('grocery')">Grocery</a>
                     </li>
                   </div>
                   <div style="width: 150px;">
                     <li class="list-item-main">
-                      <a routerLink="coupon" (click)="assignValueToVariable('fashion')">Fashion</a>
+                      <a routerLink="coupons" (click)="assignValueToVariable('fashion')">Fashion</a>
                     </li>
-                    <li class="list-item"><a routerLink="coupon"
-                        (click)="assignValueToVariable('cloathing')">Cloathing</a></li>
-                    <li class="list-item"><a routerLink="coupon" (click)="assignValueToVariable('footwear')">Footwear</a>
+                    <li class="list-item"><a routerLink="coupons"
+                        (click)="assignValueToVariable('clothing')">Cloathing</a></li>
+                    <li class="list-item"><a routerLink="coupons"
+                        (click)="assignValueToVariable('footwear')">Footwear</a>
                     </li>
                   </div>
                   <div style="width: 150px;">
-                    <li class="list-item-main"><a routerLink="coupon" (click)="assignValueToVariable('travel')">Travel</a>
+                    <li class="list-item-main"><a routerLink="coupons"
+                        (click)="assignValueToVariable('travel')">Travel</a>
                     </li>
-                    <li class="list-item"><a routerLink="coupon" (click)="assignValueToVariable('bus')">Bus</a></li>
-                    <li class="list-item"><a routerLink="coupon" (click)="assignValueToVariable('flight')">Flight</a></li>
-                    <li class="list-item"><a routerLink="coupon"
-                        (click)="assignValueToVariable('railway_bookings')">Train</a></li>
-                    <li class="list-item"><a routerLink="coupon" (click)="assignValueToVariable('cabs')">Cabs</a></li>
-                    <li class="list-item"><a routerLink="coupon" (click)="assignValueToVariable('hotel')">Hotel</a></li>
+                    <li class="list-item"><a routerLink="coupons" (click)="assignValueToVariable('holiday')">Holiday</a></li>
+                    <li class="list-item"><a routerLink="coupons" (click)="assignValueToVariable('bus')">Bus</a></li>
+                    <li class="list-item"><a routerLink="coupons" (click)="assignValueToVariable('flight')">Flight</a></li>
+                    <li class="list-item"><a routerLink="coupons" (click)="assignValueToVariable('railway_bookings')">Train</a></li>
+                    <li class="list-item"><a routerLink="coupons" (click)="assignValueToVariable('cabs')">Cabs</a></li>
+                    <li class="list-item"><a routerLink="coupons" (click)="assignValueToVariable('hotel')">Hotel</a></li>
                   </div>
                   <div style="width: 150px;">
-                    <li class="list-item-main"><a routerLink="coupon"
-                        (click)="assignValueToVariable('mobiles')">Electronics</a></li>
-                    <li class="list-item"><a routerLink="coupon" (click)="assignValueToVariable('mobile')">Mobiles</a>
-                    </li>
-                    <li class="list-item"><a routerLink="coupon" (click)="assignValueToVariable('tablet')">Tablets</a>
-                    </li>
+                    <li class="list-item-main"><a routerLink="coupons" (click)="assignValueToVariable('mobiles')">Electronics</a></li>
+                    <li class="list-item"><a routerLink="coupons" (click)="assignValueToVariable('mobile')">Mobiles</a></li>
+                    <li class="list-item"><a routerLink="coupons" (click)="assignValueToVariable('tablet')">Tablets</a></li>
+                    <li class="list-item"><a routerLink="coupons" (click)="assignValueToVariable('mobiles&tablet_accessories')">Accessories </a></li>
                   </div>
                   <div style="width: 250px;">
                     <li class="list-item-main">
-                      <a routerLink="coupon" (click)="assignValueToVariable('tv')">TV,Audio/Video&Movies</a>
+                      <a routerLink="coupons" (click)="assignValueToVariable('tv')">TV,Audio/Video&Movies</a>
                     </li>
                     <li class="list-item-main">
-                      <a routerLink="coupon" (click)="assignValueToVariable('beauty')">Beauty&Health</a>
+                      <a routerLink="coupons" (click)="assignValueToVariable('beauty')">Beauty&Health</a>
                     </li>
                     <li class="list-item-main">
-                      <a routerLink="coupon" (click)="assignValueToVariable('computer')">Computers,Laptops&Gaming</a>
+                      <a routerLink="coupons" (click)="assignValueToVariable('computer')">Computers,Laptops&Gaming</a>
                     </li>
                     <li class="list-item-main">
-                      <a routerLink="coupon" (click)="assignValueToVariable('appliances')">Appliances</a>
+                      <a routerLink="coupons" (click)="assignValueToVariable('appliances')">Appliances</a>
                     </li>
                     <li class="list-item-main">
-                      <a routerLink="coupon" (click)="assignValueToVariable('entertainment')">Entertainment</a>
+                      <a routerLink="coupons" (click)="assignValueToVariable('entertainment')">Entertainment</a>
                     </li>
                     <li class="list-item-main">
-                      <a routerLink="coupon" (click)="assignValueToVariable('camera')">Cameras&Accessories</a>
+                      <a routerLink="coupons" (click)="assignValueToVariable('camera')">Cameras&Accessories</a>
                     </li>
                     <li class="list-item-main">
-                      <a routerLink="coupon" (click)="assignValueToVariable('kids')">Kids,Babies&Toys</a>
+                      <a routerLink="coupons" (click)="assignValueToVariable('kids')">Kids,Babies&Toys</a>
                     </li>
                   </div>
                 </div>
               </div>
-  
             </ul>
           </div>
         </li>
-        <li >
+        <li>
+          <div class="list stores-dropdown" (mouseenter)="openStoresDropdown()" (mouseleave)="closeStoresDropdown()">
+            <button class="dropdown-btn nav-item flags">TOP STORES</button>
+            <ul *ngIf="isStoresDropdownOpen" class="dropdown-list-stores">
+              <li class="list-item">
+                <a (click)="navigateToStore('amazon')">Amazon</a>
+              </li>
+              <li class="list-item">
+                <a (click)="navigateToStore('flipkart')">Flipkart</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
           <a class="nav-item flags" routerLink="/blogs">BLOGS</a>
         </li>
-        <li >
+        <li>
           <a class="nav-item flags" routerLink="about us" routerLinkActive="active">ABOUT US</a>
         </li>
       </ul>
@@ -132,7 +144,8 @@
 
 
   <div class="search-bar">
-    <input type="text" placeholder="Search for partners or deals" [(ngModel)]="searchedText" autocomplete="off" (keyup.enter)="search()" />
+    <input type="text" placeholder="Search for partners or deals" [(ngModel)]="searchedText" autocomplete="off"
+      (keyup.enter)="search()" />
     <button class="btn" (click)="search()">Search</button>
   </div>
 </div>

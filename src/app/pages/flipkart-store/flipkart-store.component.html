@@ -1,0 +1,13 @@
+<p>Flipkart Store:</p>
+<div class="store">
+    <div class="card" *ngFor="let category of categories">
+      <a href="{{category.link}}" target="_blank">
+        <img [src]="category.image" alt="{{category.name}}" class="card-img">
+      </a>
+      <div class="card-content">
+        <p>{{category.description}}</p>
+        <h3>{{category.name}}</h3>
+      </div>
+    </div>
+  </div>
+  

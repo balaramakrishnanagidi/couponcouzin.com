@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="topDeals col-md-9 ">
         <div class="fancy-title" style="margin-top: 25px;display: flex; align-items: center;">
-            <h1 *ngIf="showH3Element">
+            <h2 *ngIf="showH3Element">
                 <!-- current -->
                 <ng-container *ngIf="selectedCompany; else topDealsHeading">
                     <!-- <p style="font-family: 'Georgia';"><b> {{ selectedCompany |
@@ -16,23 +16,25 @@
                 <ng-template #topDealsHeading>
                     <p style="font-family: 'Georgia'; font-size: x-large; font-weight: bold;">Top Deals</p>
                 </ng-template>
-            </h1>
-            <h3>
+            </h2>
+            <p>
                 <span class="align-text-bottom">
                     <a class="btn btn-primary" (click)="pageReload()"
                         style="font-size: 15px; margin-left: auto;font-family: 'Trebuchet MS';"
                         *ngIf="selectedCompany">View Top Deals&nbsp;
                         <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                     </a></span>
-            </h3>
+            </p>
         </div>
         <div class="row top-border">
             <ng-container *ngFor="let card of displayedCards" class="ng-container">
                 <div class="card col-md-3" style="margin: 6px;  width: calc(24% - 4px);">
                     <div class="card-header">
-                        <p class="price-badge" *ngIf="isDiscountNumber(card.discount)"
-                            style="font-family: 'Verdana'; font-size: 13px;">{{ card.discount }}% off</p>
-                        <a href="{{card.urlpath}}" target="_blank">
+                        <p class="price-badge" style="font-family: 'Verdana'; font-size: 13px;">
+                         <span *ngIf="isDiscountNumber(card.discount); else nonNumber"> {{ card.discount }}% off </span>
+                         <ng-template #nonNumber>{{ card.discount }}</ng-template>
+                        </p>
+                        <a (click)="getThisProduct(card)">
                             <div class="image-container">
                                 <img [src]="profile
                                          ? 'https://couponcouzin.com/backend/couponcouzin/app/src/posts/' + card.postimage
@@ -44,15 +46,16 @@
                         <div class="name-section">
                             <p class="product-title"
                                 style="font-weight: bold; font-size: small;font-family: 'Trebuchet MS';">
-                                <a class="urlpath" href="{{card.urlpath}}" target="_blank">{{ card.Name }}</a>
+                                <a (click)="getThisProduct(card)">{{ card.Name }}</a>
                             </p>
                         </div>
                         <hr>
                         <div class="price-section" style="text-align: center;">
-                            <span class="card-title"
-                                style="font-weight: bold; font-size: normal; font-family: 'Trebuchet MS'; ">
-                                ₹ {{ card.price }}</span>
-                        </div>
+                            <span style="text-decoration: line-through ;" *ngIf="isDiscountNumber(card.discount)">₹{{ (card.price / (1 - (card.discount / 100))) | number: '1.0-0' }}</span>
+                            <span class="card-title" style="font-weight: bold; font-size: normal; font-family: 'Trebuchet MS';">
+                                {{ card.price | currency: 'INR': 'symbol': '1.0-0' }}
+                              </span>
+                          </div>
                     </div>
                     <div class="card-footer"
                         style="display: flex; justify-content: space-between; align-items: center;">
@@ -63,7 +66,7 @@
                         </div>
 
                         <button class="btn shopNow button1">
-                            <a href="{{card.urlpath}}" target="_blank" style="font-family: 'Verdana';">Check</a>
+                            <a (click)="getThisProduct(card)" style="font-family: 'Verdana';">Check</a>
                         </button>
                     </div>
                 </div>
@@ -84,10 +87,13 @@
         </div>
         <div class="row card-container">
             <ng-container *ngFor="let w of websites">
-                <div class="card col-md-6" style="margin: 1px; margin-bottom: 15px;  width: calc(50% - 4px);align-content: center;">
+                <div class="card col-md-6"
+                    style="margin: 1px; margin-bottom: 15px;  width: calc(50% - 4px);align-content: center;">
                     <div class="card-boddy">
                         <button class="btn button3" (click)="couponByCompany(w.Name)">
-                            <img [style.width.%]="100" [style.height.%]="100" [src]="profile ? 'https://couponcouzin.com/backend/couponcouzin/app/src/website/' + w.image[0] : '/assets/null_product.png'" alt="image" (error)="onImageErrorW($event)" />
+                            <img [style.width.%]="100" [style.height.%]="100"
+                                [src]="profile ? 'https://couponcouzin.com/backend/couponcouzin/app/src/website/' + w.image[0] : '/assets/null_product.png'"
+                                alt="image" (error)="onImageErrorW($event)" />
                         </button>
                     </div>
                 </div>
@@ -98,5 +104,5 @@
             <app-vertical-ad></app-vertical-ad>
         </div>
     </div>
-    
+
 </div>

@@ -2,13 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/shared/services/api.service';
 import { faFacebook, faInstagram, faTelegram, faXTwitter, faYoutube, faPinterest } from '@fortawesome/free-brands-svg-icons';
+import { Breadcrumbs } from 'src/app/shared/models/breadcrumb.model';
 @Component({
   selector: 'app-blogs',
   templateUrl: './blogs.component.html',
   styleUrls: ['./blogs.component.css']
 })
-export class BlogsComponent implements OnInit{
-  
+export class BlogsComponent implements OnInit {
+
+  breadcrumbs: Breadcrumbs[] = [];
   blogData: any[] = [];
   recentPosts: any[] = [];
   profile: boolean = true;
@@ -28,7 +30,7 @@ export class BlogsComponent implements OnInit{
   constructor(
     private api: ApiService,
     private router: Router,
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.api.fetch_blogs().subscribe(
@@ -43,15 +45,23 @@ export class BlogsComponent implements OnInit{
         console.log(error);
       }
     );
+
+    this.setBreadcrumbs();
   }
 
-  blogId(id: string) {
-    this.router.navigate(['/blog details', id]);
+  blogId(id: string, title: string) {
+    const slug = this.formatToSlug(title); // Create a function to format the title to a slug
+    this.router.navigate(['/blogs/blog-details', slug, id]);
   }
+
+  formatToSlug(title: string): string {
+    return title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  }
+
   getRecentPosts() {
     this.recentPosts = this.blogData.slice(0, 5);
   }
-  
+
   isSearchInputEmpty(): boolean {
     return !this.searchInput.trim();
   }
@@ -77,6 +87,13 @@ export class BlogsComponent implements OnInit{
   private scrollToTop() {
     // Scroll to the top of the page
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  setBreadcrumbs() {
+    this.breadcrumbs = [
+      { label: 'Home', url: '/' },
+      { label: 'Blogs', url: '/blogs' }
+    ]
   }
 
 }

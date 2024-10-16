@@ -24,7 +24,8 @@
               "src/favicon.png",
               "src/assets",
               "src/googled30c9be595bae1cf.html",
-              "src/ads.txt"
+              "src/ads.txt",
+              "src/assets/sitemap.xml"
             ],
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",
@@ -100,7 +101,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/googled30c9be595bae1cf.html"
+              "src/googled30c9be595bae1cf.html",
+              "src/assets/sitemap.xml"
             ],
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",

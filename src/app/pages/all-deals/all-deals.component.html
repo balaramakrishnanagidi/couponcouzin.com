@@ -81,7 +81,7 @@
                         <hr>
                         <div class="price-section">
                             <p class="discount" *ngIf="isDiscountNumber(card.discount)"> -{{card.discount}} %off </p>
-                            &nbsp;&nbsp;&nbsp;<p class="price"><b> ₹ {{ card.price }}  </b></p>
+                            &nbsp;&nbsp;&nbsp;<p class="price"><b> {{ card.price | currency: 'INR' : 'symbol' : '1.0-0' }}  </b></p>
                         </div>
                     </div>
                     <div class="card-footer" style="display: flex; justify-content: space-between;">

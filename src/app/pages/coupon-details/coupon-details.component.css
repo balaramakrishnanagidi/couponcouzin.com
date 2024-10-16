@@ -1,6 +1,6 @@
 .no-data {
     padding: 8%;
-    background-color: rgb(243 243 243);
+    background-color: rgb(243, 243, 243);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,7 +10,6 @@
 .no-data img {
     mix-blend-mode: multiply;
 }
-
 
 h3 {
     font-family: 'Georgia';
@@ -23,18 +22,20 @@ h4 {
 p {
     font-family: 'Trebuchet MS';
 }
+
 .heading {
     margin-bottom: 5px;
 }
 
 .carousel-inner {
-    transition: transform 0.5s ease; 
-  }
+    transition: transform 0.5s ease;
+}
 
-  .brands {
-   background-color: rgb(245, 250, 253);
-   padding-bottom: 18px;
-  }
+.brands {
+    background-color: rgb(245, 250, 253);
+    padding-bottom: 18px;
+}
+
 .cards {
     width: 100%;
     max-height: 200px;
@@ -87,23 +88,30 @@ p {
     background-color: white;
 }
 
+.card:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    display: block;
+  }
+  
 .card-data {
     width: calc(100% - 10px);
     border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: 15px;
     margin: 10px;
-    padding: 15px;
+    padding-bottom: 15px;
 }
 
 .header {
     display: block;
     background-color: white;
     padding: 10px;
-    border-bottom: 1px solid #ccc;
+    /* border-bottom: 1px solid #ccc; */
+    border-radius: 15px;
 }
 
 .body {
     background-color: #f5f5f5;
+    margin: 0 20px 0 20px;
     padding: 10px;
 }
 
@@ -111,10 +119,31 @@ p {
     display: none;
 }
 
-.body-toggle{
+.body-toggle {
     color: #4287f5;
     cursor: pointer;
     font-size: small;
+    margin: 0 20px 0 20px;
+}
+
+.deal-name {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Verdana';
+    margin-bottom: 10px;
+    /* Space between name and description */
+    white-space: nowrap;
+    /* Prevent wrapping */
+    overflow: hidden;
+    /* Hide overflow */
+    text-overflow: ellipsis;
+    /* Add ellipsis */
+    display: block;
+    /* Ensure it behaves as a block element for ellipsis */
+    line-height: 1.2;
+    /* Increase line height for better vertical spacing */
+    padding-bottom: 4px;
+    /* Add bottom padding to prevent cutting off */
 }
 
 .main-data {
@@ -134,6 +163,8 @@ p {
     width: 100px;
     height: 90px;
     border: 1px solid #ccc;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+
 }
 
 .image img {
@@ -168,10 +199,7 @@ p {
     border-radius: 5px;
     font-size: 15px;
     font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
     line-height: 44px;
-    letter-spacing: -0.3px;
     text-align: center;
     color: #fff;
     border: none;
@@ -197,7 +225,6 @@ p {
     margin-left: 15px;
 }
 
-
 /* Ads */
 .ads {
     display: flex;
@@ -205,3 +232,75 @@ p {
     align-items: center;
     width: 100%;
 }
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.main-heading {
+    font-size: xx-large;
+}
+
+.brand-name {
+    font-size: 12px;
+    font-family: 'Trebuchet MS';
+}
+
+.offer-count {
+    font-size: 12px;
+    font-family: 'Trebuchet MS';
+}
+
+/* Breadcrumbs */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    padding: 10px 0;
+    color: #555;
+    overflow: hidden;
+  }
+  
+  .breadcrumb-item {
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.3s;
+  }
+  
+  .breadcrumb-item:hover {
+    color: #0056b3;
+  }
+  
+  .breadcrumb-separator {
+    margin: 0 5px;
+    color: #999;
+  }
+  
+  .breadcrumb-item.active {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 1200px) { 
+    .breadcrumb {
+      font-size: 0.9rem; 
+    }
+  }
+  
+  @media (max-width: 992px) { 
+    .breadcrumb {
+      font-size: 0.85rem; 
+    }
+  }
+  
+  @media (max-width: 768px) { 
+    .breadcrumb {
+      font-size: 0.8rem; 
+      padding: 8px 0; 
+    }
+  
+    .breadcrumb-separator {
+      display: none;
+    }
+  }

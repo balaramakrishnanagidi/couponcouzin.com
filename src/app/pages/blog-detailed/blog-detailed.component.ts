@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { faYoutube, faInstagram, faXTwitter, faTelegram, faFacebook, faPinterest } from '@fortawesome/free-brands-svg-icons';
 import { faStore } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
+import { Breadcrumbs } from 'src/app/shared/models/breadcrumb.model';
 import { ApiService } from 'src/app/shared/services/api.service';
 
 @Component({
@@ -11,6 +12,8 @@ import { ApiService } from 'src/app/shared/services/api.service';
   styleUrls: ['./blog-detailed.component.css']
 })
 export class BlogDetailedComponent implements OnInit {
+  breadcrumbs: Breadcrumbs[] = [];
+  blog: any;
   blogId!: string;
   blogData: any[] = [];
   profile: boolean = true;
@@ -33,7 +36,7 @@ export class BlogDetailedComponent implements OnInit {
   faTwitter = faXTwitter;
   faTelegram = faTelegram;
   faFacebook = faFacebook;
-  faFirstOrder =  faStore;
+  faFirstOrder = faStore;
   faPinterest = faPinterest;
 
   constructor(
@@ -50,7 +53,7 @@ export class BlogDetailedComponent implements OnInit {
 
     if (this.blogId) {
       this.fetch_blog_by_id();
-      
+
     } else if (this.searchInput) {
       this.isSearched = true;
       this.search();
@@ -58,6 +61,7 @@ export class BlogDetailedComponent implements OnInit {
 
     this.recent_posts();
     this.scrollToTop();
+    this.setBreadcrumbs();
   }
 
   scrollToTop() {
@@ -99,7 +103,7 @@ export class BlogDetailedComponent implements OnInit {
     this.api.fetch_comments(this.blogId).subscribe(response => {
       this.comments = response.data;
       console.log("fetced comments", this.comments);
-      
+
       this.comments = this.comments.reverse();
     }, error => {
       console.log(error);
@@ -125,7 +129,7 @@ export class BlogDetailedComponent implements OnInit {
     const currentUrl = window.location.origin;
 
     // Construct the new URL
-    const newUrl = `${currentUrl}/blog details/${newId}`;
+    const newUrl = `${currentUrl}/blog-details/${newId}`;
 
     // Navigate to the new URL
     window.location.href = newUrl;
@@ -140,7 +144,7 @@ export class BlogDetailedComponent implements OnInit {
       blogId: this.blogId, text: this.myForm.text, name: this.myForm.name,
       email: this.myForm.email, website: this.myForm.website
     };
-    
+
     this.api.post_comment_on_blog(obj).subscribe(response => {
       console.log(response);
       // this.toastr.success('Comment posted successfully!', 'Success', { timeOut: 3000, positionClass: 'toast-center-right' });
@@ -149,8 +153,8 @@ export class BlogDetailedComponent implements OnInit {
       console.log(error);
       this.toastr.error('Failed to post comment', 'Error');
     });
-    setTimeout( () => {
-    window.location.reload();
+    setTimeout(() => {
+      window.location.reload();
     }, 1000);
   }
 
@@ -187,6 +191,14 @@ export class BlogDetailedComponent implements OnInit {
     }, error => {
       console.log(error);
     });
+  }
+
+  setBreadcrumbs() {
+    this.breadcrumbs = [
+      {label: 'Home', url: '/'},
+      {label: 'Blogs', url: '/blogs'},
+      {label: 'Blog-details', url: ''}
+    ]
   }
 
 }

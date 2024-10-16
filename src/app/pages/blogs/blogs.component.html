@@ -1,13 +1,18 @@
 <div class="container-fluid">
+    <nav class="breadcrumb">
+        <ng-container *ngFor="let breadcrumb of breadcrumbs; let last = last">
+            <ng-container *ngIf="!last">
+                <a class="breadcrumb-item" [routerLink]="breadcrumb.url">{{ breadcrumb.label }}</a>
+                <span class="breadcrumb-separator">&gt;</span>
+            </ng-container>
+            <ng-container *ngIf="last">
+                <span class="breadcrumb-item active">{{ breadcrumb.label }}</span>
+            </ng-container>
+        </ng-container>
+    </nav>
+
     <div class="row">
         <div class="leftcolumn">
-            
-
-            <!-- Ads -->
-            <div class="ads">
-                <app-ad></app-ad>
-            </div>
-            
             <div *ngFor="let post of paginatedBlogData | 
             paginate: { 
                 itemsPerPage: pageSize, 
@@ -15,7 +20,7 @@
                 totalItems: blogData.length 
                 }
                 " class="card">
-                <a (click)="blogId(post._id)">
+                <a (click)="blogId(post._id, post.title)">
 
                     <div class="image">
                         <img [src]="profile
@@ -24,7 +29,7 @@
                     </div>
                 </a>
                 <p style="margin-top: 10px;">{{ post.createdAt | date: 'medium' }}</p>
-                <a (click)="blogId(post._id)">
+                <a (click)="blogId(post._id, post.title)">
                     <u>
                         <h2>{{ post.title }}</h2>
                     </u>
@@ -35,8 +40,13 @@
                         <p>{{ post.contents[0].content }}</p>
                     </div>
                 </div>
-                <a routerLink="/blog details" type="button" class="btn btn-primary" (click)="blogId(post._id)">read
+                <a routerLink="/blog-details" type="button" class="btn btn-primary" (click)="blogId(post._id, post.title)">read
                     more</a>
+            </div>
+
+            <!-- Ads -->
+            <div class="ads">
+                <app-ad></app-ad>
             </div>
 
         </div>
@@ -66,7 +76,7 @@
             <div class="card rclm">
                 <h2>Recent Posts</h2>
                 <div *ngFor="let r of recentPosts" class="recent">
-                    <u><a routerLink="/blog details" (click)="blogId(r._id)"> {{ r.title }} </a></u>
+                    <u><a routerLink="/blog-details" (click)="blogId(r._id, r.title)"> {{ r.title }} </a></u>
                 </div>
             </div>
 

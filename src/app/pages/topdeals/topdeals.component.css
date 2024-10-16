@@ -34,6 +34,7 @@
   display: inline-flex;
   margin-top: 10px !important;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  cursor: pointer;
  }
 .card:hover {
   /* Define the styles for the hover effect here */
@@ -90,6 +91,11 @@
     object-fit: contain;
   }
     
+  .price-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
   .brand-logo img{
     object-fit: contain;
   }
