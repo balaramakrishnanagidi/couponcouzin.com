@@ -1,18 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-privacy',
   templateUrl: './privacy.component.html',
   styleUrls: ['./privacy.component.css']
 })
-export class PrivacyComponent implements OnInit{
+export class PrivacyComponent {
 
-  constructor(private meta: Meta){
-    
-  }
-  ngOnInit(): void {
-    this.meta.addTag({ name: 'description', content: 'privacy policies of couponcouzin.com' });
-    this.meta.addTag({ name:"keywords", content:"couponcouzin, couponcouzin.com, loot deals, best deals, coupon codes, travel, electronics" });
-}
 }

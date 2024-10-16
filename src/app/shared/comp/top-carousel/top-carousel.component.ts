@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CarouselConfig } from 'ngx-bootstrap/carousel';
 import { ApiService } from '../../services/api.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
-import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-top-carousel',
@@ -19,13 +18,9 @@ export class TopCarouselComponent implements OnInit {
   slides: any[] = [];
   profile = true;
 
-  constructor(private api: ApiService, private meta: Meta) { }
+  constructor(private api: ApiService) { }
 
   ngOnInit(): void {
-
-    this.meta.addTag({ name: 'description', content: 'Banners of couponcouzin.com' });
-    this.meta.addTag({ name: "keywords", content: "couponcouzin, couponcouzin.com, loot deals, best deals, coupon codes, travel, electronics" });
-
     this.fetchPosters();
   }
 
@@ -33,13 +28,13 @@ export class TopCarouselComponent implements OnInit {
   customOptions: OwlOptions = {
     loop: true,
     autoplay: true,
-    autoplayTimeout: 5000,
+    autoplayTimeout: 7000,
     mouseDrag: true,
     touchDrag: true,
     pullDrag: true,
     dots: true,
     navSpeed: 700,
-    stagePadding: 50,
+    stagePadding: 0,
     margin: 25,
     navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
     responsive: {
@@ -64,6 +59,7 @@ export class TopCarouselComponent implements OnInit {
     this.api.getAllPosters().subscribe(data => {
       if (data.Status && data.banner) {
         this.slides = data.banner;
+        this.slides = this.slides.reverse();
       }
     }, error => {
       console.log(error);

@@ -37,9 +37,13 @@
       <img [width]="40" [height]="40" src="../../../../assets/check.png">
       <h5> Deal Activated </h5>
     </div>
-    <a href="{{data[4]}}" target="_blank"><i class="fa fa-external-link"></i> Go To {{data[1]}} Website </a>
-    <div class="feedback">
-      
+    <div class="spinner" *ngIf="loading">
+      <div class="loader"></div>
+        <span>Redirecting to {{data[1]}}</span>
     </div>
+    <a href="{{data[4]}}" target="_blank"><i class="fa fa-external-link"></i> Go To {{data[1]}} Website </a>
+    <!-- <div class="feedback">
+      
+    </div> -->
   </div>
   </div>

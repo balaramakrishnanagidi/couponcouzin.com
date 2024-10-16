@@ -38,7 +38,16 @@ import { BlogDetailedComponent } from './pages/blog-detailed/blog-detailed.compo
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BankWalletOffersComponent } from './pages/bank-wallet-offers/bank-wallet-offers.component';
-
+import { CategoryiconsComponent } from './pages/categoryicons/categoryicons.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { AdComponent } from './google_ads/horizontalAd/ad.component';
+import { VerticalAdComponent } from './google_ads/verticalAd/vertical-ad.component';
+import { HorizontaAd2Component } from './google_ads/horizonta-ad2/horizonta-ad2.component';
+import { MultiplxAdComponent } from './google_ads/multiplx-ad/multiplx-ad.component';
+import { ProductDetailsComponent } from './pages/product-details/product-details.component';
+import { AmazonStoreComponent } from './pages/amazon-store/amazon-store.component';
+import { FlipkartStoreComponent } from './pages/flipkart-store/flipkart-store.component';
 
 
 @NgModule({
@@ -66,6 +75,14 @@ import { BankWalletOffersComponent } from './pages/bank-wallet-offers/bank-walle
     BlogsComponent,
     BlogDetailedComponent,
     BankWalletOffersComponent,
+    CategoryiconsComponent,
+    AdComponent,
+    VerticalAdComponent,
+    HorizontaAd2Component,
+    MultiplxAdComponent,
+    ProductDetailsComponent,
+    AmazonStoreComponent,
+    FlipkartStoreComponent
   ],
   imports: [
     BrowserModule,
@@ -82,7 +99,10 @@ import { BankWalletOffersComponent } from './pages/bank-wallet-offers/bank-walle
     FontAwesomeModule,
     NgxPaginationModule,
     NgxGoogleAnalyticsModule.forRoot('MEASUREMENT-ID'),
-    NgxGoogleAnalyticsRouterModule
+    NgxGoogleAnalyticsRouterModule,
+    MatTabsModule,
+    MatTooltipModule
+  
   ],
   providers: [TabsetConfig],
   bootstrap: [AppComponent]

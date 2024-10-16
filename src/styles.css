@@ -29,12 +29,12 @@
 }
 
 .banners .owl-next {
-    right: 40px;
+    right: -20px;
     transform: translate(-50%, -50%);
 }
 
 .banners .owl-prev {
-    left: 80px;
+    left: 20px;
     transform: translate(-50%, -50%);
 }
 
@@ -68,7 +68,7 @@
 }
 
 .stores .owl-next {
-    right: -40px;
+    right: -35px;
     transform: translate(-50%, -50%);
 }
 
@@ -126,3 +126,46 @@
 
 }
 
+
+/* for brands in coupon-detaills component */
+.brands .owl-prev,
+.brands .owl-next {
+    display: block !important;
+    background-color: transparent !important;
+    color: #c0bfbf !important;
+    height: 60px !important;
+    width: 60px !important;
+    border-radius: 50% !important;
+    position: absolute;
+    top: 55%;
+    transition: .3s all ease;
+}
+
+/* .brands:hover .owl-prev,
+.brands:hover .owl-next {
+    display: block !important;
+} */
+
+.brands .owl-next {
+    right: -40px;
+    transform: translate(-50%, -50%);
+}
+
+.brands .owl-prev {
+    left: 20px;
+    transform: translate(-50%, -50%);
+}
+
+.brands .owl-prev i,
+.brands .owl-next i {
+    font-size: 32px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

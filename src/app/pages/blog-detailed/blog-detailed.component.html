@@ -1,4 +1,16 @@
 <div class="container-fluid">
+  <nav class="breadcrumb">
+    <ng-container *ngFor="let breadcrumb of breadcrumbs; let last = last">
+        <ng-container *ngIf="!last">
+            <a class="breadcrumb-item" [routerLink]="breadcrumb.url">{{ breadcrumb.label }}</a>
+            <span class="breadcrumb-separator">&gt;</span>
+        </ng-container>
+        <ng-container *ngIf="last">
+            <span class="breadcrumb-item active">{{ breadcrumb.label }}</span>
+        </ng-container>
+    </ng-container>
+</nav>
+
   <div class="row">
     <div class="leftcolumn" *ngIf="!isSearched">
       <div *ngFor="let post of blogData" class="card">
@@ -17,6 +29,14 @@
             <p>{{ content.content }}</p>
           </div>
         </div>
+
+
+        <!-- Ads -->
+        <div class="ads">
+          <app-multiplx-ad></app-multiplx-ad>
+        </div>
+
+
         <div class="subAndContent">
           <div class="buyNow" style="display: flex; flex-direction: column;">
             <a href="{{post.itemUrl}}" target="_blank">
@@ -136,16 +156,27 @@
         </div>
       </div>
       <div class="card rclm">
-        <h3>Follow Me</h3>
-        <br>
+        <h3>Follow Me:</h3>
         <div class="social-icons">
-          <fa-icon class="icon" id="youtube" [icon]="faYoutube" size="2x"></fa-icon>
-          <fa-icon class="icon" id="insta" [icon]="faInsta" size="2x"></fa-icon>
-          <fa-icon class="icon" id="facebook" [icon]="faFacebook" size="2x"></fa-icon>
-          <fa-icon class="icon" id="twitter" [icon]="faTwitter" size="2x"></fa-icon>
-          <fa-icon class="icon" id="telegram" [icon]="faTelegram" size="2x"></fa-icon>
+          <a href="https://youtube.com/@couponcouzin?si=NCG6rBrJLzxH4_c9" target="_blank"><fa-icon class="icon"
+              id="youtube" [icon]="faYoutube" size="2x"></fa-icon></a>
+          <a href="https://www.instagram.com/couponcouzin/" target="_blank"><fa-icon class="icon" id="insta"
+              [icon]="faInsta" size="2x"></fa-icon></a>
+          <a href="https://www.facebook.com/profile.php?id=61556094465829&mibextid=ZbWKwL" target="_blank"><fa-icon
+              class="icon" id="facebook" [icon]="faFacebook" size="2x"></fa-icon></a>
+          <!-- <fa-icon class="icon" id="twitter" [icon]="faTwitter" size="2x"></fa-icon> -->
+          <!-- <fa-icon class="icon" id="telegram" [icon]="faTelegram" size="2x"></fa-icon> -->
+          <!-- <fa-icon class="icon" id="pinterest" [icon]="faPinterest" size="2x"></fa-icon> -->
         </div>
       </div>
+
+
+      <br>
+      <!-- Ads -->
+      <div class="adsV">
+        <app-vertical-ad></app-vertical-ad>
+      </div>
+
     </div>
   </div>
 </div>

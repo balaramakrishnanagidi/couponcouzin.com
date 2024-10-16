@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ApiService } from 'src/app/shared/services/api.service';
@@ -42,12 +41,8 @@ export class TopStoresComponent implements OnInit {
 
   constructor(private api: ApiService,
               private router: Router,
-              private route: ActivatedRoute,
-              private meta: Meta) {}
+              private route: ActivatedRoute) {}
   ngOnInit(): void {
-    this.meta.addTag({ name: 'description', content: 'top-stores' });
-    this.meta.addTag({ name:"keywords", content:"couponcouzin, couponcouzin.com, loot deals, best deals, coupon codes, travel, electronics" });
-
     this.couponStores();
   }
 

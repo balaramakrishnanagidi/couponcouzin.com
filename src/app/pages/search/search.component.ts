@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/shared/services/api.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-search',
@@ -22,14 +21,9 @@ export class SearchComponent implements OnInit {
 
 
   constructor(private api: ApiService,
-    private route: ActivatedRoute,
-    private meta: Meta) { }
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-
-    this.meta.addTag({ name: 'description', content: 'Search here for the products or coupons in couponcouzin.com' });
-    this.meta.addTag({ name:"keywords", content:"couponcouzin, couponcouzin.com, loot deals, best deals, coupon codes, travel, electronics" });
-
     this.route.queryParams.subscribe((queryParams) => {
       this.searchedText = queryParams['query'];
       if (this.searchedText) {

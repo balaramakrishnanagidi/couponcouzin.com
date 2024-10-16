@@ -1,0 +1,64 @@
+<nav class="breadcrumb">
+    <ng-container *ngFor="let breadcrumb of breadcrumbs; let last = last">
+        <ng-container *ngIf="!last">
+            <a class="breadcrumb-item" [routerLink]="breadcrumb.url">{{ breadcrumb.label }}</a>
+            <span class="breadcrumb-separator">&gt;</span>
+        </ng-container>
+        <ng-container *ngIf="last">
+            <span class="breadcrumb-item active">{{ breadcrumb.label }}</span>
+        </ng-container>
+    </ng-container>
+</nav>
+
+
+<div class="product-details" *ngIf="product">
+    <div class="left-column">
+        <div class="main-content">
+            <div class="product-image">
+              <img 
+                [src]="profile ? 'https://couponcouzin.com/backend/couponcouzin/app/src/posts/' + product.postimage : '/assets/null_product.png'"
+                alt="{{ product.Name }}" 
+              />
+            </div>
+            <div class="product-description">
+              <h1>{{ product.Name }}</h1>
+              <h2>Deal price: {{ productCost }}</h2>
+              <h3 style="text-decoration: line-through ;">M.R.P: ₹{{ mrp }}</h3>
+              <h2 class="discount" *ngIf="discountFlag"> Discount: {{ product.discount }}%</h2>
+              <h2 class="discount" *ngIf="!discountFlag"> {{ product.discount }}</h2>
+              <div class="website-image">
+                <img 
+                  [src]="profile ? 'https://couponcouzin.com/backend/couponcouzin/app/src/website/' + product.website : '/assets/null_product.png'"
+                  alt="{{ product.Name }}" 
+                />
+              </div>
+              <h2>Our sales partner: {{ product.company | firstLetterUpperCase }} </h2>
+              <a [href]="product.urlpath" target="_blank">Visit Now</a>
+            </div>
+          </div>
+          
+          <div class="notice">
+            <h2>Important Information for Our Customers:</h2>
+            <i> <p>*We curate a collection of products from various trusted retailers, bringing the best deals right to you.</p>
+            <p>*Each product featured is hand-picked to ensure you access top offers and discounts.</p>
+            <p>*All purchases are governed by the terms and conditions of our partner websites.</p>
+            <p>*Prices are mentioned at the time of posting the product; please note that price changes may occur and we appreciate your understanding.</p>
+            <p>*Explore our selection to enjoy your shopping experience!</p>
+        </i>
+        </div>
+    </div>
+  
+    <div class="related-products-section">
+      <h2>Related Products: </h2>
+      <div class="related-products">
+        <div class="card" *ngFor="let related of relatedProducts" (click)="getThisProduct(related)">
+          <img 
+            [src]="profile ? 'https://couponcouzin.com/backend/couponcouzin/app/src/posts/' + related.postimage : '/assets/null_product.png'"
+            alt="{{ related.Name }}" 
+          />
+          <p class="product-name">{{ related.Name }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  

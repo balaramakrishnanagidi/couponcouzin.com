@@ -189,8 +189,9 @@ input {
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  gap: 20px;
 }
 
 #store {
@@ -217,6 +218,9 @@ input {
 #telegram {
   color: #0088cc;
 }
+#pinterest {
+  color: #BD081C;
+}
 
 .pagination {
   display: grid;
@@ -235,4 +239,72 @@ input {
     width: 95%;
   }
 
+}
+
+
+/* Ads */
+.ads {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.adsV {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Breadcrumbs */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  padding: 10px 0;
+  color: #555;
+  overflow: hidden;
+}
+
+.breadcrumb-item {
+  text-decoration: none;
+  color: #007bff;
+  transition: color 0.3s;
+}
+
+.breadcrumb-item:hover {
+  color: #0056b3;
+}
+
+.breadcrumb-separator {
+  margin: 0 5px;
+  color: #999;
+}
+
+.breadcrumb-item.active {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) { 
+  .breadcrumb {
+    font-size: 0.9rem; 
+  }
+}
+
+@media (max-width: 992px) { 
+  .breadcrumb {
+    font-size: 0.85rem; 
+  }
+}
+
+@media (max-width: 768px) { 
+  .breadcrumb {
+    font-size: 0.8rem; 
+    padding: 8px 0; 
+  }
+
+  .breadcrumb-separator {
+    display: none;
+  }
 }

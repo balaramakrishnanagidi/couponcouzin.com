@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Meta } from '@angular/platform-browser';
 
 
 @Component({
@@ -10,16 +9,15 @@ import { Meta } from '@angular/platform-browser';
 })
 export class TopNavBarComponent implements OnInit {
 
-  isDropdownOpen = false;
+  isDropdownOpen:boolean = false;
+  isStoresDropdownOpen: boolean = false;
   searchedText = '';
-  constructor(private meta: Meta,
-    private router: Router) {
+  constructor(private router: Router) {
 
   }
 
   ngOnInit(): void {
-    this.meta.addTag({ name: 'description', content: 'top_nav_bar' });
-    this.meta.addTag({ name: "keywords", content: "couponcouzin, couponcouzin.com, loot deals, best deals, coupon codes, travel, electronics" });
+   
   }
 
 
@@ -31,12 +29,28 @@ export class TopNavBarComponent implements OnInit {
     this.isDropdownOpen = false;
   }
 
+  openStoresDropdown() {
+    this.isStoresDropdownOpen = true;
+  }
+
+  closeStoresDropdown() {
+    this.isStoresDropdownOpen = false;
+  }
+
+  navigateToStore(store: string) {
+    if (store === 'amazon') {
+      this.router.navigate(['/store/amazon']); // Adjust to your Amazon store route
+    } else if (store === 'flipkart') {
+      this.router.navigate(['/store/flipkart']); // Adjust to your Flipkart store route
+    }
+  }
+
   // coupon details
 
   buttonValue: string = '';
   assignValueToVariable(value: string) {
     this.buttonValue = value;
-    this.router.navigate(['/coupon', value]);
+    this.router.navigate(['/coupons', value]);
   }
 
   search() {

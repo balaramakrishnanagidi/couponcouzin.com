@@ -6,7 +6,7 @@
     <ng-template #dataLoaded>
         <div class="heading">
             <span class="coupons">
-                <h3> Shop By Stores: </h3>
+                <h3 style="font-size: x-large;"> Shop By Stores: </h3>
             </span>
         </div>
         <div class="top-border custom-grid">
@@ -50,11 +50,12 @@
                 <button class="btn button2" (click)="loadMoreCouponCards()">Show More</button>
             </div>
         </div>
+
         <!-- products -->
         <br>
         <div class="heading">
             <span class="products">
-                <h3>Shop By Products: </h3>
+                <h3 style="font-size: x-large;">Shop By Products: </h3>
             </span>
         </div>
         <div class="top-border custom-grid">
@@ -80,7 +81,7 @@
                         <hr>
                         <div class="price-section">
                             <p class="discount" *ngIf="isDiscountNumber(card.discount)"> -{{card.discount}} %off </p>
-                            &nbsp;&nbsp;&nbsp;<p class="price"><b> ₹ {{ card.price }}  </b></p>
+                            &nbsp;&nbsp;&nbsp;<p class="price"><b> {{ card.price | currency: 'INR' : 'symbol' : '1.0-0' }}  </b></p>
                         </div>
                     </div>
                     <div class="card-footer" style="display: flex; justify-content: space-between;">
@@ -104,5 +105,15 @@
                 <button class="btn button2" (click)="loadMoreCards()">Show More</button>
             </div>
         </div>
+
+
+        <br>
+        <!-- Ads -->
+        <div class="ads">
+            <app-ad></app-ad>
+        </div>
+        <br>
+
+
     </ng-template>
 </div>

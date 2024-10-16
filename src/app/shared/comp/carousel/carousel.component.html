@@ -1,8 +1,7 @@
 <div class="container-fluid">
   <div class="fancy-title title-bottom-border" style="margin-top: 25px; display: flex; flex-direction: row;" >
-    <h3><i class="fa fa-bolt" aria-hidden="true" >
-    </i></h3>
-    <h3 *ngIf="showH3Element" style="font-family: 'Georgia';" >&nbsp;Flash Deals
+    <h3 *ngIf="showH3Element" style="font-family: 'Georgia'; font-size: x-large; font-weight: bold;" ><i class="fa fa-bolt" aria-hidden="true" >
+    </i>&nbsp;Flash Deals
     </h3>
   </div>
   <div class="products">
@@ -30,14 +29,16 @@
               </div>
               <hr>
               <div class="price-section" style="text-align: center;">
-                <span class="card-title" style="font-weight: bold; font-size: normal; font-family: 'Trebuchet MS';"> ₹
-                  {{ card.price }} </span>
+                <span style="text-decoration: line-through ;" *ngIf="isDiscountNumber(card.discount)">₹{{ (card.price / (1 - (card.discount / 100))) | number: '1.0-0' }}</span>
+                <span class="card-title" style="font-weight: bold; font-size: normal; font-family: 'Trebuchet MS';">
+                    {{ card.price | currency: 'INR': 'symbol': '1.0-0' }}
+                  </span>
               </div>
             </div>
             <div class="card-footer" style="display: flex; justify-content: space-between;">
-              <img [width]="60" [height]="35" [src]="profile
+              <img [width]="40" [height]="35" [src]="profile
                                   ? 'https://couponcouzin.com/backend/couponcouzin/app/src/website/' + card.website
-                                  : '/assets/null_product.png'" alt="image" class="size-50 rounded-22 object-cover" />
+                                  : '/assets/null_product.png'" alt="image" class="size-50 rounded-22 object-contain" style=" padding: 0 15px 0 15px;"/>
               <button class="btn shopNow button3"> <a href="{{card.urlpath}}" target="_blank"> Check </a> </button>
             </div>
           </div>

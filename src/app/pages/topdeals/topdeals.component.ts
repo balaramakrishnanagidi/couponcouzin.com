@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
-import { Router } from '@angular/router';
 import { ApiService } from 'src/app/shared/services/api.service';
 
 
@@ -16,19 +14,16 @@ export class TopdealsComponent implements OnInit{
   remainingCards: any[] = [];
   couponByCompanyArray: any[] = [];
   selectedCompany: string | null = null;
-  cardsPerPage = 20;
+  cardsPerPage = 48;
   showMoreflag = false;
   profile = true;
   showH3Element = false;
+  mrp: any = "";
 
-  constructor(private api: ApiService, private meta: Meta) {}
+  constructor(private api: ApiService) {}
 
   ngOnInit(): void {
-
-    this.meta.addTag({ name: 'description', content: 'Top deals you cannot miss' });
-    this.meta.addTag({ name:"keywords", content:"couponcouzin, couponcouzin.com, loot deals, best deals, coupon codes, travel, electronics" });
-
-    this.topDeals();
+this.topDeals();
     this.popularStores();
     setTimeout(() => {
       this.showH3Element = true;
@@ -118,6 +113,21 @@ export class TopdealsComponent implements OnInit{
   // show or hide discount %
 
   isDiscountNumber(discount: any): boolean {
-    return !isNaN(discount);
+    return !isNaN(discount) && isFinite(discount);
+  }
+
+  createSlug(name: string): string {
+    return name
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')  // Replace spaces and special characters with hyphens
+      .replace(/(^-|-$)/g, '');     // Remove leading or trailing hyphens
+  }
+  
+  getThisProduct(card: any) {
+    // Create a slug from the product name
+    const slug = this.createSlug(card.Name);
+    const productUrl = `/products/${card.maincategory}/product-details/${slug}/${card._id}`;
+    
+    window.open(productUrl, '_blank');
   }
 }
