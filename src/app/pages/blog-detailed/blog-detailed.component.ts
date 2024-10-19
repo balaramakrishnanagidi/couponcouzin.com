@@ -16,6 +16,7 @@ export class BlogDetailedComponent implements OnInit {
   blog: any;
   blogId!: string;
   blogData: any[] = [];
+  blogTitle: string = '';
   profile: boolean = true;
   myForm = {
     text: '',
@@ -61,7 +62,6 @@ export class BlogDetailedComponent implements OnInit {
 
     this.recent_posts();
     this.scrollToTop();
-    this.setBreadcrumbs();
   }
 
   scrollToTop() {
@@ -78,8 +78,10 @@ export class BlogDetailedComponent implements OnInit {
       (response: any) => {
         if (response.Status && response.data) {
           this.blogData = response.data;
-          this.blogData = this.blogData.reverse();
+          this.blogTitle = this.blogData[0].title;
+          this.setBreadcrumbs();
           this.fetch_comments_for_blog();
+
         }
       },
       error => {
@@ -102,7 +104,7 @@ export class BlogDetailedComponent implements OnInit {
   fetch_comments_for_blog() {
     this.api.fetch_comments(this.blogId).subscribe(response => {
       this.comments = response.data;
-      console.log("fetced comments", this.comments);
+      // console.log("fetced comments", this.comments);
 
       this.comments = this.comments.reverse();
     }, error => {
@@ -145,17 +147,30 @@ export class BlogDetailedComponent implements OnInit {
       email: this.myForm.email, website: this.myForm.website
     };
 
-    this.api.post_comment_on_blog(obj).subscribe(response => {
-      console.log(response);
-      // this.toastr.success('Comment posted successfully!', 'Success', { timeOut: 3000, positionClass: 'toast-center-right' });
-      this.reset();
-    }, error => {
-      console.log(error);
-      this.toastr.error('Failed to post comment', 'Error');
-    });
-    setTimeout(() => {
-      window.location.reload();
-    }, 1000);
+    // this.api.post_comment_on_blog(obj).subscribe(response => {
+    //   console.log(response);
+    //   // this.toastr.success('Comment posted successfully!', 'Success', { timeOut: 3000, positionClass: 'toast-center-right' });
+    //   this.reset();
+    // }, error => {
+    //   console.log(error);
+    //   this.toastr.error('Failed to post comment', 'Error');
+    // });
+    // setTimeout(() => {
+    //   window.location.reload();
+    // }, 1000);
+
+    this.api.post_comment_on_blog(obj).subscribe(
+      (response) => {
+        console.log(response);
+        this.comments.unshift(response.data);  // Assuming response returns the new comment
+        this.reset();
+        this.toastr.success('Comment posted successfully!', 'Success');
+      },
+      (error) => {
+        console.error(error);
+        this.toastr.error('Failed to post comment', 'Error');
+      }
+    );
   }
 
 
@@ -194,10 +209,11 @@ export class BlogDetailedComponent implements OnInit {
   }
 
   setBreadcrumbs() {
+
     this.breadcrumbs = [
-      {label: 'Home', url: '/'},
-      {label: 'Blogs', url: '/blogs'},
-      {label: 'Blog-details', url: ''}
+      { label: 'Home', url: '/' },
+      { label: 'Blogs', url: '/blogs' },
+      { label: this.blogTitle, url: '' }
     ]
   }
 

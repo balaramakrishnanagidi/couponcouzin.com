@@ -20,7 +20,7 @@
           <a href="{{post.itemUrl}}" target="_blank">
             <img
               [src]="profile ? 'https://couponcouzin.com/backend/couponcouzin/app/src/blogs/' + post.image[0] : '/img/avatars/3.png'"
-              alt="image" />
+              alt="image" loading="lazy"/>
           </a>
         </div>
         <div class="subAndContent">
@@ -42,10 +42,10 @@
             <a href="{{post.itemUrl}}" target="_blank">
               <img style="width: 30%; height: 20%;"
                 [src]="profile ? 'https://couponcouzin.com/backend/couponcouzin/app/src/blogs/' + post.image[0] : '/img/avatars/3.png'"
-                alt="image" /></a>
+                alt="image" loading="lazy" /></a>
             <div class="link" style="display: flex; flex-direction: row;">
               <span>Click here: &nbsp;</span>
-              <a href="{{post.itemUrl}}" target="_blank"> {{ post.itemUrl }}</a>
+              <a href="{{post.itemUrl}}" target="_blank"> {{ post.title }}</a>
             </div>
           </div>
         </div>
@@ -58,7 +58,7 @@
           <div class="card" *ngFor="let c of comments">
             <div class="card-body">
               <div class="nameAndImage">
-                <img src="../../../assets/no-avatar-300x300.png">
+                <img src="../../../assets/no-avatar-300x300.png" loading="lazy">
                 <p>{{c.name}} commented as: </p>
               </div>
               <div class="text">
@@ -115,7 +115,7 @@
         <div class="image">
           <img
             [src]="profile ? 'https://couponcouzin.com/backend/couponcouzin/app/src/blogs/' + post.image[0] : '/img/avatars/3.png'"
-            alt="image" />
+            alt="image" loading="lazy"/>
         </div>
         <div class="subAndContent">
           <div *ngFor="let content of post.contents" class="content">
@@ -131,7 +131,7 @@
     <div class="leftcolumn" *ngIf="isSearched && !isResult">
       <div class="card">
         <div class="notFound">
-          <img src="assets/no-data.gif" alt="My GIF">
+          <img src="assets/no-data.gif" alt="My GIF" loading="lazy">
           <p>Sorry, but nothing matched your search terms. Please try again with some different keywords.</p>
         </div>
       </div>

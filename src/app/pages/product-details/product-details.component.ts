@@ -26,7 +26,6 @@ export class ProductDetailsComponent implements OnInit {
 
     if (productId) {
       this.getProductById(productId);
-      this.setBreadcrumbs();
     }
   }
 
@@ -49,15 +48,15 @@ export class ProductDetailsComponent implements OnInit {
     try {
       // Wait for all products to be loaded
       await this.getAllProducts();
-      
+
       // Find the product by id
       this.product = this.allProducts.find((prod: any) => prod._id === id);
 
       if (this.product) {
-        console.log("Product found:", this.product);
+        // console.log("Product found:", this.product);
 
         this.productsByCategory();
-
+        this.setBreadcrumbs();
         //format the cost with comas
         this.productCost = Number(this.product.price).toLocaleString('en-In', {
           maximumFractionDigits: 2,
@@ -66,8 +65,8 @@ export class ProductDetailsComponent implements OnInit {
         });
 
         //calculate MRP from discount and price
-        if(!isNaN(this.product.discount)){
-          this.mrp = Math.floor(this.product.price/(1-(this.product.discount/100)));
+        if (!isNaN(this.product.discount)) {
+          this.mrp = Math.floor(this.product.price / (1 - (this.product.discount / 100)));
         } else {
           this.product.discount = "Latest Offer!"
           this.discountFlag = false;
@@ -85,49 +84,49 @@ export class ProductDetailsComponent implements OnInit {
     try {
       // Filter products by the same maincategory and reverse the array for the latest products
       this.relatedProducts = this.allProducts.filter((relat: any) => relat.maincategory === this.product.maincategory).reverse();
-      
+
       // Get only the top 3 products if more than 3 are available
       if (this.relatedProducts.length > 4) {
         this.relatedProducts = this.relatedProducts.slice(1, 4);
       }
-  
+
       // If no related products found by category, find by company
       if (this.relatedProducts.length < 1) {
         this.relatedProducts = this.allProducts.filter((relat: any) => relat.company === this.product.company).reverse();
-        
+
         // Again, limit to top 3 products if more than 3 are available
         if (this.relatedProducts.length > 4) {
           this.relatedProducts = this.relatedProducts.slice(1, 4);
         }
       }
-  
-      console.log("Top 3 related products:", this.relatedProducts);
-  
+
+      // console.log("Top 3 related products:", this.relatedProducts);
+
     } catch (error) {
       console.error("Error fetching related products:", error);
     }
   }
-  
+
   createSlug(name: string): string {
     return name
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, '-')  // Replace spaces and special characters with hyphens
       .replace(/(^-|-$)/g, '');     // Remove leading or trailing hyphens
   }
-  
+
   getThisProduct(card: any) {
     // Create a slug from the product name
     const slug = this.createSlug(card.Name);
     const productUrl = `/products/${card.maincategory}/product-details/${slug}/${card._id}`;
-    
+
     window.open(productUrl, '_blank');
   }
 
   setBreadcrumbs() {
     this.breadcrumbs = [
-      {label: 'Home', url: '/'},
-      {label: 'Products', url: '/allDeals'},
-      {label: this.product ? this.product.Name : 'Product-details', url: ''}
+      { label: 'Home', url: '/' },
+      { label: 'Products', url: '/allDeals' },
+      { label: this.product ? this.product.Name : 'Product-details', url: '' }
     ]
   }
 

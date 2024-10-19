@@ -11,7 +11,7 @@ import { filter, switchMap } from 'rxjs/operators';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'couponcouzin';
+  title = 'couponcouzin.com - Best Deals and Coupons';
 
   constructor(
     private meta: Meta, 
@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
     // Initial meta tags for the app
     this.meta.addTags([
       { name: 'description', content: 'Find the best deals, offers, and coupons from leading brands such as Amazon, Flipkart, Zomato, Swiggy, SBI Bank, and many more at CouponCouzin.com. Save big with hand-picked discounts today!' },
-      { name: 'og:title', content: 'Coupon Couzin - Best Deals and Coupons' },
+      { name: 'og:title', content: 'couponcouzin.com - Best Deals and Coupons' },
       { name: 'og:description', content: 'Discover hand-picked deals, exclusive offers, and the latest coupons from top brands like Amazon, Flipkart, Zomato, Swiggy, SBI Bank, and more. Shop smarter with CouponCouzin.com' },
       { name: 'og:image', content: 'https://couponcouzin.com/assets/logo.png' },
       { name: 'og:url', content: 'https://couponcouzin.com' },
@@ -53,13 +53,18 @@ export class AppComponent implements OnInit {
 
   updateMetaTags(): Observable<any> {
     const currentUrl = this.router.url;
+    const absoluteUrl = `https://couponcouzin.com${currentUrl}`;
+
+    // Update canonical URL for the current route
+    this.updateCanonicalUrl(absoluteUrl);
 
     if (currentUrl.includes('/products/')) {
       // Extract product details from URL and fetch data
       const [productName, productId] = this.extractProductInfoFromUrl(currentUrl);
       return this.fetchProductDetails(productName, productId).pipe(
         switchMap(product => {
-          this.updateProductMetaTags(product);
+          console.log('Product data:', product);
+          this.updateProductMetaTags(product, absoluteUrl);
           return [];
         })
       );
@@ -68,7 +73,7 @@ export class AppComponent implements OnInit {
       const category = this.extractCouponCategoryFromUrl(currentUrl);
       return this.fetchCoupons(category).pipe(
         switchMap(coupon => {
-          this.updateCouponMetaTags(coupon);
+          this.updateCouponMetaTags(coupon, absoluteUrl);
           return [];
         })
       );
@@ -77,53 +82,48 @@ export class AppComponent implements OnInit {
       const [blogName, blogId] = this.extractBlogInfoFromUrl(currentUrl);
       return this.fetchBlogDetails(blogName, blogId).pipe(
         switchMap(blog => {
-          this.updateBlogMetaTags(blog);
+          this.updateBlogMetaTags(blog, absoluteUrl);
           return [];
         })
       );
     } else {
       // Default meta tags for other pages
-      this.setDefaultMetaTags();
+      this.setDefaultMetaTags(absoluteUrl);
       return of(null);
-
     }
   }
 
   // Meta tag update methods
-  updateProductMetaTags(product: any): void {
+  updateProductMetaTags(product: any, absoluteUrl: string): void {
     this.titleService.setTitle(`${product.metaTitle} | Coupon Couzin`);
     this.meta.updateTag({ name: 'og:title', content: `${product.metaTitle} - Best Deals` });
     this.meta.updateTag({ name: 'og:description', content: `${product.metaDescription}` });
     this.meta.updateTag({ name: 'keywords', content: `${product.primaryKeyword}, ${product.secondaryKeyword}, ${product.maincategory}, ${product.categorys}` });
-    this.meta.updateTag({ name: 'og:url', content: `https://couponcouzin.com${this.router.url}` });
-    this.meta.updateTag({ name: 'canonical', content: `https://couponcouzin.com${this.router.url}` });
+    this.updateCanonicalUrl(absoluteUrl);
   }
 
-  updateCouponMetaTags(coupon: any): void {
+  updateCouponMetaTags(coupon: any, absoluteUrl: string): void {
     this.titleService.setTitle(`${coupon.company} Coupons - Coupon Couzin`);
     this.meta.updateTag({ name: 'og:title', content: `${coupon.company} Coupons` });
     this.meta.updateTag({ name: 'og:description', content: `${coupon.metaDescription}` });
     this.meta.updateTag({ name: 'keywords', content: `${coupon.primaryKeyword}, ${coupon.secondaryKeyword}, ${coupon.maincategory}, ${coupon.categorys}` });
-    this.meta.updateTag({ name: 'og:url', content: `https://couponcouzin.com${this.router.url}` });
-    this.meta.updateTag({ name: 'canonical', content: `https://couponcouzin.com${this.router.url}` });
+    this.updateCanonicalUrl(absoluteUrl);
   }
 
-  updateBlogMetaTags(blog: any): void {
+  updateBlogMetaTags(blog: any, absoluteUrl: string): void {
     this.titleService.setTitle(`${blog.metaTitle} | Coupon Couzin Blog`);
     this.meta.updateTag({ name: 'og:title', content: blog.metaTitle });
     this.meta.updateTag({ name: 'og:description', content: blog.metaDescription });
     this.meta.updateTag({ name: 'keywords', content: `${blog.primaryKeyword}, ${blog.secondaryKeyword}` });
-    this.meta.updateTag({ name: 'og:url', content: `https://couponcouzin.com${this.router.url}` });
-    this.meta.updateTag({ name: 'canonical', content: `https://couponcouzin.com${this.router.url}` });
+    this.updateCanonicalUrl(absoluteUrl);
   }
 
-  setDefaultMetaTags(): void {
-    this.titleService.setTitle('couponcouzin - Best Deals and Coupons');
-    this.meta.updateTag({ name: 'og:title', content: 'couponcouzin - Best Deals and Coupons' });
+  setDefaultMetaTags(absoluteUrl: string): void {
+    this.titleService.setTitle('Coupon Couzin - Best Deals and Coupons');
+    this.meta.updateTag({ name: 'og:title', content: 'Coupon Couzin - Best Deals and Coupons' });
     this.meta.updateTag({ name: 'og:description', content: 'Find the best deals, offers, and coupons.' });
-    this.meta.updateTag({ name: 'keywords', content: 'coupons, deals, offers, discounts, flsah sales, mega sales, great indian festival, big billion days' });
-    this.meta.updateTag({ name: 'og:url', content: 'https://couponcouzin.com' });
-    this.meta.updateTag({ name: 'canonical', content: 'https://couponcouzin.com' });
+    this.meta.updateTag({ name: 'keywords', content: 'coupons, deals, offers, discounts, flash sales, mega sales, great indian festival, big billion days' });
+    this.updateCanonicalUrl(absoluteUrl);
   }
 
   // Helper methods to extract info from URLs
@@ -134,11 +134,25 @@ export class AppComponent implements OnInit {
 
   extractCouponCategoryFromUrl(url: string): string {
     return url.split('/').pop() || ''; // category, with fallback empty string
-
   }
 
   extractBlogInfoFromUrl(url: string): [string, string] {
     const parts = url.split('/');
     return [parts[parts.length - 2], parts[parts.length - 1]]; // blogName, blogId
+  }
+
+  // Helper method to update canonical tag
+  updateCanonicalUrl(url: string): void {
+    const head = document.getElementsByTagName('head')[0];
+    let element = document.querySelector("link[rel='canonical']") as HTMLLinkElement | null;
+    
+    if (element) {
+      element.href = url;
+    } else {
+      element = document.createElement('link');
+      element.setAttribute('rel', 'canonical');
+      element.setAttribute('href', url);
+      head.appendChild(element);
+    }
   }
 }
